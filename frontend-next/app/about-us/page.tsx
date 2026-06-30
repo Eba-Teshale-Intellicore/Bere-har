@@ -1,5 +1,10 @@
 import React from "react";
+import AboutPage from "@/components/Aboutpage/AboutPage";
 
 export default function About() {
-  return <div>I am Eba</div>;
+  return (
+    <>
+      <AboutPage />
+    </>
+  );
 }
