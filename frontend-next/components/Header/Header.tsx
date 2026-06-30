@@ -46,7 +46,10 @@ export default function Header() {
                 <Button text="About Us" onClick={() => router.push("/")} />
               </li>
               <li>
-                <Button text="Services" onClick={() => router.push("/gg")} />
+                <Button
+                  text="Services"
+                  onClick={() => router.push("/about-us")}
+                />
               </li>
               <li>
                 <Button text="Properties" onClick={() => router.push("/")} />
