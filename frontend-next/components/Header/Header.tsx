@@ -43,13 +43,13 @@ export default function Header() {
           <div className={styles.nav}>
             <ul>
               <li>
-                <Button text="About Us" onClick={() => router.push("/")} />
-              </li>
-              <li>
                 <Button
-                  text="Services"
+                  text="About Us"
                   onClick={() => router.push("/about-us")}
                 />
+              </li>
+              <li>
+                <Button text="Services" onClick={() => router.push("/")} />
               </li>
               <li>
                 <Button text="Properties" onClick={() => router.push("/")} />

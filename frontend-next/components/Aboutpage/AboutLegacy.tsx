@@ -3,7 +3,7 @@ import styles from "@/src/scss/aboutlegacy.module.scss";
 import Paragraph from "../Paragraph";
 import Heading from "../Heading";
 import Image from "next/image";
-import Pic1 from "@/public/hero1.svg";
+import Pic1 from "@/public/aboutlegacy.svg";
 import { MoveUpRight } from "lucide-react";
 import Button from "../Button";
 
