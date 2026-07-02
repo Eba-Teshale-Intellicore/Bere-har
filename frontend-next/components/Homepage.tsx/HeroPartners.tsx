@@ -4,8 +4,13 @@ import Heading from "@/components/Heading";
 import Paragraph from "@/components/Paragraph";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import Image1 from "@/public/hero1.svg";
-import Pic1 from "@/public/hero2.svg";
+import img1 from "@/public/hero2.svg";
+import img2 from "@/public/NoahLogo.svg";
+import img3 from "@/public/RoamrkLogo.svg";
+import img4 from "@/public/TemerLogo.svg";
+import img5 from "@/public/ayatlogo.svg";
+import img6 from "@/public/hillbottomLogo.svg";
+import img7 from "@/public/phisonLogo.svg";
 import styles from "@/src/scss/heropartners.module.scss";
 
 export default function HeroPartners() {
@@ -22,13 +27,13 @@ export default function HeroPartners() {
   const scale7 = useTransform(scrollYProgress, [0, 1], [3, 1]);
   const scale8 = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const pictures = [
-    { src: Pic1, scale: scale5 },
-    { src: Image1, scale: scale6 },
-    { src: Image1, scale: scale7 },
-    { src: Image1, scale: scale7 },
-    { src: Image1, scale: scale8 },
-    { src: Image1, scale: scale8 },
-    { src: Image1, scale: scale8 },
+    { src: img1, scale: scale5 },
+    { src: img2, scale: scale6 },
+    { src: img3, scale: scale7 },
+    { src: img4, scale: scale7 },
+    { src: img5, scale: scale8 },
+    { src: img6, scale: scale8 },
+    { src: img7, scale: scale8 },
   ];
   return (
     <div ref={container} className={styles.container}>
