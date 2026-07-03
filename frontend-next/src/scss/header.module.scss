@@ -1,39 +1,122 @@
-.container {
+.header {
+  min-height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  overflow-x: hidden;
+}
+.sticky {
   position: sticky;
   top: 0;
   z-index: 1000;
-
-  background: white;
-  transition: all 0.4s ease;
+}
+.menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
-.scrolled {
-  background: rgba(255, 255, 255, 0.45);
-
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+.logo {
+  display: flex;
+  width: 3rem;
+  height: 4rem;
+  img {
+    object-fit: cover;
+  }
 }
 
-.header {
+/* TABLET */
+@media (max-width: 1024px) {
+  .header {
+    padding: 0 1.5rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .contact {
+    display: none;
+  }
+
+  .header {
+    padding: 0 1rem;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .menu {
+    gap: 0.5rem;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f7dc9d;
+  width: min(320px, 100vw);
+  height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3rem;
+  z-index: 1100;
+}
+
+.sticky2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 1rem;
+  cursor: pointer;
+}
+.menuItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
-  border-bottom: 1px solid #ddd;
+  gap: 1rem;
 }
 
-.nav {
-  background: #d9d9d9;
-  border-radius: 100px;
-  padding: 3px 25px;
+.subMenu {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
 
-  ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+.langItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
