@@ -1,0 +1,63 @@
+.hero2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: relative;
+
+  background: transparent;
+  transition: all 0.3s ease;
+  min-height: 90vh;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.05)
+  );
+
+  width: 100%;
+  height: 100%;
+}
+.imagebg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 90vh;
+  padding-bottom: 2rem;
+
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+.content p {
+  color: white;
+}
+@media (max-width: 768px) {
+  .hero2 {
+    min-height: 75vh;
+    padding: 0 1rem;
+  }
+
+  .content {
+    padding-bottom: 3rem;
+    text-align: center;
+  }
+}
