@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import styles from "@/src/scss/hero.module.scss";
 import Image from "next/image";
 import Paragraph from "@/components/Paragraph";
-import hero1 from "@/public/file2.jpg";
-import hero2 from "@/public/file2.jpg";
-import hero3 from "@/public/file2.jpg";
-import hero4 from "@/public/file2.jpg";
+import hero1 from "@/public/flow5.jpeg";
+import hero2 from "@/public/flow4.jpeg";
+import hero3 from "@/public/flow6.jpeg";
+import hero4 from "@/public/flow3.jpeg";
 
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -35,7 +35,7 @@ export default function Hero() {
                 initial={{ opacity: 0, x: 80 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -80 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.5 }}
               >
                 <Image
                   src={images[current]}
