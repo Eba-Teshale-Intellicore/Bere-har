@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import styles from "@/src/scss/hero.module.scss";
 import Image from "next/image";
 import Paragraph from "@/components/Paragraph";
-import hero1 from "@/public/hero1 (1).png";
-import hero2 from "@/public/hero1 (1).png";
-import hero3 from "@/public/hero1 (2).png";
-import hero4 from "@/public/hero1 (2).png";
+import hero1 from "@/public/file2.jpg";
+import hero2 from "@/public/file2.jpg";
+import hero3 from "@/public/file2.jpg";
+import hero4 from "@/public/file2.jpg";
 
 import { AnimatePresence, motion } from "framer-motion";
 
