@@ -8,7 +8,8 @@
   transition: all 0.3s ease;
   min-height: 100vh;
   overflow: hidden;
-  margin: 1rem;
+  padding: 1rem;
+  padding-top: 2rem;
 }
 .content {
   display: flex;
@@ -27,7 +28,24 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    li {
+      cursor: pointer;
+    }
   }
+}
+.active {
+  position: relative;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background: black;
 }
 
 .collections {
@@ -68,6 +86,27 @@
   overflow: hidden;
 }
 
-.card:hover img {
+.mainImage,
+.hoverImage {
+  transition:
+    opacity 0.4s ease,
+    transform 0.6s ease;
+}
+
+.mainImage {
+  opacity: 1;
+}
+
+.hoverImage {
+  opacity: 0;
+}
+
+.card:hover .mainImage {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.card:hover .hoverImage {
+  opacity: 1;
   transform: scale(1.05);
 }
