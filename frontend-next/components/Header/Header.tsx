@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/src/scss/header.module.scss";
 import {
   ChevronDown,
@@ -17,12 +17,27 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [openGift, setOpenGift] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.sticky}>
-          <div className={styles.header}>
+      <div className={styles.sticky}>
+        <div className={styles.container}>
+          <div
+            className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
+          >
             <div className={styles.menu}>
               <Menu size={28} strokeWidth={1.5} onClick={() => setOpen(true)} />
               <Search size={28} />
