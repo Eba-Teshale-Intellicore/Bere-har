@@ -33,32 +33,6 @@ const womenCollections = [
     hover: img2,
   },
 ];
-const menCollections = [
-  {
-    title: "men's Accessories",
-    price: 23,
-    image: img1,
-    hover: img2,
-  },
-  {
-    title: "Men T-shirt 'large",
-    price: 20,
-    image: img1,
-    hover: img2,
-  },
-  {
-    title: "Jewelry",
-    price: 10,
-    image: img1,
-    hover: img2,
-  },
-  {
-    title: "Shoes '35 ",
-    price: 35,
-    image: img1,
-    hover: img2,
-  },
-];
 
 export default function HeroWomenFea() {
   const [active, setActive] = useState("women");
