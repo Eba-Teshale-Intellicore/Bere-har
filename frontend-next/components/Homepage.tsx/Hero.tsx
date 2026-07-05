@@ -44,7 +44,7 @@ export default function Hero() {
                   priority
                   style={{
                     objectFit: "cover",
-                    objectPosition: "top center",
+                    // objectPosition: "top center",
                   }}
                 />
               </motion.div>
