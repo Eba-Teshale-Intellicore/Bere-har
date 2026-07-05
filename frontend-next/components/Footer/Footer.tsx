@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./footer.module.scss";
+import styles from "@/src/scss/footer.module.scss";
 import { ArrowUpCircle } from "lucide-react";
 import Image from "next/image";
 import logo from "@/public/bere-har-2.png";
