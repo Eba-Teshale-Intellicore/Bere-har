@@ -11,7 +11,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Button from "@/components/Button";
-import logo from "@/public/bere-har.png";
+// import logo from "@/public/bere-har.png";
+import logo from "@/public/bere-har-2.png";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Header() {
@@ -38,7 +39,7 @@ export default function Header() {
           <div
             className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
           >
-            <div className={styles.menu}>
+            <div className={`${styles.menu} ${scrolled ? styles.menus : ""}`}>
               <Menu size={28} strokeWidth={1.5} onClick={() => setOpen(true)} />
               <Search size={28} />
             </div>

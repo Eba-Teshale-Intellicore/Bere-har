@@ -35,13 +35,13 @@ export default function Hero() {
                 initial={{ opacity: 0, x: 80 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -80 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.8 }}
               >
                 <Image
                   src={images[current]}
                   alt="Hero"
                   fill
-                  priority
+                  priority={current === 0}
                   style={{
                     objectFit: "cover",
                     // objectPosition: "center center",
@@ -58,6 +58,19 @@ export default function Hero() {
                 />
               </p>
               <div className={styles.xscroll}></div>
+            </div>
+            <div className={styles.pagination}>
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrent(index)}
+                  className={
+                    current === index ? styles.active : styles.inactive
+                  }
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </button>
+              ))}
             </div>
           </div>
         </div>

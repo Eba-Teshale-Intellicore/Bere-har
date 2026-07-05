@@ -1,0 +1,73 @@
+.herofea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  background: transparent;
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 1rem;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  text-align: center;
+  p {
+    max-width: 50vw;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+.collections {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 992px) {
+  .collections {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .collections {
+    grid-template-columns: 1fr;
+  }
+}
+.card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  gap: 2rem;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
