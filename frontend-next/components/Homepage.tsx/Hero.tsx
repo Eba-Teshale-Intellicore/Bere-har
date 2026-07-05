@@ -44,13 +44,19 @@ export default function Hero() {
                   priority
                   style={{
                     objectFit: "cover",
-                    // objectPosition: "top center",
+                    // objectPosition: "center center",
                   }}
                 />
               </motion.div>
             </AnimatePresence>
             <div className={styles.content}>
-              <Paragraph text="Driven By Excellence" />
+              <p>
+                <Paragraph
+                  text="HandMade Ethiopian Silk "
+                  size="lg"
+                  color="white"
+                />
+              </p>
               <div className={styles.xscroll}></div>
             </div>
           </div>
