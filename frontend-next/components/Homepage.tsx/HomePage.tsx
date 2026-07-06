@@ -5,6 +5,7 @@ import Hero2 from "@/components/Homepage.tsx/Hero2";
 import HeroWomenFea from "@/components/Homepage.tsx/HeroWomenfea";
 import Hero3 from "@/components/Homepage.tsx/Hero3";
 import HeroMenFea from "@/components/Homepage.tsx/HeroMenfea";
+import HeroAbout from "@/components/Homepage.tsx/HeroAbout";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <HeroWomenFea />
       <Hero3 />
       <HeroMenFea />
+      <HeroAbout />
     </>
   );
 }

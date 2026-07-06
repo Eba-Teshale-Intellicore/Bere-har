@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "@/src/scss/heroAbout.module.scss";
 import img1 from "@/public/flow1.jpeg";
@@ -5,26 +6,33 @@ import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Paragraph from "../Paragraph";
-const womenCollections = [
+import Heading from "@/components/Heading";
+import Button from "@/components/Button";
+
+const historyCollections = [
   {
-    title: "Women's Accessories",
+    title: "Our Heritage",
+    description:
+      "Since 1996, BERU HAR has celebrated Ethiopian craftsmanship by transforming traditional artistry into timeless luxury fashion.",
     image: img1,
     hover: img2,
+    button: "Discover Our Story",
   },
   {
-    title: "Women's Ready-to-Wear",
+    title: "Design Show",
+    description:
+      "Experience BERU HAR's signature collections through exclusive fashion presentations that celebrate timeless elegance, Ethiopian heritage, and contemporary design.",
     image: img1,
     hover: img2,
+    button: "Explore the Show",
   },
   {
-    title: "Women's Jewelry",
+    title: "Modern Ethiopian Luxury",
+    description:
+      "Inspired by Ethiopia's rich cultural heritage, our collections blend authentic tradition with contemporary design for today's global lifestyle.",
     image: img1,
     hover: img2,
-  },
-  {
-    title: "Women's Shoes",
-    image: img1,
-    hover: img2,
+    button: "View Collections",
   },
 ];
 export default function HeroAbout() {
@@ -33,8 +41,16 @@ export default function HeroAbout() {
       <div className={styles.sticky}>
         <div className={styles.container}>
           <div className={styles.heroabout}>
+            <div className={styles.content}>
+              <h1>
+                <Heading text="A Legacy of Ethiopian Craftsmanship" size="md" />
+              </h1>
+              <p>
+                <Paragraph text="Founded in 1996, BERU HAR is dedicated to preserving Ethiopia's rich textile heritage through handcrafted luxury fashion. Every collection reflects timeless elegance, exceptional craftsmanship, and contemporary sophistication." />
+              </p>
+            </div>
             <div className={styles.collections}>
-              {womenCollections.map((item) => (
+              {historyCollections.map((item) => (
                 <div key={item.title} className={styles.card}>
                   <motion.div
                     className={styles.imageWrapper}
@@ -47,19 +63,12 @@ export default function HeroAbout() {
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
                     />
-
-                    <Image
-                      src={item.hover}
-                      alt={item.title}
-                      fill
-                      className={styles.hoverImage}
-                      style={{
-                        objectFit: "cover",
-                        objectPosition: "center center",
-                      }}
-                    />
                   </motion.div>
-                  <Paragraph text={item.title} />
+                  <div className={styles.cardContent}>
+                    <Heading text={item.title} size="sm" />
+                    <Paragraph text={item.description} />
+                    <Button text={item.button} />
+                  </div>
                 </div>
               ))}
             </div>

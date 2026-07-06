@@ -14,6 +14,7 @@ import Button from "@/components/Button";
 // import logo from "@/public/bere-har.png";
 import logo from "@/public/bere-har-2.png";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -72,8 +73,13 @@ export default function Header() {
               </div>
 
               <ul className={styles.nav}>
-                <li>Women</li>
-                <li>Men</li>
+                <li>
+                  <Link href="/women-collections">Women</Link>
+                </li>
+
+                <li>
+                  <Link href="/men-collections">Men</Link>
+                </li>
 
                 <li>
                   <div
