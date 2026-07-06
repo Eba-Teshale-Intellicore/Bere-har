@@ -96,7 +96,11 @@ export default function Highlight() {
             {(active == "all" || active == "shoes") && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
-                  <div key={item.title} className={styles.card}>
+                  <div
+                    key={item.title}
+                    className={styles.card}
+                    style={{ gridArea: item.area }}
+                  >
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
