@@ -12,17 +12,17 @@ const womenCollections = [
   {
     title: "Women's Shoes",
     image: img2,
-    block: 1,
+    area: "fir",
   },
   {
     title: "Women's Ready-to-Wear",
     image: img1,
-    block: 2,
+    area: "sec",
   },
   {
     title: "Women's Jewelry",
     image: img1,
-    block: 3,
+    area: "thir",
   },
 ];
 
@@ -71,7 +71,11 @@ export default function Highlight() {
             {active == "all" && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
-                  <div key={item.title} className={styles.card}>
+                  <div
+                    key={item.title}
+                    className={styles.card}
+                    style={{ gridArea: item.area }}
+                  >
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
@@ -101,7 +105,7 @@ export default function Highlight() {
                         src={item.image}
                         alt={item.title}
                         fill
-                        className={`${styles.mainImage} ${styles.block}`}
+                        className={`${styles.mainImage}`}
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
