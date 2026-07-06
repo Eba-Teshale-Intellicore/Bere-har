@@ -1,9 +1,10 @@
 import React from "react";
+import WomenColl from "@/components/WomenCollec/WomenColl";
 
 export default function Womenpage() {
   return (
     <>
-      <h1>Women Collection</h1>;
+      <WomenColl />
     </>
   );
 }

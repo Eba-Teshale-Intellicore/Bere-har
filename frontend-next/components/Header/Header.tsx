@@ -46,7 +46,9 @@ export default function Header() {
             </div>
             <div className={styles.logo}>
               <div>
-                <Image src={logo} alt="logo" width={80} height={60} />
+                <Link href="/">
+                  <Image src={logo} alt="logo" width={80} height={60} />
+                </Link>
               </div>
             </div>
             <div className={styles.contact}>
