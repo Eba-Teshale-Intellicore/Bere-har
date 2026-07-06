@@ -21,7 +21,7 @@ export const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Worthy Homes",
+  title: "Bere har",
   description: "Build by Gpspace_Tech",
 };
 
