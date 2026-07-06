@@ -48,35 +48,26 @@
   height: 2px;
   background: black;
 }
+
 .collections {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 350px 200px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 10px;
-
-  grid-template-areas:
-    "fir sec thir"
-    "fir . .";
+  margin-bottom: 2rem;
+}
+.collections {
+  display: grid;
+  gap: 10px;
 }
 @media (max-width: 992px) {
   .collections {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 300px 200px;
-
-    grid-template-areas:
-      "fir fir"
-      "sec thir";
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
   .collections {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 200px 200px;
-
-    grid-template-areas:
-      "fir fir"
-      "sec thir";
+    grid-template-columns: 1fr;
   }
 }
 .card {
@@ -87,17 +78,16 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  aspect-ratio: 3 / 4;
   width: 100%;
-  height: 100%;
-  gap: 2rem;
+  gap: 1rem;
   cursor: pointer;
 }
 
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 100%;
-
+  aspect-ratio: 3 / 4;
   overflow: hidden;
 }
 
@@ -110,4 +100,21 @@
 
 .mainImage {
   opacity: 1;
+}
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+}
+
+.cardContent p {
+  line-height: 1.7;
+  color: #555;
+}
+
+.cardContent button {
+  margin-top: 0.5rem;
+  align-self: center;
 }

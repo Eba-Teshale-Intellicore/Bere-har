@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "@/src/scss/highlight.module.scss";
-import Paragraph from "@/components/Paragraph";
+import styles from "@/src/scss/product.module.scss";
 import Image from "next/image";
 import img1 from "@/public/flow1.jpeg";
 import img2 from "@/public/flow2.jpeg";
@@ -10,23 +9,28 @@ import Heading from "@/components/Heading";
 
 const womenCollections = [
   {
-    title: "Shoes",
+    title: "Women's Shoes",
+    image: img2,
+  },
+  {
+    title: "Women's Ready-to-Wear",
     image: img1,
-    area: "fir",
   },
   {
-    title: "Dress",
-    image: img2,
-    area: "sec",
+    title: "Women's Jewelry",
+    image: img1,
   },
   {
-    title: "Jewelry",
-    image: img2,
-    area: "thir",
+    title: "Women's Jewelry",
+    image: img1,
+  },
+  {
+    title: "Women's Jewelry",
+    image: img1,
   },
 ];
 
-export default function Highlight() {
+export default function Product() {
   // const [active, setActive] = useState("all");
   const [active, setActive] = useState("all");
 
@@ -37,7 +41,7 @@ export default function Highlight() {
           <div className={styles.herofea}>
             <div className={styles.content}>
               <p>
-                <Heading text="Women_Collection" />
+                <Heading text="Mensss Collection" />
               </p>
               <ul>
                 <li
@@ -71,11 +75,7 @@ export default function Highlight() {
             {active == "all" && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
-                  <div
-                    key={item.title}
-                    className={styles.card}
-                    style={{ gridArea: item.area }}
-                  >
+                  <div key={item.title} className={styles.card}>
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
@@ -88,7 +88,7 @@ export default function Highlight() {
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    {/* <Paragraph text={item.title} /> */}
                   </div>
                 ))}
               </div>
@@ -96,11 +96,7 @@ export default function Highlight() {
             {(active == "all" || active == "shoes") && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
-                  <div
-                    key={item.title}
-                    className={styles.card}
-                    style={{ gridArea: item.area }}
-                  >
+                  <div key={item.title} className={styles.card}>
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
@@ -109,11 +105,11 @@ export default function Highlight() {
                         src={item.image}
                         alt={item.title}
                         fill
-                        className={`${styles.mainImage}`}
+                        className={styles.mainImage}
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    {/* <Paragraph text={item.title} /> */}
                   </div>
                 ))}
               </div>
@@ -121,11 +117,7 @@ export default function Highlight() {
             {(active == "all" || active == "jew") && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
-                  <div
-                    key={item.title}
-                    className={styles.card}
-                    style={{ gridArea: item.area }}
-                  >
+                  <div key={item.title} className={styles.card}>
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
@@ -138,7 +130,7 @@ export default function Highlight() {
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    {/* <Paragraph text={item.title} /> */}
                   </div>
                 ))}
               </div>
@@ -146,11 +138,7 @@ export default function Highlight() {
             {(active == "all" || active == "bags") && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
-                  <div
-                    key={item.title}
-                    className={styles.card}
-                    style={{ gridArea: item.area }}
-                  >
+                  <div key={item.title} className={styles.card}>
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
@@ -163,7 +151,7 @@ export default function Highlight() {
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    {/* <Paragraph text={item.title} /> */}
                   </div>
                 ))}
               </div>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "@/src/scss/highlight.module.scss";
+import styles from "@/src/scss/product.module.scss";
 import Paragraph from "@/components/Paragraph";
 import Image from "next/image";
 import img1 from "@/public/flow1.jpeg";
@@ -15,6 +15,14 @@ const womenCollections = [
   },
   {
     title: "Women's Ready-to-Wear",
+    image: img1,
+  },
+  {
+    title: "Women's Jewelry",
+    image: img1,
+  },
+  {
+    title: "Women's Jewelry",
     image: img1,
   },
   {
@@ -81,7 +89,7 @@ export default function Product() {
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    {/* <Paragraph text={item.title} /> */}
                   </div>
                 ))}
               </div>
@@ -102,7 +110,7 @@ export default function Product() {
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    {/* <Paragraph text={item.title} /> */}
                   </div>
                 ))}
               </div>
@@ -123,7 +131,7 @@ export default function Product() {
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    {/* <Paragraph text={item.title} /> */}
                   </div>
                 ))}
               </div>
@@ -144,7 +152,7 @@ export default function Product() {
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    {/* <Paragraph text={item.title} /> */}
                   </div>
                 ))}
               </div>

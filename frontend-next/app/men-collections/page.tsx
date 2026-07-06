@@ -1,9 +1,12 @@
 import React from "react";
+import MenColl from "@/components/MenCollec/MenColl";
 
 export default function Menpage() {
   return (
     <>
-      <h1>Men Collection</h1>;
+      <div>
+        <MenColl />
+      </div>
     </>
   );
 }

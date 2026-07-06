@@ -16,9 +16,9 @@
   // background: red;
   transition: all 0.3s ease;
   position: fixed;
-  top: 70;
+  top: 4.5rem;
   left: 0;
-  right: 50;
+  right: 50px;
   z-index: 1001;
   ul {
     display: flex;
@@ -26,8 +26,8 @@
     align-items: center;
     justify-content: center;
     gap: 3rem;
-    background-color: antiquewhite;
-    padding: 1rem;
+    background-color: rgb(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
     border-radius: 2rem;
     li {
       cursor: pointer;
