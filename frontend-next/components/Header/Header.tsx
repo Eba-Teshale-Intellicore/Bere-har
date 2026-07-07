@@ -15,11 +15,14 @@ import Button from "@/components/Button";
 import logo from "@/public/bere-har-2.png";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+// import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import { useTranslations } from "next-intl";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [openGift, setOpenGift] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const t = useTranslations();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -119,10 +122,15 @@ export default function Header() {
 
               <ul className={styles.nav}>
                 <li>Find a Store</li>
+                <li>
+                  <h1>{t.header.about}</h1>
+                </li>
                 <li>Contact Us</li>
                 <li className={styles.langItem}>
                   <Globe size={14} />
-                  <span>Rest of the World | English</span>
+                  <span>
+                    Rest of the World | <LanguageSwitcher />
+                  </span>
                 </li>
               </ul>
             </motion.div>
