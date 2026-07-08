@@ -96,42 +96,27 @@ export default function HeroFeatures() {
             </div>
             {active == "women" && (
               <div className={styles.collections}>
-                {products.map((item: any) => (
-                  <div key={item.id} className={styles.card}>
-                    <motion.div
-                      className={styles.imageWrapper}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      {/* <Image
-                        src={item.image}
-                        alt={item.p_title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      /> */}
+                {products.map((item: any) => {
+                  console.log(item.images);
 
-                      <Image
-                        src={item.images[0]?.image}
-                        alt={item.p_title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      />
-
-                      {/* <Image
-                        src={item.hover}
-                        alt={item.p_title}
-                        fill
-                        className={styles.hoverImage}
-                        style={{
-                          objectFit: "cover",
-                          objectPosition: "center center",
-                        }}
-                      /> */}
-                    </motion.div>
-                    <Paragraph text={item.p_title} />
-                  </div>
-                ))}
+                  return (
+                    <div key={item.id} className={styles.card}>
+                      <motion.div
+                        className={styles.imageWrapper}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Image
+                          src={item.images[0]?.image}
+                          alt={item.p_title}
+                          fill
+                          className={styles.mainImage}
+                          style={{ objectFit: "cover" }}
+                        />
+                      </motion.div>
+                      <Paragraph text={item.p_title} />
+                    </div>
+                  );
+                })}
               </div>
             )}
             {active == "men" && (
