@@ -155,9 +155,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://bere-harv1.vercel.app",
+"https://bere-harv1.vercel.app",
+"http://localhost:3000",
 ]
 
 MEDIA_URL = "/media/"
