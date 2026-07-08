@@ -11,7 +11,7 @@ class CategorySerializer(serializers.ModelSerializer):
   class Meta:
     model = Category
     fields = "__all__"
-    
+
 
 class CollectionSerializer(serializers.ModelSerializer):
   class Meta:
@@ -37,4 +37,20 @@ class ProductSerializer(serializers.ModelSerializer):
   variants = ProductVariantSerializer(many= True, read_only= True)
   class Meta:
     model = Product
-    fields = "__all__"
+    fields = [
+            "id",
+            "p_title",
+            "p_slug",
+            "p_description",
+            "p_price",
+            "p_category",
+            "p_collection",
+            "p_brand",
+            "p_status",
+            "is_featured",
+            "is_active",
+            "images",
+            "variants",
+            "created_at",
+            "updated_at",
+        ]

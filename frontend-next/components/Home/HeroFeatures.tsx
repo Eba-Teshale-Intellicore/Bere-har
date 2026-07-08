@@ -7,7 +7,7 @@ import Image from "next/image";
 import img1 from "@/public/flow1.jpeg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
-import { getProduct } from "@/src/api/product";
+import { getProducts } from "@/src/api/product";
 const womenCollections = [
   {
     title: "Women's Accessories",
@@ -60,14 +60,13 @@ export default function HeroFeatures() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await getProduct();
+        const data = await getProducts();
         setProducts(data);
       } catch (error) {
         console.log(error);
       }
-
-      fetchProducts();
     };
+    fetchProducts();
   }, []);
 
   return (
@@ -103,15 +102,25 @@ export default function HeroFeatures() {
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
                     >
-                      <Image
+                      {/* <Image
                         src={item.image}
                         alt={item.p_title}
                         fill
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
-                      />
+                      /> */}
 
                       <Image
+                        src={`http://127.0.0.1:8000${item.images[0]?.image}`}
+                        alt={item.p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{
+                          objectFit: "cover",
+                        }}
+                      />
+
+                      {/* <Image
                         src={item.hover}
                         alt={item.p_title}
                         fill
@@ -120,7 +129,7 @@ export default function HeroFeatures() {
                           objectFit: "cover",
                           objectPosition: "center center",
                         }}
-                      />
+                      /> */}
                     </motion.div>
                     <Paragraph text={item.p_title} />
                   </div>
