@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/src/scss/herofeatues.module.scss";
 import Paragraph from "../Paragraph";
 import Image from "next/image";
 import img1 from "@/public/flow1.jpeg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
+import { getProduct } from "@/src/api/product";
 const womenCollections = [
   {
     title: "Women's Accessories",
@@ -54,6 +55,21 @@ const menCollections = [
 
 export default function HeroFeatures() {
   const [active, setActive] = useState("women");
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getProduct();
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      }
+
+      fetchProducts();
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.sticky}>
@@ -81,15 +97,15 @@ export default function HeroFeatures() {
             </div>
             {active == "women" && (
               <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div key={item.title} className={styles.card}>
+                {products.map((item: any) => (
+                  <div key={item.id} className={styles.card}>
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
                     >
                       <Image
                         src={item.image}
-                        alt={item.title}
+                        alt={item.p_title}
                         fill
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
@@ -97,7 +113,7 @@ export default function HeroFeatures() {
 
                       <Image
                         src={item.hover}
-                        alt={item.title}
+                        alt={item.p_title}
                         fill
                         className={styles.hoverImage}
                         style={{
@@ -106,7 +122,7 @@ export default function HeroFeatures() {
                         }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    <Paragraph text={item.p_title} />
                   </div>
                 ))}
               </div>
