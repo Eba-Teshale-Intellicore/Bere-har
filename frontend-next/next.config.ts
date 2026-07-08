@@ -5,7 +5,8 @@ import type { NextConfig } from "next";
 // };
 
 // export default nextConfig;
-const nextConfig = {
+
+const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
