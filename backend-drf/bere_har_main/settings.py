@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "bere-har-v1.onrender.com",
+    "bere-harv1.vercel.app",
     "localhost",
     "127.0.0.1",
 ]
