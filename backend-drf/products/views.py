@@ -1,11 +1,11 @@
-# from rest_framework.response import Response
-# from rest_framework.views import APIView
+from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from .models import Product
+from .serializer import ProductSerializer
+from rest_framework.permissions import AllowAny
 
-# class CategoriesView(APIView):
-#     def get(self, request):
-#         return Response({"message": "Hello World"})
-
-from django.http import HttpResponse
-
-def categoriesView(request):
-    return HttpResponse("<h1>Hello World</h1>")
+# Create your views here.
+class ProductView(ModelViewSet):
+  queryset = Product.objects.all()
+  serializer_class = ProductSerializer
+  permission_classes = [AllowAny]
