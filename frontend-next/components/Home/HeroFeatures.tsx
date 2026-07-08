@@ -111,13 +111,11 @@ export default function HeroFeatures() {
                       /> */}
 
                       <Image
-                        src={`http://127.0.0.1:8000${item.images[0]?.image}`}
+                        src={item.images[0]?.image}
                         alt={item.p_title}
                         fill
                         className={styles.mainImage}
-                        style={{
-                          objectFit: "cover",
-                        }}
+                        style={{ objectFit: "cover" }}
                       />
 
                       {/* <Image
