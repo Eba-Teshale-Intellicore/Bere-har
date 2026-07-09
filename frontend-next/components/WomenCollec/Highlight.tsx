@@ -76,7 +76,11 @@ export default function Highlight() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <Image
-                      src={product.campaign?.banner}
+                      src={
+                        product.campaign?.banner ||
+                        // product.images?.[0]?.image ||
+                        "/placeholder.jpg"
+                      }
                       alt={product.p_title}
                       fill
                       className={styles.mainImage}
