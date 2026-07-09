@@ -85,7 +85,7 @@ export default function Highlight() {
             </div>
             {active == "all" && (
               <div className={styles.collections}>
-                {products.map((item) => (
+                {womenCollections.map((item) => (
                   <div
                     key={item.title}
                     className={styles.card}
@@ -96,21 +96,21 @@ export default function Highlight() {
                       whileHover={{ scale: 1.05 }}
                     >
                       {/* <Image
-                        src={item.images[0].image}
-                        alt={item.p_title}
+                        src={item.image}
+                        alt={item.title}
                         fill
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
                       /> */}
                       <Image
-                        src={item.images[0].image}
-                        alt={item.p_title}
+                        src={item.image}
+                        alt={item.title}
                         fill
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.p_title} />
+                    <Paragraph text={item.title} />
                   </div>
                 ))}
               </div>
