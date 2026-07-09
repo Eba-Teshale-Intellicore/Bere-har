@@ -79,27 +79,31 @@
       "image1 image2";
   }
 }
-.largeCard {
+.banner {
   grid-area: banner;
   position: relative;
-  overflow: hidden;
 }
 
-.smallCard1 {
-  grid-area: image1;
+.small1 {
+  grid-area: small1;
   position: relative;
-  overflow: hidden;
 }
 
-.smallCard2 {
-  grid-area: image2;
+.small2 {
+  grid-area: small2;
   position: relative;
+}
+
+.banner,
+.small1,
+.small2 {
   overflow: hidden;
 }
 
 .mainImage {
   object-fit: cover;
 }
+
 .card {
   position: relative;
 

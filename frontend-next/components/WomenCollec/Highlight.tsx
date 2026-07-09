@@ -143,41 +143,51 @@ export default function Highlight() {
             )}
             {(active == "all" || active == "jew") && (
               <div className={styles.collections}>
-                {products.map((product: any) => (
-                  <div className={styles.collections} key={product.id}>
-                    {/* Large Banner */}
-                    <div className={styles.largeCard}>
-                      <Image
-                        src={product.campaign.banner}
-                        alt={product.campaign.title}
-                        fill
-                        className={styles.mainImage}
-                      />
-                    </div>
-
-                    {/* Small Product 1 */}
-                    {product.images[0] && (
-                      <div className={styles.smallCard1}>
+                {products.map((item) => (
+                  <div
+                    key={item.title}
+                    className={styles.card}
+                    style={{ gridArea: item.area }}
+                  >
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      {/* Large Banner */}
+                      <div className={styles.banner}>
                         <Image
-                          src={product.images[0].image}
-                          alt={product.p_title}
+                          src={item.campaign.banner}
+                          alt={item.campaign.title}
                           fill
                           className={styles.mainImage}
                         />
                       </div>
-                    )}
 
-                    {/* Small Product 2 */}
-                    {product.images[1] && (
-                      <div className={styles.smallCard2}>
-                        <Image
-                          src={product.images[1].image}
-                          alt={product.p_title}
-                          fill
-                          className={styles.mainImage}
-                        />
-                      </div>
-                    )}
+                      {/* Small image 1 */}
+                      {item.images[0] && (
+                        <div className={styles.small1}>
+                          <Image
+                            src={item.images[0].image}
+                            alt={item.p_title}
+                            fill
+                            className={styles.mainImage}
+                          />
+                        </div>
+                      )}
+
+                      {/* Small image 2 */}
+                      {item.images[1] && (
+                        <div className={styles.small2}>
+                          <Image
+                            src={item.images[1].image}
+                            alt={item.p_title}
+                            fill
+                            className={styles.mainImage}
+                          />
+                        </div>
+                      )}
+                    </motion.div>
+                    <Paragraph text={item.p_title} />
                   </div>
                 ))}
               </div>
