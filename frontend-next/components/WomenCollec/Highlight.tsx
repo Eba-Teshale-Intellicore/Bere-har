@@ -3,15 +3,12 @@ import React, { useEffect, useState } from "react";
 import styles from "@/src/scss/highlight.module.scss";
 import Paragraph from "@/components/Paragraph";
 import Image from "next/image";
-import img1 from "@/public/flow1.jpeg";
-import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
 import { getProducts } from "@/src/api/product";
 
 export default function Highlight() {
-  // const [active, setActive] = useState("all");
   const [active, setActive] = useState("all");
   const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
@@ -33,10 +30,15 @@ export default function Highlight() {
 
     fetchData();
   }, []);
+
   const filteredProducts =
     active === "all"
-      ? products
-      : products.filter((p) => p.category.category_slug === active);
+      ? products.filter((p) => p.gendercollection?.title === "womencollection")
+      : products.filter(
+          (p) =>
+            p.gendercollection?.title === "womencollection" &&
+            p.category.category_slug === active,
+        );
 
   return (
     <>
@@ -65,8 +67,6 @@ export default function Highlight() {
                 ))}
               </ul>
             </div>
-            {/* {active === "all" && products[0] && (
-              <div className={styles.collections}> */}
             {filteredProducts.map((product) => (
               <div key={product.id} className={styles.collections}>
                 {/* LARGE */}
