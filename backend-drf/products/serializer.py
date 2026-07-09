@@ -1,10 +1,13 @@
 from rest_framework import serializers
 from .models import (
+    CampaignProduct,
     Category,
     Collection,
     Product,
     ProductImage,
     ProductVariant,
+    GenderCollection,
+    CampaignHighlight,
 )
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -18,6 +21,10 @@ class CollectionSerializer(serializers.ModelSerializer):
     model = Collection
     fields = "__all__"
 
+class GenderCollectionSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = GenderCollection
+    fields = "__all__"
 
 class ProductImageSerializer(serializers.ModelSerializer):
   class Meta:
@@ -33,11 +40,12 @@ class ProductVariantSerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
-  images = ProductImageSerializer(many=True, read_only=True)
-  variants = ProductVariantSerializer(many= True, read_only= True)
-  class Meta:
-    model = Product
-    fields = [
+    images = ProductImageSerializer(many=True, required=False)
+    variants = ProductVariantSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Product
+        fields = [
             "id",
             "p_title",
             "p_slug",
@@ -45,12 +53,55 @@ class ProductSerializer(serializers.ModelSerializer):
             "p_price",
             "p_category",
             "p_collection",
+            "p_gendercollection",
             "p_brand",
             "p_status",
+            "p_campaign",
             "is_featured",
             "is_active",
             "images",
             "variants",
             "created_at",
             "updated_at",
+        ]
+
+    def validate_images(self, value):
+        """
+        Minimum two images required
+        """
+
+        if len(value) < 2:
+            raise serializers.ValidationError(
+                "A product must have at least two images."
+            )
+        return value
+class CampaignProductSerializer(serializers.ModelSerializer):
+
+    product = ProductSerializer(read_only=True)
+
+    class Meta:
+        model = CampaignProduct
+        fields = [
+            "id",
+            "product",
+            "order",
+        ]
+class CampaignHighlightSerializer(serializers.ModelSerializer):
+
+    campaign_products = CampaignProductSerializer(
+        many=True,
+        read_only=True
+    )
+
+    class Meta:
+        model = CampaignHighlight
+        fields = [
+            "id",
+            "title",
+            "slug",
+            "description",
+            "banner",
+            "category",
+            "gendercollection",
+            "campaign_products",
         ]
