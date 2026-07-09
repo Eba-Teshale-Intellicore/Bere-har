@@ -118,59 +118,55 @@ export default function Highlight() {
                 ))}
               </div>
             )}
-            {(active == "all" || active == "shoes") && (
+            {(active === "all" || active === "shoes") && products[0] && (
               <div className={styles.collections}>
-                {products.slice(0, 3).map((product: any, index: number) => (
-                  <div
-                    key={product.id}
-                    className={styles.card}
-                    style={{
-                      gridArea:
-                        index === 0 ? "fir" : index === 1 ? "sec" : "thir",
-                    }}
+                {/* LARGE */}
+                <div className={styles.card} style={{ gridArea: "fir" }}>
+                  <motion.div
+                    className={styles.imageWrapper}
+                    whileHover={{ scale: 1.05 }}
                   >
-                    <motion.div
-                      className={styles.imageWrapper}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Image
-                        src={
-                          index === 0
-                            ? product.campaign.banner
-                            : product.images[0]?.image
-                        }
-                        alt={product.p_title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      />
-                      <Image
-                        src={
-                          index === 1
-                            ? product.images[0]?.image
-                            : product.campaign.banner
-                        }
-                        alt={product.p_title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      />
-                      <Image
-                        src={
-                          index === 2
-                            ? product.images[1]?.image
-                            : product.campaign.banner
-                        }
-                        alt={product.p_title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      />
-                    </motion.div>
+                    <Image
+                      src={products[0].campaign.banner}
+                      alt={products[0].p_title}
+                      fill
+                      className={styles.mainImage}
+                      style={{ objectFit: "cover" }}
+                    />
+                  </motion.div>
+                </div>
 
-                    <Paragraph text={product.p_title} />
-                  </div>
-                ))}
+                {/* SMALL 1 */}
+                <div className={styles.card} style={{ gridArea: "sec" }}>
+                  <motion.div
+                    className={styles.imageWrapper}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <Image
+                      src={products[0].images[0]?.image}
+                      alt={products[0].p_title}
+                      fill
+                      className={styles.mainImage}
+                      style={{ objectFit: "cover" }}
+                    />
+                  </motion.div>
+                </div>
+
+                {/* SMALL 2 */}
+                <div className={styles.card} style={{ gridArea: "thir" }}>
+                  <motion.div
+                    className={styles.imageWrapper}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <Image
+                      src={products[0].images[1]?.image}
+                      alt={products[0].p_title}
+                      fill
+                      className={styles.mainImage}
+                      style={{ objectFit: "cover" }}
+                    />
+                  </motion.div>
+                </div>
               </div>
             )}
             {(active == "all" || active == "jew") && (
