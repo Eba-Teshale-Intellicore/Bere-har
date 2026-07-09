@@ -8,7 +8,6 @@ import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
-import { getProducts } from "@/src/api/product";
 
 const womenCollections = [
   {
@@ -31,26 +30,19 @@ const womenCollections = [
 export default function Highlight() {
   // const [active, setActive] = useState("all");
   const [active, setActive] = useState("all");
-
   const [categories, setCategories] = useState<any[]>([]);
-  const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCategories = async () => {
       try {
-        const [categoriesData, productsData] = await Promise.all([
-          getCategories(),
-          getProducts(),
-        ]);
-
-        setCategories(categoriesData);
-        setProducts(productsData);
+        const data = await getCategories();
+        setCategories(data);
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchData();
+    fetchCategories();
   }, []);
 
   return (
@@ -69,7 +61,6 @@ export default function Highlight() {
                 >
                   All
                 </li>
-
                 {categories.map((item: any) => (
                   <li
                     key={item.id}
@@ -81,9 +72,23 @@ export default function Highlight() {
                     {item.category_name}
                   </li>
                 ))}
+
+                {/* <li
+                  onClick={() => setActive("jew")}
+                  className={active === "jew" ? styles.active : ""}
+                >
+                  Jewelery
+                </li>
+
+                <li
+                  onClick={() => setActive("bags")}
+                  className={active === "bags" ? styles.active : ""}
+                >
+                  Bags
+                </li> */}
               </ul>
             </div>
-            {/* {active == "all" && (
+            {active == "all" && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
                   <div
@@ -102,20 +107,12 @@ export default function Highlight() {
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
                       />
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      />
                     </motion.div>
                     <Paragraph text={item.title} />
                   </div>
                 ))}
               </div>
-            )} */}
-
+            )}
             {(active == "all" || active == "shoes") && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
@@ -143,55 +140,26 @@ export default function Highlight() {
             )}
             {(active == "all" || active == "jew") && (
               <div className={styles.collections}>
-                {products.map((item) => (
-                  // <div
-                  //   key={item.title}
-                  //   className={styles.card}
-                  //   // style={{ gridArea: item.area }}
-                  // >
-                  <>
-                    ...
+                {womenCollections.map((item) => (
+                  <div
+                    key={item.title}
+                    className={styles.card}
+                    style={{ gridArea: item.area }}
+                  >
                     <motion.div
-                      key={item.title}
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
                     >
-                      {/* Large Banner */}
-                      <div className={styles.banner}>
-                        <Image
-                          src={item.campaign.banner}
-                          alt={item.campaign.title}
-                          fill
-                          className={styles.mainImage}
-                        />
-                      </div>
-
-                      {/* Small image 1 */}
-                      {item.images[0] && (
-                        <div className={styles.small1}>
-                          <Image
-                            src={item.images[0].image}
-                            alt={item.p_title}
-                            fill
-                            className={styles.mainImage}
-                          />
-                        </div>
-                      )}
-
-                      {/* Small image 2 */}
-                      {item.images[1] && (
-                        <div className={styles.small2}>
-                          <Image
-                            src={item.images[1].image}
-                            alt={item.p_title}
-                            fill
-                            className={styles.mainImage}
-                          />
-                        </div>
-                      )}
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
                     </motion.div>
-                    <Paragraph text={item.p_title} />
-                  </>
+                    <Paragraph text={item.title} />
+                  </div>
                 ))}
               </div>
             )}

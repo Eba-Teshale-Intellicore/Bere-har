@@ -49,76 +49,57 @@
   background: black;
 }
 .collections {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 350px 200px;
+  gap: 10px;
+
+  grid-template-areas:
+    "fir sec thir"
+    "fir . .";
+}
+@media (max-width: 992px) {
+  .collections {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px 200px;
+
+    grid-template-areas:
+      "fir fir"
+      "sec thir";
+  }
+}
+
+@media (max-width: 640px) {
+  .collections {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px;
+
+    grid-template-areas:
+      "fir fir"
+      "sec thir";
+  }
+}
+.card {
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+  cursor: pointer;
 }
 
-.banner {
-  grid-area: banner;
-  position: relative;
-}
-
-.small1 {
-  grid-area: small1;
-  position: relative;
-}
-
-.small2 {
-  grid-area: small2;
-  position: relative;
-}
-
-.banner,
-.small1,
-.small2 {
+.imageWrapper {
   position: relative;
   width: 100%;
   height: 100%;
 
   overflow: hidden;
 }
-
-.imageWrapper {
-  display: grid;
-
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 350px 200px;
-
-  grid-template-areas:
-    "banner small1 small2"
-    "banner . .";
-
-  gap: 10px;
-}
-@media (max-width: 992px) {
-  .imageWrapper {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 300px 200px;
-
-    grid-template-areas:
-      "banner banner"
-      "small1 small2";
-  }
-}
-
-@media (max-width: 640px) {
-  .imageWrapper {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 200px 200px;
-
-    grid-template-areas:
-      "banner banner"
-      "small1 small2";
-  }
-}
-// .imageWrapper {
-//   position: relative;
-//   width: 100%;
-//   height: 100%;
-
-//   overflow: hidden;
-// }
 
 .mainImage,
 .hoverImage {
@@ -129,5 +110,4 @@
 
 .mainImage {
   opacity: 1;
-  object-fit: cover;
 }
