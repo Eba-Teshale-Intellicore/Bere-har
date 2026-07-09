@@ -120,7 +120,7 @@ export default function Highlight() {
             )}
             {(active == "all" || active == "shoes") && (
               <div className={styles.collections}>
-                {products.map((product: any, index: number) => (
+                {products.slice(0, 3).map((product: any, index: number) => (
                   <div
                     key={product.id}
                     className={styles.card}
@@ -138,6 +138,28 @@ export default function Highlight() {
                           index === 0
                             ? product.campaign.banner
                             : product.images[0]?.image
+                        }
+                        alt={product.p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                      <Image
+                        src={
+                          index === 1
+                            ? product.images[0]?.image
+                            : product.campaign.banner
+                        }
+                        alt={product.p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                      <Image
+                        src={
+                          index === 2
+                            ? product.images[1]?.image
+                            : product.campaign.banner
                         }
                         alt={product.p_title}
                         fill
