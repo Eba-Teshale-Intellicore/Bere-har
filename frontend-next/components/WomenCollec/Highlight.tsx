@@ -51,6 +51,10 @@ export default function Highlight() {
 
     fetchData();
   }, []);
+  const filteredProducts =
+    active === "all"
+      ? products
+      : products.filter((p) => p.category.category_slug === active);
 
   return (
     <>
@@ -93,8 +97,10 @@ export default function Highlight() {
                 </li> */}
               </ul>
             </div>
-            {active === "all" && products[0] && (
-              <div className={styles.collections}>
+            {/* {active === "all" && products[0] && (
+              <div className={styles.collections}> */}
+            {filteredProducts.map((product) => (
+              <div key={product.id} className={styles.collections}>
                 {/* LARGE */}
                 <div className={styles.card} style={{ gridArea: "fir" }}>
                   <motion.div
@@ -102,14 +108,15 @@ export default function Highlight() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <Image
-                      src={products[0].campaign.banner}
-                      alt={products[0].p_title}
+                      src={product.campaign?.banner}
+                      alt={product.p_title}
                       fill
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
                     />
                   </motion.div>
-                  <Paragraph text={products[0].p_title} />
+
+                  <Paragraph text={product.p_title} />
                 </div>
 
                 {/* SMALL 1 */}
@@ -119,14 +126,15 @@ export default function Highlight() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <Image
-                      src={products[0].images[0]?.image}
-                      alt={products[0].p_title}
+                      src={product.images?.[0]?.image}
+                      alt={product.p_title}
                       fill
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
                     />
                   </motion.div>
-                  <Paragraph text={products[0].p_title} />
+
+                  <Paragraph text={product.p_title} />
                 </div>
 
                 {/* SMALL 2 */}
@@ -136,17 +144,19 @@ export default function Highlight() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <Image
-                      src={products[0].images[1]?.image}
-                      alt={products[0].p_title}
+                      src={product.images?.[1]?.image}
+                      alt={product.p_title}
                       fill
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
                     />
                   </motion.div>
-                  <Paragraph text={products[0].p_title} />
+
+                  <Paragraph text={product.p_title} />
                 </div>
               </div>
-            )}
+            ))}
+
             {(active === "all" || active === "category_slug") &&
               products[0] && (
                 <div className={styles.collections}>
