@@ -144,12 +144,15 @@ export default function Highlight() {
             {(active == "all" || active == "jew") && (
               <div className={styles.collections}>
                 {products.map((item) => (
-                  <div
-                    key={item.title}
-                    className={styles.card}
-                    // style={{ gridArea: item.area }}
-                  >
+                  // <div
+                  //   key={item.title}
+                  //   className={styles.card}
+                  //   // style={{ gridArea: item.area }}
+                  // >
+                  <>
+                    ...
                     <motion.div
+                      key={item.title}
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
                     >
@@ -188,7 +191,7 @@ export default function Highlight() {
                       )}
                     </motion.div>
                     <Paragraph text={item.p_title} />
-                  </div>
+                  </>
                 ))}
               </div>
             )}
