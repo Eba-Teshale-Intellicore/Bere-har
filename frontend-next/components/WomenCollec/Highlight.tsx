@@ -95,13 +95,13 @@ export default function Highlight() {
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
                     >
-                      <Image
+                      {/* <Image
                         src={item.images[0].image}
                         alt={item.p_title}
                         fill
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
-                      />
+                      /> */}
                       <Image
                         src={item.images[0].image}
                         alt={item.p_title}
