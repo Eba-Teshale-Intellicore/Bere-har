@@ -82,41 +82,33 @@ export default function Highlight() {
                 ))}
               </ul>
             </div>
-            {active === "all" && (
+            {active == "all" && (
               <div className={styles.collections}>
                 {products.map((item: any) => (
-                  <div key={item.id} className={styles.card}>
+                  <div
+                    key={item.id}
+                    className={styles.card}
+                    style={{ gridArea: item.area }}
+                  >
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
                     >
-                      {/* Campaign Banner */}
-                      {/* {item.campaign?.banner && (
-                        <Image
-                          src={item.campaign.banner}
-                          alt={item.p_title}
-                          fill
-                          className={styles.mainImage}
-                          style={{
-                            objectFit: "cover",
-                          }}
-                        />
-                      )} */}
-
-                      {/* Product Image */}
-                      {/* {item.images?.length > 0 && ( */}
+                      <Image
+                        src={item.campaign.banner}
+                        alt={item.p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
                       <Image
                         src={item.images[0].image}
                         alt={item.p_title}
                         fill
                         className={styles.mainImage}
-                        style={{
-                          objectFit: "cover",
-                        }}
+                        style={{ objectFit: "cover" }}
                       />
-                      {/* )} */}
                     </motion.div>
-
                     <Paragraph text={item.p_title} />
                   </div>
                 ))}
