@@ -36,7 +36,7 @@ export default function Highlight() {
       ? products.filter((p) => p.gendercollection?.title === "mencollection")
       : products.filter(
           (p) =>
-            p.gendercollection?.title === "womencollection" &&
+            p.gendercollection?.title === "mencollection" &&
             p.category.category_slug === active,
         );
 
