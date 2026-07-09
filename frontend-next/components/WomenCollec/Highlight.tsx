@@ -120,29 +120,33 @@ export default function Highlight() {
             )}
             {(active == "all" || active == "shoes") && (
               <div className={styles.collections}>
-                {womenCollections.map((item) => (
+                {products.slice(0, 3).map((product: any, index: number) => (
                   <div
-                    key={item.title}
+                    key={product.id}
                     className={styles.card}
-                    style={{ gridArea: item.area }}
+                    style={{
+                      gridArea:
+                        index === 0 ? "fir" : index === 1 ? "sec" : "thir",
+                    }}
                   >
-                    {products.map((e) => (
-                      <>
-                        <motion.div
-                          className={styles.imageWrapper}
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          <Image
-                            src={e.images[0].image}
-                            alt={e.p_title}
-                            fill
-                            className={`${styles.mainImage}`}
-                            style={{ objectFit: "cover" }}
-                          />
-                        </motion.div>
-                        <Paragraph text={e.p_title} />
-                      </>
-                    ))}
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Image
+                        src={
+                          index === 0
+                            ? product.campaign.banner
+                            : product.images[0]?.image
+                        }
+                        alt={product.p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </motion.div>
+
+                    <Paragraph text={product.p_title} />
                   </div>
                 ))}
               </div>
