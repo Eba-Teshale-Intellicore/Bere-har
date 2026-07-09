@@ -104,17 +104,17 @@ export default function Highlight() {
                       )} */}
 
                       {/* Product Image */}
-                      {item.images?.length > 0 && (
-                        <Image
-                          src={item.images[0].image}
-                          alt={item.p_title}
-                          fill
-                          className={styles.mainImage}
-                          style={{
-                            objectFit: "cover",
-                          }}
-                        />
-                      )}
+                      {/* {item.images?.length > 0 && ( */}
+                      <Image
+                        src={item.images[0].image}
+                        alt={item.p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{
+                          objectFit: "cover",
+                        }}
+                      />
+                      {/* )} */}
                     </motion.div>
 
                     <Paragraph text={item.p_title} />
