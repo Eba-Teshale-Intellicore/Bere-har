@@ -91,7 +91,7 @@ export default function Highlight() {
                       whileHover={{ scale: 1.05 }}
                     >
                       {/* Campaign Banner */}
-                      {item.campaign?.banner && (
+                      {/* {item.campaign?.banner && (
                         <Image
                           src={item.campaign.banner}
                           alt={item.p_title}
@@ -101,7 +101,7 @@ export default function Highlight() {
                             objectFit: "cover",
                           }}
                         />
-                      )}
+                      )} */}
 
                       {/* Product Image */}
                       {item.images?.length > 0 && (
