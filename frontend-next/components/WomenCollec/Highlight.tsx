@@ -10,24 +10,6 @@ import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
 import { getProducts } from "@/src/api/product";
 
-const womenCollections = [
-  {
-    title: "Shoes",
-    image: img1,
-    area: "fir",
-  },
-  {
-    title: "Dress",
-    image: img2,
-    area: "sec",
-  },
-  {
-    title: "Jewelry",
-    image: img2,
-    area: "thir",
-  },
-];
-
 export default function Highlight() {
   // const [active, setActive] = useState("all");
   const [active, setActive] = useState("all");

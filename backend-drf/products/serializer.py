@@ -62,6 +62,10 @@ class ProductSerializer(serializers.ModelSerializer):
         source="p_category",
         read_only=True
     )
+    gendercollection = GenderCollectionSerializer(
+       source= "p_gendercollection",
+       read_only = True
+    )
     class Meta:
         model = Product
         fields = [
@@ -88,6 +92,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
             "created_at",
             "updated_at",
+            "gendercollection",
         ]
 
     def validate_images(self, value):
