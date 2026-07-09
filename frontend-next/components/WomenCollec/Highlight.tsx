@@ -8,6 +8,7 @@ import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
+import { getProducts } from "@/src/api/product";
 
 const womenCollections = [
   {
@@ -30,19 +31,26 @@ const womenCollections = [
 export default function Highlight() {
   // const [active, setActive] = useState("all");
   const [active, setActive] = useState("all");
+
   const [categories, setCategories] = useState<any[]>([]);
+  const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchData = async () => {
       try {
-        const data = await getCategories();
-        setCategories(data);
+        const [categoriesData, productsData] = await Promise.all([
+          getCategories(),
+          getProducts(),
+        ]);
+
+        setCategories(categoriesData);
+        setProducts(productsData);
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchCategories();
+    fetchData();
   }, []);
 
   return (
@@ -73,25 +81,11 @@ export default function Highlight() {
                     {item.category_name}
                   </li>
                 ))}
-
-                {/* <li
-                  onClick={() => setActive("jew")}
-                  className={active === "jew" ? styles.active : ""}
-                >
-                  Jewelery
-                </li>
-
-                <li
-                  onClick={() => setActive("bags")}
-                  className={active === "bags" ? styles.active : ""}
-                >
-                  Bags
-                </li> */}
               </ul>
             </div>
             {active == "all" && (
               <div className={styles.collections}>
-                {womenCollections.map((item) => (
+                {products.map((item) => (
                   <div
                     key={item.title}
                     className={styles.card}
@@ -102,21 +96,21 @@ export default function Highlight() {
                       whileHover={{ scale: 1.05 }}
                     >
                       <Image
-                        src={item.image}
-                        alt={item.title}
+                        src={item.images[0].image}
+                        alt={item.p_title}
                         fill
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
                       />
                       <Image
-                        src={item.image}
-                        alt={item.title}
+                        src={item.images[0].image}
+                        alt={item.p_title}
                         fill
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    <Paragraph text={item.p_title} />
                   </div>
                 ))}
               </div>
