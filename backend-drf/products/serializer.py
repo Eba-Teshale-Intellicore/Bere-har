@@ -110,3 +110,36 @@ class CampaignProductSerializer(serializers.ModelSerializer):
             "product",
             "order",
         ]
+
+
+# const [categories, setCategories] = useState<any[]>([]);
+# const [products, setProducts] = useState<any[]>([]);
+
+
+# useEffect(() => {
+
+#   const fetchData = async () => {
+#     try {
+
+#       const [
+#         categoriesData,
+#         productsData
+#       ] = await Promise.all([
+#         getCategories(),
+#         getProducts()
+#       ]);
+
+
+#       setCategories(categoriesData);
+#       setProducts(productsData);
+
+
+#     } catch (error) {
+#       console.log(error);
+#     }
+#   };
+
+
+#   fetchData();
+
+# }, []);

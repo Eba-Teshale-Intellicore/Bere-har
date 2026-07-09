@@ -8,7 +8,6 @@ import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
-import { getProducts } from "@/src/api/product";
 
 const womenCollections = [
   {
@@ -32,24 +31,18 @@ export default function Highlight() {
   // const [active, setActive] = useState("all");
   const [active, setActive] = useState("all");
   const [categories, setCategories] = useState<any[]>([]);
-  const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCategories = async () => {
       try {
-        const [categoriesData, productsData] = await Promise.all([
-          getCategories(),
-          getProducts(),
-        ]);
-
-        setCategories(categoriesData);
-        setProducts(productsData);
+        const data = await getCategories();
+        setCategories(data);
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchData();
+    fetchCategories();
   }, []);
 
   return (
@@ -80,13 +73,27 @@ export default function Highlight() {
                     {item.category_name}
                   </li>
                 ))}
+
+                {/* <li
+                  onClick={() => setActive("jew")}
+                  className={active === "jew" ? styles.active : ""}
+                >
+                  Jewelery
+                </li>
+
+                <li
+                  onClick={() => setActive("bags")}
+                  className={active === "bags" ? styles.active : ""}
+                >
+                  Bags
+                </li> */}
               </ul>
             </div>
             {active == "all" && (
               <div className={styles.collections}>
-                {products.map((item: any) => (
+                {womenCollections.map((item) => (
                   <div
-                    key={item.id}
+                    key={item.title}
                     className={styles.card}
                     style={{ gridArea: item.area }}
                   >
@@ -94,27 +101,22 @@ export default function Highlight() {
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
                     >
-                      {/* <Image
-                        src={item.campaign.banner}
-                        alt={item.p_title}
+                      <Image
+                        src={item.image}
+                        alt={item.title}
                         fill
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
-                      /> */}
-                      {item.images.map((img: any) => (
-                        <Image
-                          key={img.id}
-                          src={img.image}
-                          alt={item.p_title}
-                          fill
-                          className={styles.mainImage}
-                          style={{
-                            objectFit: "cover",
-                          }}
-                        />
-                      ))}
+                      />
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
                     </motion.div>
-                    <Paragraph text={item.p_title} />
+                    <Paragraph text={item.title} />
                   </div>
                 ))}
               </div>
