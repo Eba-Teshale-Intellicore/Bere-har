@@ -93,32 +93,7 @@ export default function Highlight() {
                 </li> */}
               </ul>
             </div>
-            {active == "all" && (
-              <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div
-                    key={item.title}
-                    className={styles.card}
-                    style={{ gridArea: item.area }}
-                  >
-                    <motion.div
-                      className={styles.imageWrapper}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      />
-                    </motion.div>
-                    <Paragraph text={item.title} />
-                  </div>
-                ))}
-              </div>
-            )}
-            {(active === "all" || active === "shoes") && products[0] && (
+            {active === "all" && products[0] && (
               <div className={styles.collections}>
                 {/* LARGE */}
                 <div className={styles.card} style={{ gridArea: "fir" }}>
@@ -172,56 +147,171 @@ export default function Highlight() {
                 </div>
               </div>
             )}
-            {(active == "all" || active == "jew") && (
-              <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div
-                    key={item.title}
-                    className={styles.card}
-                    style={{ gridArea: item.area }}
-                  >
+            {(active === "all" || active === "category_slug") &&
+              products[0] && (
+                <div className={styles.collections}>
+                  {/* LARGE */}
+                  <div className={styles.card} style={{ gridArea: "fir" }}>
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
                     >
                       <Image
-                        src={item.image}
-                        alt={item.title}
+                        src={products[0].campaign.banner}
+                        alt={products[0].p_title}
                         fill
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    <Paragraph text={products[0].p_title} />
                   </div>
-                ))}
-              </div>
-            )}
-            {(active == "all" || active == "bags") && (
-              <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div
-                    key={item.title}
-                    className={styles.card}
-                    style={{ gridArea: item.area }}
-                  >
+
+                  {/* SMALL 1 */}
+                  <div className={styles.card} style={{ gridArea: "sec" }}>
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
                     >
                       <Image
-                        src={item.image}
-                        alt={item.title}
+                        src={products[0].images[0]?.image}
+                        alt={products[0].p_title}
                         fill
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    <Paragraph text={products[0].p_title} />
                   </div>
-                ))}
-              </div>
-            )}
+
+                  {/* SMALL 2 */}
+                  <div className={styles.card} style={{ gridArea: "thir" }}>
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Image
+                        src={products[0].images[1]?.image}
+                        alt={products[0].p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </motion.div>
+                    <Paragraph text={products[0].p_title} />
+                  </div>
+                </div>
+              )}
+            {(active === "all" || active === "category_slug") &&
+              products[0] && (
+                <div className={styles.collections}>
+                  {/* LARGE */}
+                  <div className={styles.card} style={{ gridArea: "fir" }}>
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Image
+                        src={products[0].campaign.banner}
+                        alt={products[0].p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </motion.div>
+                    <Paragraph text={products[0].p_title} />
+                  </div>
+
+                  {/* SMALL 1 */}
+                  <div className={styles.card} style={{ gridArea: "sec" }}>
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Image
+                        src={products[0].images[0]?.image}
+                        alt={products[0].p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </motion.div>
+                    <Paragraph text={products[0].p_title} />
+                  </div>
+
+                  {/* SMALL 2 */}
+                  <div className={styles.card} style={{ gridArea: "thir" }}>
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Image
+                        src={products[0].images[1]?.image}
+                        alt={products[0].p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </motion.div>
+                    <Paragraph text={products[0].p_title} />
+                  </div>
+                </div>
+              )}
+            {(active === "all" || active === "category_slug") &&
+              products[0] && (
+                <div className={styles.collections}>
+                  {/* LARGE */}
+                  <div className={styles.card} style={{ gridArea: "fir" }}>
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Image
+                        src={products[0].campaign.banner}
+                        alt={products[0].p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </motion.div>
+                    <Paragraph text={products[0].p_title} />
+                  </div>
+
+                  {/* SMALL 1 */}
+                  <div className={styles.card} style={{ gridArea: "sec" }}>
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Image
+                        src={products[0].images[0]?.image}
+                        alt={products[0].p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </motion.div>
+                    <Paragraph text={products[0].p_title} />
+                  </div>
+
+                  {/* SMALL 2 */}
+                  <div className={styles.card} style={{ gridArea: "thir" }}>
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Image
+                        src={products[0].images[1]?.image}
+                        alt={products[0].p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </motion.div>
+                    <Paragraph text={products[0].p_title} />
+                  </div>
+                </div>
+              )}
           </div>
         </div>
       </div>
