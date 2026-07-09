@@ -120,7 +120,7 @@ export default function Highlight() {
             )}
             {(active == "all" || active == "shoes") && (
               <div className={styles.collections}>
-                {products.slice(0, 3).map((product: any, index: number) => (
+                {products.map((product: any, index: number) => (
                   <div
                     key={product.id}
                     className={styles.card}
