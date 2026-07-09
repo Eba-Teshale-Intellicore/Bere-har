@@ -108,6 +108,13 @@ export default function Highlight() {
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
                       />
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
                     </motion.div>
                     <Paragraph text={item.title} />
                   </div>
