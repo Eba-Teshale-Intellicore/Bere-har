@@ -95,7 +95,7 @@ export default function Highlight() {
                       whileHover={{ scale: 1.05 }}
                     >
                       <Image
-                        src={item.p_campaign.banner}
+                        src={item.campaign.banner}
                         alt={item.title}
                         fill
                         className={styles.mainImage}
