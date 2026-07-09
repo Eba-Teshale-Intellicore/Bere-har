@@ -41,9 +41,9 @@ class Collection(models.Model):
       return self.collection_title
 
 GENDER_CHOICES = (
-    ("womencollection", "Women Collection"),
-    ("mencollection", "Men Collection"),
-    ("kidscollection", "Kids Collection"),
+    ('womencollection', 'Women_Collection'),
+    ('mencollection', 'Men_Collection'),
+    ('kidscollection', 'Kids_Collection'),
 )
 class GenderCollection(models.Model):
    title = models.CharField(max_length=100,choices=GENDER_CHOICES,blank=True,null=True)
