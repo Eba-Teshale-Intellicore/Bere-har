@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/src/scss/highlight.module.scss";
 import Paragraph from "@/components/Paragraph";
 import Image from "next/image";
@@ -7,6 +7,7 @@ import img1 from "@/public/flow1.jpeg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
+import { getCategories } from "@/src/api/category";
 
 const womenCollections = [
   {
@@ -29,6 +30,20 @@ const womenCollections = [
 export default function Highlight() {
   // const [active, setActive] = useState("all");
   const [active, setActive] = useState("all");
+  const [categories, setCategories] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const data = await getCategories();
+        setCategories(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   return (
     <>
@@ -47,13 +62,19 @@ export default function Highlight() {
                   All
                 </li>
 
-                <li
-                  onClick={() => setActive("shoes")}
-                  className={active === "shoes" ? styles.active : ""}
-                >
-                  Shoes
-                </li>
-                <li
+                {categories.map((item: any) => (
+                  <li
+                    key={item.id}
+                    onClick={() => setActive(item.category_slug)}
+                    className={
+                      active === item.category_slug ? styles.active : ""
+                    }
+                  >
+                    {item.category_name}
+                  </li>
+                ))}
+
+                {/* <li
                   onClick={() => setActive("jew")}
                   className={active === "jew" ? styles.active : ""}
                 >
@@ -65,7 +86,7 @@ export default function Highlight() {
                   className={active === "bags" ? styles.active : ""}
                 >
                   Bags
-                </li>
+                </li> */}
               </ul>
             </div>
             {active == "all" && (

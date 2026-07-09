@@ -97,7 +97,7 @@ export default function HeroFeatures() {
             {active == "women" && (
               <div className={styles.collections}>
                 {products.map((item: any) => {
-                  console.log(item.images);
+                  // console.log(item.images);
 
                   return (
                     <div key={item.id} className={styles.card}>
