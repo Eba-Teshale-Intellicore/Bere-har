@@ -83,7 +83,7 @@ export default function Highlight() {
                 ))}
               </ul>
             </div>
-            {active == "all" && (
+            {/* {active == "all" && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
                   <div
@@ -114,7 +114,8 @@ export default function Highlight() {
                   </div>
                 ))}
               </div>
-            )}
+            )} */}
+
             {(active == "all" || active == "shoes") && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
@@ -142,25 +143,41 @@ export default function Highlight() {
             )}
             {(active == "all" || active == "jew") && (
               <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div
-                    key={item.title}
-                    className={styles.card}
-                    style={{ gridArea: item.area }}
-                  >
-                    <motion.div
-                      className={styles.imageWrapper}
-                      whileHover={{ scale: 1.05 }}
-                    >
+                {products.map((product: any) => (
+                  <div className={styles.collections} key={product.id}>
+                    {/* Large Banner */}
+                    <div className={styles.largeCard}>
                       <Image
-                        src={item.image}
-                        alt={item.title}
+                        src={product.campaign.banner}
+                        alt={product.campaign.title}
                         fill
                         className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
                       />
-                    </motion.div>
-                    <Paragraph text={item.title} />
+                    </div>
+
+                    {/* Small Product 1 */}
+                    {product.images[0] && (
+                      <div className={styles.smallCard1}>
+                        <Image
+                          src={product.images[0].image}
+                          alt={product.p_title}
+                          fill
+                          className={styles.mainImage}
+                        />
+                      </div>
+                    )}
+
+                    {/* Small Product 2 */}
+                    {product.images[1] && (
+                      <div className={styles.smallCard2}>
+                        <Image
+                          src={product.images[1].image}
+                          alt={product.p_title}
+                          fill
+                          className={styles.mainImage}
+                        />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
