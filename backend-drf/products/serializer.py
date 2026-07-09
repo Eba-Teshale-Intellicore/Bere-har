@@ -37,12 +37,31 @@ class ProductVariantSerializer(serializers.ModelSerializer):
     model = ProductVariant
     fields = "__all__"
 
-
+class CampaignHighlightSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CampaignHighlight
+        fields = [
+            "id",
+            "title",
+            "slug",
+            "description",
+            "banner",
+            "category",
+            "gendercollection",
+            "campaign_products",
+        ]
 
 class ProductSerializer(serializers.ModelSerializer):
     images = ProductImageSerializer(many=True, required=False)
     variants = ProductVariantSerializer(many=True, read_only=True)
-
+    campaign = CampaignHighlightSerializer(
+        source="p_campaign",
+        read_only=True
+    )
+    category = CategorySerializer(
+        source="p_category",
+        read_only=True
+    )
     class Meta:
         model = Product
         fields = [
@@ -78,30 +97,10 @@ class ProductSerializer(serializers.ModelSerializer):
 class CampaignProductSerializer(serializers.ModelSerializer):
 
     product = ProductSerializer(read_only=True)
-
     class Meta:
         model = CampaignProduct
         fields = [
             "id",
             "product",
             "order",
-        ]
-class CampaignHighlightSerializer(serializers.ModelSerializer):
-
-    campaign_products = CampaignProductSerializer(
-        many=True,
-        read_only=True
-    )
-
-    class Meta:
-        model = CampaignHighlight
-        fields = [
-            "id",
-            "title",
-            "slug",
-            "description",
-            "banner",
-            "category",
-            "gendercollection",
-            "campaign_products",
         ]
