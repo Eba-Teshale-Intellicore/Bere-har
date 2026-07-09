@@ -134,6 +134,7 @@ export default function Highlight() {
                       style={{ objectFit: "cover" }}
                     />
                   </motion.div>
+                  <Paragraph text={products[0].p_title} />
                 </div>
 
                 {/* SMALL 1 */}
@@ -150,6 +151,7 @@ export default function Highlight() {
                       style={{ objectFit: "cover" }}
                     />
                   </motion.div>
+                  <Paragraph text={products[0].p_title} />
                 </div>
 
                 {/* SMALL 2 */}
@@ -166,6 +168,7 @@ export default function Highlight() {
                       style={{ objectFit: "cover" }}
                     />
                   </motion.div>
+                  <Paragraph text={products[0].p_title} />
                 </div>
               </div>
             )}
