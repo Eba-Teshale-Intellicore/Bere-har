@@ -70,16 +70,22 @@ class ProductSerializer(serializers.ModelSerializer):
             "p_slug",
             "p_description",
             "p_price",
-            "p_category",
+
+            "category",
             "p_collection",
             "p_gendercollection",
+
             "p_brand",
             "p_status",
-            "p_campaign",
+
+            "campaign",
+
             "is_featured",
             "is_active",
+
             "images",
             "variants",
+
             "created_at",
             "updated_at",
         ]
