@@ -8,6 +8,7 @@ import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
+import { getProducts } from "@/src/api/product";
 
 const womenCollections = [
   {
@@ -31,18 +32,24 @@ export default function Highlight() {
   // const [active, setActive] = useState("all");
   const [active, setActive] = useState("all");
   const [categories, setCategories] = useState<any[]>([]);
+  const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchData = async () => {
       try {
-        const data = await getCategories();
-        setCategories(data);
+        const [categoriesData, productsData] = await Promise.all([
+          getCategories(),
+          getProducts(),
+        ]);
+
+        setCategories(categoriesData);
+        setProducts(productsData);
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchCategories();
+    fetchData();
   }, []);
 
   return (
@@ -61,15 +68,13 @@ export default function Highlight() {
                 >
                   All
                 </li>
-                {categories.map((item: any) => (
+                {categories.map((e: any) => (
                   <li
-                    key={item.id}
-                    onClick={() => setActive(item.category_slug)}
-                    className={
-                      active === item.category_slug ? styles.active : ""
-                    }
+                    key={e.id}
+                    onClick={() => setActive(e.category_slug)}
+                    className={active === e.category_slug ? styles.active : ""}
                   >
-                    {item.category_name}
+                    {e.category_name}
                   </li>
                 ))}
 
@@ -121,19 +126,23 @@ export default function Highlight() {
                     className={styles.card}
                     style={{ gridArea: item.area }}
                   >
-                    <motion.div
-                      className={styles.imageWrapper}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className={`${styles.mainImage}`}
-                        style={{ objectFit: "cover" }}
-                      />
-                    </motion.div>
-                    <Paragraph text={item.title} />
+                    {products.map((e) => (
+                      <>
+                        <motion.div
+                          className={styles.imageWrapper}
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <Image
+                            src={e.images[0].image}
+                            alt={e.p_title}
+                            fill
+                            className={`${styles.mainImage}`}
+                            style={{ objectFit: "cover" }}
+                          />
+                        </motion.div>
+                        <Paragraph text={e.p_title} />
+                      </>
+                    ))}
                   </div>
                 ))}
               </div>
