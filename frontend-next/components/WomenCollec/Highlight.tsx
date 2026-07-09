@@ -85,7 +85,7 @@ export default function Highlight() {
             </div>
             {active == "all" && (
               <div className={styles.collections}>
-                {products.map((item) => (
+                {womenCollections.map((item) => (
                   <div
                     key={item.title}
                     className={styles.card}
@@ -95,16 +95,20 @@ export default function Highlight() {
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
                     >
-                      {item.images.map((img: any) => (
-                        <Image
-                          key={img.id}
-                          src={img.image}
-                          alt={item.p_title}
-                          fill
-                          className={styles.mainImage}
-                          style={{ objectFit: "cover" }}
-                        />
-                      ))}
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
                     </motion.div>
                     <Paragraph text={item.title} />
                   </div>
