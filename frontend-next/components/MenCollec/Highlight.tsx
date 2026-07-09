@@ -47,7 +47,7 @@ export default function Highlight() {
           <div className={styles.herofea}>
             <div className={styles.content}>
               <p>
-                <Heading text="Women_Collection" />
+                <Heading text="Men_Collection" />
               </p>
               <ul>
                 <li
