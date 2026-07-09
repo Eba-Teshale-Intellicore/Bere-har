@@ -147,7 +147,7 @@ export default function Highlight() {
                   <div
                     key={item.title}
                     className={styles.card}
-                    style={{ gridArea: item.area }}
+                    // style={{ gridArea: item.area }}
                   >
                     <motion.div
                       className={styles.imageWrapper}
