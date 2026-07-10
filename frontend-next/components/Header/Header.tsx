@@ -17,6 +17,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 // import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 // import { useTranslations } from "next-intl";
+import Register from "@/components/Acoount/register";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -56,6 +57,9 @@ export default function Header() {
             </div>
             <div className={styles.contact}>
               <Button text="Contact Us" />
+              <Link href="/account/register">
+                <Button text="Register" />
+              </Link>
             </div>
           </div>
         </div>
