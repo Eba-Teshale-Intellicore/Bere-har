@@ -43,7 +43,7 @@ export default function Register() {
       setErrors({});
       setSuccess(true);
 
-      router.push("/login");
+      router.push("account/login");
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         console.log("FULL ERROR:", error.response?.data);
