@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "@/src/scss/header.module.scss";
 import {
   ChevronDown,
@@ -18,11 +18,14 @@ import Link from "next/link";
 // import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 // import { useTranslations } from "next-intl";
 import Register from "@/components/Acoount/register";
+import { AuthContext } from "@/app/AuthProvider";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [openGift, setOpenGift] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)!;
+
   // const t = useTranslations();
 
   useEffect(() => {
@@ -56,10 +59,13 @@ export default function Header() {
               </div>
             </div>
             <div className={styles.contact}>
-              <Button text="Contact Us" />
-              <Link href="/account/register">
-                <Button text="Register" />
-              </Link>
+              {isLoggedIn ? (
+                <Button text="Contact Us" />
+              ) : (
+                <Link href="/account/register">
+                  <Button text="Register" />
+                </Link>
+              )}
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "@/src/scss/register.module.scss";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { registerUser } from "@/src/api/acoount";
+import { registerUser } from "@/src/api/account";
 
 export default function Register() {
   const router = useRouter();
@@ -43,7 +43,7 @@ export default function Register() {
       setErrors({});
       setSuccess(true);
 
-      router.push("/");
+      router.push("/account/login");
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         console.log("FULL ERROR:", error.response?.data);
