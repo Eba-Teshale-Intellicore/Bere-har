@@ -85,6 +85,7 @@ export default function Highlight() {
                       fill
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
+                      placeholder="blur"
                     />
                   </motion.div>
 
@@ -103,6 +104,7 @@ export default function Highlight() {
                       fill
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
+                      placeholder="blur"
                     />
                   </motion.div>
 
@@ -121,6 +123,7 @@ export default function Highlight() {
                       fill
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
+                      placeholder="blur"
                     />
                   </motion.div>
 
