@@ -141,6 +141,7 @@ export default function Header() {
                     Rest of the World | English{/* <LanguageSwitcher /> */}
                   </span>
                 </li>
+                <li></li>
                 {isLoggedIn ? (
                   <li className={styles.logout}>
                     <Link href="/">Logout</Link>
