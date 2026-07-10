@@ -13,12 +13,13 @@ class RegisterView(CreateAPIView):
   permission_classes = [AllowAny]
 
 class ProfileView(ModelViewSet):
-  queryset = Profile.objects.all()
+  # queryset = Profile.objects.all()
+  def get_queryset(self):
+    return Profile.objects.filter(
+        user=self.request.user
+    )
   serializer_class = ProfileSerializer
   permission_classes = [IsAuthenticated]
 
 # customer API
-  # def get_queryset(self):
-  #   return Profile.objects.filter(
-  #       user=self.request.user
-  #   )
+  

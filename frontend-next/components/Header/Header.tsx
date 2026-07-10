@@ -24,7 +24,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [openGift, setOpenGift] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)!;
+  const { isLoggedIn } = useContext(AuthContext)!;
 
   // const t = useTranslations();
 
