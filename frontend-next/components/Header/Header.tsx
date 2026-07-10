@@ -8,6 +8,7 @@ import {
   Menu,
   Search,
   X,
+  LogOut,
 } from "lucide-react";
 import Image from "next/image";
 import Button from "@/components/Button";
@@ -136,8 +137,18 @@ export default function Header() {
                 <li>Contact Us</li>
                 <li className={styles.langItem}>
                   <Globe size={14} />
-                  <span>Rest of the World |{/* <LanguageSwitcher /> */}</span>
+                  <span>
+                    Rest of the World | English{/* <LanguageSwitcher /> */}
+                  </span>
                 </li>
+                {isLoggedIn ? (
+                  <li className={styles.logout}>
+                    <Link href="/">Logout</Link>
+                    <LogOut size={14} />
+                  </li>
+                ) : (
+                  ""
+                )}
               </ul>
             </motion.div>
           </>
