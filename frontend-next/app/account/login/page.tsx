@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "@/components/Acoount/logins";
+import Login from "@/components/Acoount/login";
 
 export default function Menpage() {
   return (
