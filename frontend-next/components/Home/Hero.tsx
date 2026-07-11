@@ -55,9 +55,24 @@ export default function Hero() {
                   }}
                 />
               </motion.div>
+              <div className={styles.content}>
+                <p>
+                  <Paragraph
+                    text="HandMade Ethiopian Silk "
+                    size="lg"
+                    // color="white"
+                  />
+                  <Paragraph
+                    text="Timeless elegance inspired by Ethiopian culture, crafted for the modern world."
+                    size="md"
+                    // color="white"
+                  />
+                </p>
+                {/* <div className={styles.xscroll}>fgn</div> */}
+              </div>
             </AnimatePresence>
 
-            <div className={styles.content}>
+            {/* <div className={styles.content}>
               <p>
                 <Paragraph
                   text="HandMade Ethiopian Silk "
@@ -71,7 +86,7 @@ export default function Hero() {
                 />
               </p>
               {/* <div className={styles.xscroll}>fgn</div> */}
-            </div>
+            {/* </div> */}
             <div className={styles.pagination}>
               {images.map((_, index) => (
                 <button
