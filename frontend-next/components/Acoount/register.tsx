@@ -85,8 +85,8 @@ export default function Register() {
             </motion.div>
           </AnimatePresence>
           <div className={styles.content}>
-            <h1 className={styles.title}>Create Your Profile</h1>
             <form onSubmit={handleSubmit}>
+              <h1 className={styles.title}>Create Your Profile</h1>
               <input
                 type="text"
                 name="username"
