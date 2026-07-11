@@ -7,13 +7,14 @@ import hero1 from "@/public/flow5.jpeg";
 import hero2 from "@/public/flow4.jpeg";
 import hero3 from "@/public/flow6.jpeg";
 import hero4 from "@/public/flow3.jpeg";
-import men1 from "@/public/mapbare2.jpg";
+import men1 from "@/public/bere-har-2.png";
 import men2 from "@/public/bere-har.png";
+import men3 from "@/public/file2.jpg";
 
 import { AnimatePresence, motion } from "framer-motion";
 
 const womencoll = [hero1, hero2, hero3, hero4];
-const mencoll = [men1, men2];
+const mencoll = [men1, men2, men3];
 
 export default function Hero() {
   const [active, setActive] = useState<"women" | "men">("women");
