@@ -77,11 +77,11 @@
 .sidebar {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   // background-color: #f7dc9d;
   background-color: #a6813f;
   width: min(320px, 100vw);
-  height: 100vh;
+  height: 200vh;
   padding: 2rem;
   display: flex;
   flex-direction: column;
