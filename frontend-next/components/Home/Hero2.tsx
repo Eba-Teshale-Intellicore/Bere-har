@@ -5,6 +5,7 @@ import styles from "@/src/scss/hero2.module.scss";
 import Image from "next/image";
 import hero1 from "@/public/flow1.jpeg";
 import Button from "../Button";
+import Link from "next/link";
 export default function Hero2() {
   return (
     <>
@@ -33,7 +34,9 @@ export default function Hero2() {
             </AnimatePresence>
             <div className={styles.content}>
               <p>
-                <Button text="Discover the Collection" />
+                <Link href="/women-collections">
+                  <Button text="Discover the Collection" />
+                </Link>
               </p>
             </div>
           </div>
