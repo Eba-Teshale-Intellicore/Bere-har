@@ -116,7 +116,7 @@ export default function Product() {
                   </React.Fragment>
                 ))}
               </div>
-              <div>
+              <div className={styles.btn}>
                 <Button
                   text={
                     active === "all"
