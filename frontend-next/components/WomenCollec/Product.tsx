@@ -115,21 +115,24 @@ export default function Product() {
             )}
             <div className={styles.collections}>
               {filteredProducts.map((product) => (
-                <div key={product.id} className={styles.card}>
-                  <motion.div
-                    className={styles.imageWrapper}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <Image
-                      src={product.images?.image}
-                      alt={product.p_title}
-                      fill
-                      className={styles.mainImage}
-                      style={{ objectFit: "cover" }}
-                    />
-                  </motion.div>
-                  {/* <Paragraph text={item.title} /> */}
-                </div>
+                <React.Fragment key={product.id}>
+                  {product.images.map((img: any) => (
+                    <div key={img.id} className={styles.card}>
+                      <motion.div
+                        className={styles.imageWrapper}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Image
+                          src={img.image}
+                          alt={product.p_title}
+                          fill
+                          className={styles.mainImage}
+                          style={{ objectFit: "cover" }}
+                        />
+                      </motion.div>
+                    </div>
+                  ))}
+                </React.Fragment>
               ))}
             </div>
             {(active == "all" || active == "jew") && (
