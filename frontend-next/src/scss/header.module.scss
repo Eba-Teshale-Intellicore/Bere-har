@@ -94,7 +94,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 200vh;
   width: 100%;
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.4);
@@ -117,7 +117,7 @@
   gap: 1rem;
   cursor: pointer;
   li {
-    font-size: 24px;
+    font-size: 12px;
     font-family: var(--font-blackops);
     font-weight: 600;
   }
