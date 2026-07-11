@@ -1,9 +1,9 @@
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .container {
+//   min-height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 .hero {
   display: flex;
   align-items: center;
@@ -45,15 +45,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 65vh;
   padding-bottom: 5rem;
   position: relative;
+  max-width: 10%;
   z-index: 3;
-  padding: 1rem;
-  border-radius: 12px;
-  background: #111827;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  color: #fff;
 }
 .title {
   text-align: center;
