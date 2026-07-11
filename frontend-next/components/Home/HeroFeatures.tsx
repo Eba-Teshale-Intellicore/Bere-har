@@ -10,44 +10,44 @@ import { motion } from "framer-motion";
 // import { getProducts } from "@/src/api/product";
 const womenCollections = [
   {
-    title: "Women's Accessories",
+    title: "Luxury Accessories",
     image: img1,
     hover: img2,
   },
   {
-    title: "Women's Ready-to-Wear",
+    title: "Women's Couture",
     image: img1,
     hover: img2,
   },
   {
-    title: "Women's Jewelry",
+    title: "Exclusive Jewelry",
     image: img1,
     hover: img2,
   },
   {
-    title: "Women's Shoes",
+    title: "Elegant Footwear",
     image: img1,
     hover: img2,
   },
 ];
 const menCollections = [
   {
-    title: "men's Accessories",
+    title: "Luxury Accessories",
     image: img1,
     hover: img2,
   },
   {
-    title: "men's Ready-to-Wear",
+    title: "Men's Couture",
     image: img1,
     hover: img2,
   },
   {
-    title: "men's Jewelry",
+    title: "Fine Jewelry",
     image: img1,
     hover: img2,
   },
   {
-    title: "men's Shoes",
+    title: "Designer Footwear",
     image: img1,
     hover: img2,
   },
