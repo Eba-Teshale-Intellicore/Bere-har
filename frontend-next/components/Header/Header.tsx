@@ -9,6 +9,7 @@ import {
   Search,
   X,
   LogOut,
+  Contact2,
 } from "lucide-react";
 import Image from "next/image";
 import Button from "@/components/Button";
@@ -134,7 +135,14 @@ export default function Header() {
               <ul className={styles.nav}>
                 <li>Find a Store</li>
                 <li>{/* <h1>{t.header.about}</h1> */}</li>
-                <li>Contact Us</li>
+                {isLoggedIn ? (
+                  <li className={styles.logout}>
+                    <Link href="/">Contact Us</Link>
+                    <Contact2 size={14} />
+                  </li>
+                ) : (
+                  ""
+                )}
                 <li className={styles.langItem}>
                   <Globe size={14} />
                   <span>
