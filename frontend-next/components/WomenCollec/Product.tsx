@@ -113,16 +113,16 @@ export default function Product() {
                       </motion.div>
                     </div>
                   ))}
-                  <Button
-                    text={
-                      active === "all"
-                        ? "More"
-                        : (filteredProducts[0]?.category?.category_name ??
-                          "Category")
-                    }
-                  />
                 </React.Fragment>
               ))}
+              <Button
+                text={
+                  active === "all"
+                    ? "More"
+                    : (filteredProducts[0]?.category?.category_name ??
+                      "Category")
+                }
+              />
             </div>
           </div>
         </div>
