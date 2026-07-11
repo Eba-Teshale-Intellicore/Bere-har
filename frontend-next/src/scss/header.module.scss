@@ -79,7 +79,7 @@
   top: 0;
   left: 0;
   background-color: #f7dc9d;
-  width: 50vw;
+  width: min(400px, 100vw);
   height: 100dvh;
   padding: 2rem;
   display: flex;
@@ -89,7 +89,7 @@
   z-index: 1100;
 
   overflow-y: auto;
-  // overscroll-behavior: contain;
+  overscroll-behavior: contain;
 }
 
 .sticky2 {
