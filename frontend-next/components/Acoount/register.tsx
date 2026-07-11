@@ -4,6 +4,9 @@ import styles from "@/src/scss/register.module.scss";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { registerUser } from "@/src/api/account";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import img from "@/public/accountbg.jpeg";
 
 export default function Register() {
   const router = useRouter();
@@ -58,7 +61,32 @@ export default function Register() {
   return (
     <div className={styles.container}>
       <div className={styles.formBox}>
-        <h1 className={styles.title}>Create Account</h1>
+        <div className={styles.hero}>
+          <div className={styles.overlay} />
+          <AnimatePresence mode="wait">
+            <motion.div
+              className={styles.imagebg}
+              initial={{ opacity: 0, x: 80 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -80 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Image
+                src={img}
+                alt="Hero"
+                fill
+                priority
+                sizes="100vw"
+                style={{
+                  objectFit: "cover",
+                  // objectPosition: "center center",
+                }}
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <h1 className={styles.title}>Create Your Profile</h1>
 
         <form onSubmit={handleSubmit}>
           <input
