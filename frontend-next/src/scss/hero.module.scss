@@ -49,6 +49,8 @@
 .content p {
   color: rgb(255, 255, 255, 0.1);
   font-family: var(--font-blackops);
+  display: flex;
+  flex-direction: column;
 }
 @media (max-width: 768px) {
   .hero {
