@@ -115,11 +115,11 @@ export default function Header() {
                   </Link>
                 </li>
 
-                <li>
-                  <div
-                    className={styles.menuItem}
-                    onTouchMove={() => setOpenGift((prev) => !prev)}
-                  >
+                <li
+                  onMouseEnter={() => setOpenGift(true)}
+                  onMouseLeave={() => setOpenGift(false)}
+                >
+                  <div className={styles.menuItem}>
                     Gifts & Personalization{" "}
                     {openGift ? (
                       <ChevronDown size={18} />
