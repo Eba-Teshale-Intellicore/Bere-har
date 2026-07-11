@@ -9,7 +9,6 @@ import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
 import { getProducts } from "@/src/api/product";
-import Button from "../Button";
 
 const womenCollections = [
   {
@@ -116,7 +115,7 @@ export default function Product() {
             )}
             <div className={styles.collections}>
               {filteredProducts.map((product) => (
-                <div key={product.id}>
+                <React.Fragment key={product.id}>
                   {product.images.map((img: any) => (
                     <div key={img.id} className={styles.card}>
                       <motion.div
@@ -133,8 +132,7 @@ export default function Product() {
                       </motion.div>
                     </div>
                   ))}
-                  {/* <Button text="More"/> */}
-                </div>
+                </React.Fragment>
               ))}
             </div>
             {(active == "all" || active == "jew") && (
