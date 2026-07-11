@@ -65,8 +65,10 @@ export default function Header() {
             </div>
             <div className={styles.contact}>
               {isLoggedIn ? (
-                <div className={styles.menu}>
-                  <CircleUserRound size={28} />
+                <div
+                  className={`${styles.menu} ${scrolled ? styles.menus : ""}`}
+                >
+                  <CircleUserRound size={24} />
                   <Link href="/account/register">
                     <Button text="Contact Us" />
                   </Link>
