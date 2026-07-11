@@ -68,10 +68,10 @@ export default function Header() {
                 <div
                   className={`${styles.menu} ${scrolled ? styles.menus : ""}`}
                 >
-                  <CircleUserRound size={24} />
                   <Link href="/account/register">
                     <Button text="Contact Us" />
                   </Link>
+                  <CircleUserRound size={24} />
                 </div>
               ) : (
                 <Link href="/account/register">
