@@ -57,6 +57,11 @@ export default function Hero() {
                   size="lg"
                   color="white"
                 />
+                <Paragraph
+                  text="Timeless elegance inspired by Ethiopian culture, crafted for the modern world."
+                  size="md"
+                  color="white"
+                />
               </p>
               {/* <div className={styles.xscroll}>fgn</div> */}
             </div>
