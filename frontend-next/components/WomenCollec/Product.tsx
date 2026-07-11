@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
 import { getProducts } from "@/src/api/product";
+import Button from "../Button";
 
 const womenCollections = [
   {
@@ -112,6 +113,14 @@ export default function Product() {
                       </motion.div>
                     </div>
                   ))}
+                  <Button
+                    text={
+                      active === "all"
+                        ? "More"
+                        : (filteredProducts[0]?.category?.category_name ??
+                          "Category")
+                    }
+                  />
                 </React.Fragment>
               ))}
             </div>
