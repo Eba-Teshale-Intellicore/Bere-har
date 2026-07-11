@@ -84,66 +84,68 @@ export default function Register() {
               />
             </motion.div>
           </AnimatePresence>
-          <h1 className={styles.title}>Create Your Profile</h1>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              className={styles.input}
-              onChange={(e) => setForm({ ...form, username: e.target.value })}
-              value={form.username}
-            />
-            <small>{errors.username?.[0]}</small>
+          <div className={styles.content}>
+            <h1 className={styles.title}>Create Your Profile</h1>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                className={styles.input}
+                onChange={(e) => setForm({ ...form, username: e.target.value })}
+                value={form.username}
+              />
+              <small>{errors.username?.[0]}</small>
 
-            <input
-              type="email"
-              name="email"
-              placeholder="Email..."
-              className={styles.input}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              value={form.email}
-            />
-            <small>{errors.email?.[0]}</small>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email..."
+                className={styles.input}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                value={form.email}
+              />
+              <small>{errors.email?.[0]}</small>
 
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              className={styles.input}
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
-              value={form.password}
-            />
-            <small>{errors.password?.[0]}</small>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                className={styles.input}
+                onChange={(e) => setForm({ ...form, password: e.target.value })}
+                value={form.password}
+              />
+              <small>{errors.password?.[0]}</small>
 
-            <input
-              type="password"
-              name="confirm_password"
-              placeholder="Confirm Password"
-              className={styles.input}
-              onChange={(e) =>
-                setForm({
-                  ...form,
-                  confirm_password: e.target.value,
-                })
-              }
-              value={form.confirm_password}
-            />
+              <input
+                type="password"
+                name="confirm_password"
+                placeholder="Confirm Password"
+                className={styles.input}
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    confirm_password: e.target.value,
+                  })
+                }
+                value={form.confirm_password}
+              />
 
-            <small>{errors.confirm_password?.[0]}</small>
+              <small>{errors.confirm_password?.[0]}</small>
 
-            {success && <small>Registration Successful</small>}
-            {loading ? (
-              <button type="submit" className={styles.button} disabled>
-                Please Wait...
-              </button>
-            ) : (
-              <button type="submit" className={styles.button}>
-                Register
-              </button>
-            )}
-          </form>
-          <p className={styles.text}>Already have an account? Login</p>
+              {success && <small>Registration Successful</small>}
+              {loading ? (
+                <button type="submit" className={styles.button} disabled>
+                  Please Wait...
+                </button>
+              ) : (
+                <button type="submit" className={styles.button}>
+                  Register
+                </button>
+              )}
+            </form>
+            <p className={styles.text}>Already have an account? Login</p>
+          </div>
         </div>
       </div>
     </div>
