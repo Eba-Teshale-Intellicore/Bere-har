@@ -32,6 +32,8 @@
   // img {
   //   object-fit: scale-down;
   // }
+  display: flex;
+  flex-direction: column;
 }
 
 .content {
