@@ -62,12 +62,12 @@ export default function Hero() {
                 <Paragraph
                   text="HandMade Ethiopian Silk "
                   size="lg"
-                  color="white"
+                  // color="white"
                 />
                 <Paragraph
                   text="Timeless elegance inspired by Ethiopian culture, crafted for the modern world."
                   size="md"
-                  color="white"
+                  // color="white"
                 />
               </p>
               {/* <div className={styles.xscroll}>fgn</div> */}
