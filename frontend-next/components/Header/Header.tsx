@@ -10,6 +10,8 @@ import {
   X,
   LogOut,
   Contact2,
+  Map,
+  MapPin,
 } from "lucide-react";
 import Image from "next/image";
 import Button from "@/components/Button";
@@ -133,7 +135,10 @@ export default function Header() {
               </ul>
 
               <ul className={styles.nav}>
-                <li>Find a Store</li>
+                <li className={styles.logout}>
+                  <Link href="/"> Find A Store</Link>
+                  <MapPin size={14} />
+                </li>
                 <li>{/* <h1>{t.header.about}</h1> */}</li>
                 {isLoggedIn ? (
                   <li className={styles.logout}>
