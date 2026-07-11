@@ -101,11 +101,18 @@ export default function Header() {
 
               <ul className={styles.nav}>
                 <li>
-                  <Link href="/women-collections">Women</Link>
+                  <Link
+                    href="/women-collections"
+                    onClick={() => setOpen(false)}
+                  >
+                    Women
+                  </Link>
                 </li>
 
                 <li>
-                  <Link href="/men-collections">Men</Link>
+                  <Link href="/men-collections" onClick={() => setOpen(false)}>
+                    Men
+                  </Link>
                 </li>
 
                 <li>
@@ -138,20 +145,25 @@ export default function Header() {
                   </AnimatePresence>
                 </li>
 
-                <li>New Arrival</li>
-                <li>Jewelry</li>
+                <li onClick={() => setOpen(false)}>New Arrival</li>
+                <li onClick={() => setOpen(false)}>Jewelry</li>
               </ul>
 
               <ul className={styles.nav}>
                 <li className={styles.logout}>
                   <MapPin size={14} />
-                  <Link href="/"> Find A Store</Link>
+                  <Link href="/" onClick={() => setOpen(false)}>
+                    {" "}
+                    Find A Store
+                  </Link>
                 </li>
                 <li>{/* <h1>{t.header.about}</h1> */}</li>
                 {isLoggedIn ? (
                   <li className={styles.logout}>
                     <Contact2 size={14} />
-                    <Link href="/">Contact Us</Link>
+                    <Link href="/" onClick={() => setOpen(false)}>
+                      Contact Us
+                    </Link>
                   </li>
                 ) : (
                   ""
@@ -164,7 +176,7 @@ export default function Header() {
                 </li>
                 <li></li>
                 {isLoggedIn ? (
-                  <li className={styles.logout}>
+                  <li className={styles.logout} onClick={() => setOpen(false)}>
                     <Link href="/">Logout</Link>
                     <LogOut size={14} />
                   </li>

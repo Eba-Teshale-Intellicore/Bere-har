@@ -116,6 +116,11 @@
   justify-content: space-around;
   gap: 1rem;
   cursor: pointer;
+  li {
+    :hover {
+      background-color: black;
+    }
+  }
 }
 .menuItem {
   display: flex;
