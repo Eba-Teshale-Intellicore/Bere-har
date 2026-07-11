@@ -115,7 +115,7 @@ export default function Product() {
             )}
             <div className={styles.collections}>
               {filteredProducts.map((product) => (
-                <React.Fragment key={product.id}>
+                <div key={product.id}>
                   {product.images.map((img: any) => (
                     <div key={img.id} className={styles.card}>
                       <motion.div
@@ -132,7 +132,7 @@ export default function Product() {
                       </motion.div>
                     </div>
                   ))}
-                </React.Fragment>
+                </div>
               ))}
             </div>
             {(active == "all" || active == "jew") && (
