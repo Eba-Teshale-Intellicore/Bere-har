@@ -113,9 +113,9 @@ export default function Product() {
                 ))}
               </div>
             )}
-            {filteredProducts.map((product) => (
-              <div key={product.id} className={styles.collections}>
-                <div className={styles.card}>
+            <div className={styles.collections}>
+              {filteredProducts.map((product) => (
+                <div key={product.id} className={styles.card}>
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
@@ -130,8 +130,8 @@ export default function Product() {
                   </motion.div>
                   {/* <Paragraph text={item.title} /> */}
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
             {(active == "all" || active == "jew") && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
