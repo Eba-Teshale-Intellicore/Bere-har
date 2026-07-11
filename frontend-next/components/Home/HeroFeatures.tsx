@@ -7,7 +7,7 @@ import Image from "next/image";
 import img1 from "@/public/flow1.jpeg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
-import { getProducts } from "@/src/api/product";
+// import { getProducts } from "@/src/api/product";
 const womenCollections = [
   {
     title: "Women's Accessories",
@@ -55,19 +55,19 @@ const menCollections = [
 
 export default function HeroFeatures() {
   const [active, setActive] = useState("women");
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const data = await getProducts();
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       const data = await getProducts();
+  //       setProducts(data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchProducts();
+  // }, []);
 
   return (
     <>
@@ -96,27 +96,34 @@ export default function HeroFeatures() {
             </div>
             {active == "women" && (
               <div className={styles.collections}>
-                {products.map((item: any) => {
-                  // console.log(item.images);
+                {womenCollections.map((item) => (
+                  <div key={item.title} className={styles.card}>
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
 
-                  return (
-                    <div key={item.id} className={styles.card}>
-                      <motion.div
-                        className={styles.imageWrapper}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <Image
-                          src={item.images[0]?.image}
-                          alt={item.p_title}
-                          fill
-                          className={styles.mainImage}
-                          style={{ objectFit: "cover" }}
-                        />
-                      </motion.div>
-                      <Paragraph text={item.p_title} />
-                    </div>
-                  );
-                })}
+                      <Image
+                        src={item.hover}
+                        alt={item.title}
+                        fill
+                        className={styles.hoverImage}
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: "center center",
+                        }}
+                      />
+                    </motion.div>
+                    <Paragraph text={item.title} />
+                  </div>
+                ))}
               </div>
             )}
             {active == "men" && (

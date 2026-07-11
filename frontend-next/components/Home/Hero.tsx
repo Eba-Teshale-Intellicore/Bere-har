@@ -74,7 +74,6 @@ export default function Hero() {
                     color="white"
                   />
                 </p>
-                {/* <div className={styles.xscroll}>fgn</div> */}
               </motion.div>
             </AnimatePresence>
 
