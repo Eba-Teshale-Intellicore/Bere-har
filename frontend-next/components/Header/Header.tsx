@@ -114,6 +114,31 @@ export default function Header() {
                     Men
                   </Link>
                 </li>
+                <li>
+                  <Link href="/men-collections" onClick={() => setOpen(false)}>
+                    Men
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/men-collections" onClick={() => setOpen(false)}>
+                    Men
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/men-collections" onClick={() => setOpen(false)}>
+                    Men
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/men-collections" onClick={() => setOpen(false)}>
+                    Men
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/men-collections" onClick={() => setOpen(false)}>
+                    Men
+                  </Link>
+                </li>
 
                 <li
                   onMouseEnter={() => setOpenGift(true)}
