@@ -116,6 +116,18 @@ export default function Product() {
                             style={{ objectFit: "cover" }}
                           />
                         </motion.div>
+                        <div className={styles.cardInfo}>
+                          <h4>{product.p_title}</h4>
+
+                          {product.variants?.length ? (
+                            <>
+                              <p>Size: {product.variants[0].size}</p>
+                              <p>Price: ${product.variants[0].price}</p>
+                            </>
+                          ) : (
+                            <p>Price: ${product.p_price}</p>
+                          )}
+                        </div>
                       </div>
                     ))}
                   </React.Fragment>
