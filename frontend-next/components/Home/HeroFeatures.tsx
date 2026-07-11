@@ -106,6 +106,7 @@ export default function HeroFeatures() {
                         src={item.image}
                         alt={item.title}
                         fill
+                        placeholder="blur"
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
                       />
@@ -114,6 +115,7 @@ export default function HeroFeatures() {
                         src={item.hover}
                         alt={item.title}
                         fill
+                        placeholder="blur"
                         className={styles.hoverImage}
                         style={{
                           objectFit: "cover",
@@ -138,6 +140,7 @@ export default function HeroFeatures() {
                         src={item.image}
                         alt={item.title}
                         fill
+                        placeholder="blur"
                         className={styles.mainImage}
                         style={{ objectFit: "cover" }}
                       />
@@ -147,6 +150,7 @@ export default function HeroFeatures() {
                         alt={item.title}
                         fill
                         className={styles.hoverImage}
+                        placeholder="blur"
                         style={{
                           objectFit: "cover",
                           objectPosition: "center center",
