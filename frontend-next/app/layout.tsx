@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Roboto,
+  Montserrat,
+  Black_Ops_One,
+  Abril_Fatface,
+} from "next/font/google";
 
 import "./globals.css";
 import Header from "@/components/Header/Header";
@@ -20,6 +27,22 @@ export const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
   variable: "--font-roboto",
 });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  weight: ["400", "500", "600", "700"],
+});
+const blackOps = Black_Ops_One({
+  subsets: ["latin"],
+  variable: "--font-blackops",
+  weight: "400",
+});
+
+const abril = Abril_Fatface({
+  subsets: ["latin"],
+  variable: "--font-abril",
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Bere har",
@@ -34,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${montserrat.variable} ${blackOps.variable} ${abril.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <AuthProvider>
