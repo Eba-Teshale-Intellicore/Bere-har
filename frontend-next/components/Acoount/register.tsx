@@ -7,6 +7,8 @@ import { registerUser } from "@/src/api/account";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import img from "@/public/accountbg.jpeg";
+import Link from "next/link";
+import { Loader2 } from "lucide-react";
 
 export default function Register() {
   const router = useRouter();
@@ -62,7 +64,7 @@ export default function Register() {
     <div className={styles.container}>
       <div className={styles.formBox}>
         <div className={styles.register}>
-          {/* <div className={styles.overlay} /> */}
+          <div className={styles.overlay} />
           <AnimatePresence mode="wait">
             <motion.div
               className={styles.imagebg}
@@ -87,6 +89,9 @@ export default function Register() {
           <div className={styles.content}>
             <form onSubmit={handleSubmit}>
               <h1 className={styles.title}>Create Your Profile</h1>
+              <p className={styles.subtitle}>
+                Create your account and discover the latest collections.
+              </p>
               <input
                 type="text"
                 name="username"
@@ -105,7 +110,9 @@ export default function Register() {
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 value={form.email}
               />
-              <small>{errors.email?.[0]}</small>
+              {errors.email && (
+                <p className={styles.error}>{errors.email[0]}</p>
+              )}
 
               <input
                 type="password"
@@ -136,6 +143,7 @@ export default function Register() {
               {success && <small>Registration Successful</small>}
               {loading ? (
                 <button type="submit" className={styles.button} disabled>
+                  <Loader2 className={styles.spinner} />
                   Creating Account...
                 </button>
               ) : (
@@ -144,12 +152,15 @@ export default function Register() {
                 </button>
               )}
               <div>
-                <button type="submit" className={styles.button}>
+                <button type="submit" className={styles.google}>
                   Continue with Google
                 </button>
               </div>
             </form>
-            <p className={styles.text}>Already have an account? Login</p>
+            <p className={styles.text}>
+              Already have an account?
+              <Link href="/account/login">Sign in</Link>
+            </p>
           </div>
         </div>
       </div>
