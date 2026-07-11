@@ -118,7 +118,7 @@ export default function Header() {
                 <li>
                   <div
                     className={styles.menuItem}
-                    onClick={() => setOpenGift((prev) => !prev)}
+                    onTouchMove={() => setOpenGift((prev) => !prev)}
                   >
                     Gifts & Personalization{" "}
                     {openGift ? (
