@@ -121,7 +121,7 @@ export default function Product() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <Image
-                      src={product.images?.[0]?.image}
+                      src={product.images?.image}
                       alt={product.p_title}
                       fill
                       className={styles.mainImage}
