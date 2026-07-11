@@ -61,7 +61,7 @@ export default function Register() {
   return (
     <div className={styles.container}>
       <div className={styles.formBox}>
-        <div className={styles.hero}>
+        <div className={styles.register}>
           <div className={styles.overlay} />
           <AnimatePresence mode="wait">
             <motion.div
@@ -136,13 +136,18 @@ export default function Register() {
               {success && <small>Registration Successful</small>}
               {loading ? (
                 <button type="submit" className={styles.button} disabled>
-                  Please Wait...
+                  Creating Account...
                 </button>
               ) : (
                 <button type="submit" className={styles.button}>
                   Register
                 </button>
               )}
+              <div>
+                <button type="submit" className={styles.button}>
+                  Continue with Google
+                </button>
+              </div>
             </form>
             <p className={styles.text}>Already have an account? Login</p>
           </div>
