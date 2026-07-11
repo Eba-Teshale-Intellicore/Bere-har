@@ -93,38 +93,39 @@ export default function Product() {
                 ))}
               </ul>
             </div>
-
-            <div className={styles.collections}>
-              {filteredProducts.map((product) => (
-                <React.Fragment key={product.id}>
-                  {product.images.map((img: any) => (
-                    <div key={img.id} className={styles.card}>
-                      <motion.div
-                        className={styles.imageWrapper}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <Image
-                          src={img.image}
-                          alt={product.p_title}
-                          fill
-                          className={styles.mainImage}
-                          style={{ objectFit: "cover" }}
-                        />
-                      </motion.div>
-                    </div>
-                  ))}
-                </React.Fragment>
-              ))}
-            </div>
             <div>
-              <Button
-                text={
-                  active === "all"
-                    ? "More"
-                    : (filteredProducts[0]?.category?.category_name ??
-                      "Category")
-                }
-              />
+              <div className={styles.collections}>
+                {filteredProducts.map((product) => (
+                  <React.Fragment key={product.id}>
+                    {product.images.map((img: any) => (
+                      <div key={img.id} className={styles.card}>
+                        <motion.div
+                          className={styles.imageWrapper}
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <Image
+                            src={img.image}
+                            alt={product.p_title}
+                            fill
+                            className={styles.mainImage}
+                            style={{ objectFit: "cover" }}
+                          />
+                        </motion.div>
+                      </div>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </div>
+              <div>
+                <Button
+                  text={
+                    active === "all"
+                      ? "More"
+                      : (filteredProducts[0]?.category?.category_name ??
+                        "Category")
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
