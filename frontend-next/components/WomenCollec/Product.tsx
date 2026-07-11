@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
 import { getProducts } from "@/src/api/product";
+import Button from "../Button";
 
 const womenCollections = [
   {
@@ -92,7 +93,7 @@ export default function Product() {
                 ))}
               </ul>
             </div>
-            {active == "all" && (
+            {/* {active == "all" && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
                   <div key={item.title} className={styles.card}>
@@ -109,77 +110,36 @@ export default function Product() {
                       />
                     </motion.div>
                     {/* <Paragraph text={item.title} /> */}
-                  </div>
-                ))}
-              </div>
-            )}
-            <div className={styles.collections}>
-              {filteredProducts.map((product) => (
-                <div key={product.id}>
-                  {product.images.map((img: any) => (
-                    <div key={img.id} className={styles.card}>
-                      <motion.div
-                        className={styles.imageWrapper}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <Image
-                          src={img.image}
-                          alt={product.p_title}
-                          fill
-                          className={styles.mainImage}
-                          style={{ objectFit: "cover" }}
-                        />
-                      </motion.div>
-                    </div>
-                  ))}
+          </div>
+          {/* ))} */}
+        </div>
+        {/* )} */}
+        <div className={styles.collections}>
+          {filteredProducts.map((product) => (
+            <div key={product.id}>
+              {product.images.map((img: any) => (
+                <div key={img.id} className={styles.card}>
+                  <motion.div
+                    className={styles.imageWrapper}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <Image
+                      src={img.image}
+                      alt={product.p_title}
+                      fill
+                      className={styles.mainImage}
+                      style={{ objectFit: "cover" }}
+                    />
+                  </motion.div>
                 </div>
               ))}
+              <Button text="More" />
             </div>
-            {(active == "all" || active == "jew") && (
-              <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div key={item.title} className={styles.card}>
-                    <motion.div
-                      className={styles.imageWrapper}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      />
-                    </motion.div>
-                    {/* <Paragraph text={item.title} /> */}
-                  </div>
-                ))}
-              </div>
-            )}
-            {(active == "all" || active == "bags") && (
-              <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div key={item.title} className={styles.card}>
-                    <motion.div
-                      className={styles.imageWrapper}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      />
-                    </motion.div>
-                    {/* <Paragraph text={item.title} /> */}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          ))}
         </div>
       </div>
+      {/* </div>
+      </div> */}
     </>
   );
 }
