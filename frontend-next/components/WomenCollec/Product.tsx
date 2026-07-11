@@ -92,10 +92,10 @@ export default function Product() {
                 ))}
               </ul>
             </div>
-            {active == "all" && (
-              <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div key={item.title} className={styles.card}>
+            {/* {active == "all" && ( */}
+            {/* <div className={styles.collections}> */}
+            {/* {womenCollections.map((item) => ( */}
+            {/* <div key={item.title} className={styles.card}>
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
@@ -109,10 +109,10 @@ export default function Product() {
                       />
                     </motion.div>
                     {/* <Paragraph text={item.title} /> */}
-                  </div>
-                ))}
-              </div>
-            )}
+            {/* </div> */}
+            {/* ))} */}
+            {/* </div> */}
+            {/* )} */}
             <div className={styles.collections}>
               {filteredProducts.map((product) => (
                 <React.Fragment key={product.id}>
@@ -135,10 +135,10 @@ export default function Product() {
                 </React.Fragment>
               ))}
             </div>
-            {(active == "all" || active == "jew") && (
-              <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div key={item.title} className={styles.card}>
+            {/* {(active == "all" || active == "jew") && ( */}
+            {/* <div className={styles.collections}> */}
+            {/* {womenCollections.map((item) => ( */}
+            {/* <div key={item.title} className={styles.card}>
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
@@ -152,14 +152,14 @@ export default function Product() {
                       />
                     </motion.div>
                     {/* <Paragraph text={item.title} /> */}
-                  </div>
-                ))}
-              </div>
-            )}
-            {(active == "all" || active == "bags") && (
-              <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div key={item.title} className={styles.card}>
+            {/* </div>  */}
+            {/* // ))} */}
+            {/* </div> */}
+            {/* )} */}
+            {/* {(active == "all" || active == "bags") && ( */}
+            {/* <div className={styles.collections}> */}
+            {/* {womenCollections.map((item) => ( */}
+            {/* <div key={item.title} className={styles.card}>
                     <motion.div
                       className={styles.imageWrapper}
                       whileHover={{ scale: 1.05 }}
@@ -173,13 +173,13 @@ export default function Product() {
                       />
                     </motion.div>
                     {/* <Paragraph text={item.title} /> */}
-                  </div>
-                ))}
-              </div>
-            )}
+            {/* </div> */}
+            {/* // ))} */}
           </div>
+          {/* )} */}
         </div>
       </div>
+      {/* </div> */}
     </>
   );
 }
