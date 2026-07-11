@@ -12,6 +12,7 @@ import {
   Contact2,
   Map,
   MapPin,
+  CircleUserRound,
 } from "lucide-react";
 import Image from "next/image";
 import Button from "@/components/Button";
@@ -64,7 +65,12 @@ export default function Header() {
             </div>
             <div className={styles.contact}>
               {isLoggedIn ? (
-                <Button text="Contact Us" />
+                <div className={styles.logout}>
+                  <CircleUserRound size={14} />
+                  <Link href="/account/register">
+                    <Button text="Contact Us" />
+                  </Link>
+                </div>
               ) : (
                 <Link href="/account/register">
                   <Button text="Register" />
@@ -136,14 +142,14 @@ export default function Header() {
 
               <ul className={styles.nav}>
                 <li className={styles.logout}>
-                  <Link href="/"> Find A Store</Link>
                   <MapPin size={14} />
+                  <Link href="/"> Find A Store</Link>
                 </li>
                 <li>{/* <h1>{t.header.about}</h1> */}</li>
                 {isLoggedIn ? (
                   <li className={styles.logout}>
-                    <Link href="/">Contact Us</Link>
                     <Contact2 size={14} />
+                    <Link href="/">Contact Us</Link>
                   </li>
                 ) : (
                   ""
