@@ -53,6 +53,9 @@
   .hero {
     min-height: 75vh;
     padding: 0 1rem;
+    img {
+      object-position: center center;
+    }
   }
 
   .content {

@@ -44,8 +44,8 @@ export default function Hero() {
                   priority={current === 0}
                   sizes="100vw"
                   style={{
-                    width: "auto",
-                    height: "100%",
+                    objectFit: "cover",
+                    // objectPosition: "center center",
                   }}
                 />
               </motion.div>
