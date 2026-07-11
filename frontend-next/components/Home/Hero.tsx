@@ -55,7 +55,13 @@ export default function Hero() {
                   }}
                 />
               </motion.div>
-              <div className={styles.content}>
+              <motion.div
+                className={styles.content}
+                initial={{ opacity: 0, x: 80 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -80 }}
+                transition={{ duration: 0.8 }}
+              >
                 <p>
                   <Paragraph
                     text="HandMade Ethiopian Silk "
@@ -65,28 +71,13 @@ export default function Hero() {
                   <Paragraph
                     text="Timeless elegance inspired by Ethiopian culture, crafted for the modern world."
                     size="md"
-                    // color="white"
+                    color="white"
                   />
                 </p>
                 {/* <div className={styles.xscroll}>fgn</div> */}
-              </div>
+              </motion.div>
             </AnimatePresence>
 
-            {/* <div className={styles.content}>
-              <p>
-                <Paragraph
-                  text="HandMade Ethiopian Silk "
-                  size="lg"
-                  // color="white"
-                />
-                <Paragraph
-                  text="Timeless elegance inspired by Ethiopian culture, crafted for the modern world."
-                  size="md"
-                  // color="white"
-                />
-              </p>
-              {/* <div className={styles.xscroll}>fgn</div> */}
-            {/* </div> */}
             <div className={styles.pagination}>
               {images.map((_, index) => (
                 <button
