@@ -126,7 +126,6 @@ export default function Product() {
                       fill
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
-                      placeholder="blur"
                     />
                   </motion.div>
                   {/* <Paragraph text={item.title} /> */}
