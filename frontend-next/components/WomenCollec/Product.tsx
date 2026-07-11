@@ -115,6 +115,8 @@ export default function Product() {
                   ))}
                 </React.Fragment>
               ))}
+            </div>
+            <div>
               <Button
                 text={
                   active === "all"
