@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/src/scss/product.module.scss";
 import Paragraph from "@/components/Paragraph";
 import Image from "next/image";
@@ -7,6 +7,8 @@ import img1 from "@/public/flow1.jpeg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
+import { getCategories } from "@/src/api/category";
+import { getProducts } from "@/src/api/product";
 
 const womenCollections = [
   {
@@ -34,7 +36,35 @@ const womenCollections = [
 export default function Product() {
   // const [active, setActive] = useState("all");
   const [active, setActive] = useState("all");
+  const [categories, setCategories] = useState<any[]>([]);
+  const [products, setProducts] = useState<any[]>([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [categoriesData, productsData] = await Promise.all([
+          getCategories(),
+          getProducts(),
+        ]);
+
+        setCategories(categoriesData);
+        setProducts(productsData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const filteredProducts =
+    active === "all"
+      ? products.filter((p) => p.gendercollection?.title === "womencollection")
+      : products.filter(
+          (p) =>
+            p.gendercollection?.title === "womencollection" &&
+            p.category.category_slug === active,
+        );
   return (
     <>
       <div className={styles.sticky}>
@@ -51,26 +81,15 @@ export default function Product() {
                 >
                   All
                 </li>
-
-                <li
-                  onClick={() => setActive("shoes")}
-                  className={active === "shoes" ? styles.active : ""}
-                >
-                  Shoes
-                </li>
-                <li
-                  onClick={() => setActive("jew")}
-                  className={active === "jew" ? styles.active : ""}
-                >
-                  Jewelery
-                </li>
-
-                <li
-                  onClick={() => setActive("bags")}
-                  className={active === "bags" ? styles.active : ""}
-                >
-                  Bags
-                </li>
+                {categories.map((e: any) => (
+                  <li
+                    key={e.id}
+                    onClick={() => setActive(e.category_slug)}
+                    className={active === e.category_slug ? styles.active : ""}
+                  >
+                    {e.category_name}
+                  </li>
+                ))}
               </ul>
             </div>
             {active == "all" && (
@@ -94,27 +113,26 @@ export default function Product() {
                 ))}
               </div>
             )}
-            {(active == "all" || active == "shoes") && (
-              <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div key={item.title} className={styles.card}>
-                    <motion.div
-                      className={styles.imageWrapper}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      />
-                    </motion.div>
-                    {/* <Paragraph text={item.title} /> */}
-                  </div>
-                ))}
+            {filteredProducts.map((product) => (
+              <div key={product.id} className={styles.collections}>
+                <div className={styles.card}>
+                  <motion.div
+                    className={styles.imageWrapper}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <Image
+                      src={product.images?.[0]?.image}
+                      alt={product.p_title}
+                      fill
+                      className={styles.mainImage}
+                      style={{ objectFit: "cover" }}
+                      placeholder="blur"
+                    />
+                  </motion.div>
+                  {/* <Paragraph text={item.title} /> */}
+                </div>
               </div>
-            )}
+            ))}
             {(active == "all" || active == "jew") && (
               <div className={styles.collections}>
                 {womenCollections.map((item) => (
