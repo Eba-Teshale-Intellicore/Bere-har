@@ -44,7 +44,7 @@ export default function Hero() {
                   priority={current === 0}
                   sizes="100vw"
                   style={{
-                    width: "100%",
+                    width: "auto",
                     height: "100%",
                   }}
                 />
