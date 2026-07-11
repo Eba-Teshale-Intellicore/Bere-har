@@ -7,13 +7,18 @@ import hero1 from "@/public/flow5.jpeg";
 import hero2 from "@/public/flow4.jpeg";
 import hero3 from "@/public/flow6.jpeg";
 import hero4 from "@/public/flow3.jpeg";
+import men1 from "@/public/mapbare2.jpg";
+import men2 from "@/public/bere-har.png";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-const images = [hero1, hero2, hero3, hero4];
+const womencoll = [hero1, hero2, hero3, hero4];
+const mencoll = [men1, men2];
 
 export default function Hero() {
+  const [active, setActive] = useState<"women" | "men">("women");
   const [current, setCurrent] = useState(0);
+  const images = active === "women" ? womencoll : mencoll;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -50,6 +55,7 @@ export default function Hero() {
                 />
               </motion.div>
             </AnimatePresence>
+
             <div className={styles.content}>
               <p>
                 <Paragraph
@@ -77,6 +83,21 @@ export default function Hero() {
                   {String(index + 1).padStart(2, "0")}
                 </button>
               ))}
+            </div>
+            <div className={styles.pagination2}>
+              <button
+                onClick={() => setActive("women")}
+                className={active === "women" ? styles.active : styles.inactive}
+              >
+                Women
+              </button>
+
+              <button
+                onClick={() => setActive("men")}
+                className={active === "men" ? styles.active : styles.inactive}
+              >
+                Men
+              </button>
             </div>
           </div>
         </div>
