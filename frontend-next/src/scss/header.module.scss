@@ -116,6 +116,11 @@
   justify-content: space-around;
   gap: 1rem;
   cursor: pointer;
+  li {
+    font-size: 24px;
+    font-family: var(--font-blackops);
+    font-weight: 600;
+  }
 }
 
 .menuItem {
@@ -123,11 +128,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-}
-li {
-  font-size: 24px;
-  font-family: var(--font-blackops);
-  font-weight: 600;
 }
 
 .subMenu {
