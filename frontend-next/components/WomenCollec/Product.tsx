@@ -39,6 +39,11 @@ export default function Product() {
   const [active, setActive] = useState("all");
   const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
+  const [visibleCount, setVisibleCount] = useState(5);
+
+  useEffect(() => {
+    setVisibleCount(5);
+  }, [active]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -97,7 +102,7 @@ export default function Product() {
               <div className={styles.collections}>
                 {filteredProducts.map((product) => (
                   <React.Fragment key={product.id}>
-                    {product.images.map((img: any) => (
+                    {product.images.slice(0, visibleCount).map((img: any) => (
                       <div key={img.id} className={styles.card}>
                         <motion.div
                           className={styles.imageWrapper}
@@ -120,10 +125,10 @@ export default function Product() {
                 <Button
                   text={
                     active === "all"
-                      ? "More"
-                      : (filteredProducts[0]?.category?.category_name ??
-                        "Category")
+                      ? "View More"
+                      : `More ${filteredProducts[0]?.category?.category_name ?? "Category"}`
                   }
+                  onClick={() => setVisibleCount((prev) => prev + 5)}
                 />
               </div>
             </div>
