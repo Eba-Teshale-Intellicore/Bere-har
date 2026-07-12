@@ -1,36 +1,17 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import styles from "@/src/scss/contact.module.scss";
-import {
-  ChevronDown,
-  ChevronRight,
-  Globe,
-  Menu,
-  Search,
-  X,
-  LogOut,
-  Contact2,
-  Map,
-  MapPin,
-  CircleUserRound,
-} from "lucide-react";
+import { Globe, X, LogOut, MapPin, Mail, Send } from "lucide-react";
 import Image from "next/image";
-import Button from "@/components/Button";
-// import logo from "@/public/bere-har.png";
 import logo from "@/public/bere-har-2.png";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-// import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
-// import { useTranslations } from "next-intl";
-import Register from "@/components/Acoount/register";
 import { AuthContext } from "@/app/AuthProvider";
 type ContactProps = {
   onClose?: () => void;
 };
 
 export default function Contact({ onClose }: ContactProps) {
-  const [open, setOpen] = useState(false);
-  const [openGift, setOpenGift] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { isLoggedIn } = useContext(AuthContext)!;
 
@@ -51,7 +32,6 @@ export default function Contact({ onClose }: ContactProps) {
   return (
     <>
       {/* Sidebar */}
-      {/* <AnimatePresence> */}
       <>
         <div className={styles.overlay} onClick={onClose} />
 
@@ -72,76 +52,52 @@ export default function Contact({ onClose }: ContactProps) {
               <X size={28} onClick={onClose} />
             </div>
           </div>
-
-          <ul>
-            <div className={styles.nav}>
-              <li>
-                <Link href="/women-collections" onClick={() => setOpen(false)}>
-                  Women
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/men-collections" onClick={() => setOpen(false)}>
-                  Men
-                </Link>
-              </li>
-
-              <li
-                onMouseEnter={() => setOpenGift(true)}
-                onMouseLeave={() => setOpenGift(false)}
-              >
-                <div className={styles.menuItem}>
-                  Gifts & Personalization{" "}
-                  {openGift ? (
-                    <ChevronDown size={18} />
-                  ) : (
-                    <ChevronRight size={18} />
-                  )}
-                </div>
-
-                <AnimatePresence>
-                  {openGift && (
-                    <motion.ul
-                      className={styles.subMenu}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <li>For her</li>
-                      <li>For him</li>
-                      <li>For kids</li>
-                    </motion.ul>
-                  )}
-                </AnimatePresence>
-              </li>
-
-              <li onClick={() => setOpen(false)}>New Arrival</li>
-              <li onClick={() => setOpen(false)}>Jewelry</li>
-            </div>
-          </ul>
+          <div className={styles.con}>
+            <p>Contact Us</p>
+          </div>
 
           <ul>
             <div className={styles.nav}>
               <li className={styles.logout}>
+                <Mail size={18} />
+                <Link href="mailto:ebateshale40@gmail.com" onClick={onClose}>
+                  Send an Email
+                </Link>
+              </li>
+
+              <li className={styles.logout}>
+                <Mail size={18} />
+                <Link
+                  href="https://wa.me/2519XXXXXXXX"
+                  target="_blank"
+                  onClick={onClose}
+                >
+                  WhatsApp
+                </Link>
+              </li>
+              <li className={styles.logout}>
+                <Send size={18} />
+                <Link
+                  href="https://t.me/gpspace_tech"
+                  target="_blank"
+                  onClick={onClose}
+                >
+                  Telegram
+                </Link>
+              </li>
+            </div>
+          </ul>
+          <hr />
+          <ul>
+            <div className={styles.nav}>
+              <li className={styles.logout}>
                 <MapPin size={14} />
-                <Link href="/" onClick={() => setOpen(false)}>
+                <Link href="/" onClick={onClose}>
                   {" "}
                   Find A Store
                 </Link>
               </li>
-              <li>{/* <h1>{t.header.about}</h1> */}</li>
-              {isLoggedIn ? (
-                <li className={styles.logout}>
-                  <Contact2 size={14} />
-                  <Link href="/" onClick={() => setOpen(false)}>
-                    Contact Us
-                  </Link>
-                </li>
-              ) : (
-                ""
-              )}
+
               <li className={styles.langItem}>
                 <Globe size={14} />
                 <span>
@@ -150,7 +106,7 @@ export default function Contact({ onClose }: ContactProps) {
               </li>
               <li></li>
               {isLoggedIn ? (
-                <li className={styles.logout} onClick={() => setOpen(false)}>
+                <li className={styles.logout} onClick={onClose}>
                   <Link href="/">Logout</Link>
                   <LogOut size={14} />
                 </li>
@@ -158,10 +114,15 @@ export default function Contact({ onClose }: ContactProps) {
                 ""
               )}
             </div>
+            <div className={styles.hours}>
+              <h4>Service Hours</h4>
+              <p>Monday – Saturday</p>
+              <p>09:00 – 18:00 (East Africa Time)</p>
+              <small>Closed on Sundays and Public Holidays</small>
+            </div>
           </ul>
         </motion.div>
       </>
-      {/* </AnimatePresence> */}
     </>
   );
 }
