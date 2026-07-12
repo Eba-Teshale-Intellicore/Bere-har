@@ -24,9 +24,11 @@ import Link from "next/link";
 // import { useTranslations } from "next-intl";
 import Register from "@/components/Acoount/register";
 import { AuthContext } from "@/app/AuthProvider";
+import Contact from "../Contact/contact";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [contact, setContact] = useState(false);
   const [openGift, setOpenGift] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { isLoggedIn } = useContext(AuthContext)!;
@@ -68,7 +70,7 @@ export default function Header() {
                 <div
                   className={`${styles.menu} ${scrolled ? styles.menus : ""}`}
                 >
-                  <Link href="/contact-us" onClick={() => setOpen(true)}>
+                  <Link href="/contact-us" onClick={() => setContact(true)}>
                     <Button text="Contact Us" />
                   </Link>
                   <CircleUserRound size={24} />
@@ -82,6 +84,7 @@ export default function Header() {
           </div>
         </div>
       </div>
+      <AnimatePresence>{contact && <Contact />}</AnimatePresence>
       {/* Sidebar */}
       <AnimatePresence>
         {open && (

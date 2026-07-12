@@ -47,7 +47,7 @@ export default function Header() {
   }, []);
   return (
     <>
-      <div className={styles.sticky}>
+      {/* <div className={styles.sticky}>
         <div className={styles.container}>
           <div
             className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
@@ -81,7 +81,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Sidebar */}
       <AnimatePresence>
         {open && (
