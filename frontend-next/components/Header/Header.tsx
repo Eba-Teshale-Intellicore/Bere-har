@@ -70,9 +70,6 @@ export default function Header() {
                 <div
                   className={`${styles.menu} ${scrolled ? styles.menus : ""}`}
                 >
-                  {/* <Link href="/" onClick={() => setContact(true)}>
-                    <Button text="Contact Us" />
-                  </Link> */}
                   <Button text="Contact Us" onClick={() => setContact(true)} />
                   <CircleUserRound size={24} />
                 </div>
@@ -165,11 +162,15 @@ export default function Header() {
                 </li>
                 <li>{/* <h1>{t.header.about}</h1> */}</li>
                 {isLoggedIn ? (
-                  <li className={styles.logout}>
+                  <li
+                    className={styles.logout}
+                    onClick={() => {
+                      setOpen(false);
+                      setContact(true);
+                    }}
+                  >
                     <Contact2 size={14} />
-                    <Link href="/" onClick={() => setOpen(false)}>
-                      Contact Us
-                    </Link>
+                    <span>Contact Us</span>
                   </li>
                 ) : (
                   ""
