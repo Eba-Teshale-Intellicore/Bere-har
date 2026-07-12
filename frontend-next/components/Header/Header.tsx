@@ -19,13 +19,9 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Button from "@/components/Button";
-// import logo from "@/public/bere-har.png";
 import logo from "@/public/bere-har-2.png";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-// import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
-// import { useTranslations } from "next-intl";
-import Register from "@/components/Acoount/register";
 import { AuthContext } from "@/app/AuthProvider";
 import Contact from "../Contact/contact";
 
