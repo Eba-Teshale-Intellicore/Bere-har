@@ -117,7 +117,7 @@ export default function Contact({ onClose }: ContactProps) {
             <div className={styles.hours}>
               <h4>Service Hours</h4>
               <p>Monday – Saturday</p>
-              <p>09:00 – 18:00 (East Africa Time)</p>
+              <p>09:00 AM – 06:00 PM </p>
               <small>Closed on Sundays and Public Holidays</small>
             </div>
           </ul>
