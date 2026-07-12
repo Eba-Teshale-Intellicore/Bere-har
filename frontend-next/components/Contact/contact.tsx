@@ -68,7 +68,7 @@ export default function Header() {
                 <div
                   className={`${styles.menu} ${scrolled ? styles.menus : ""}`}
                 >
-                  <Link href="/contact-us">
+                  <Link href="/account/register">
                     <Button text="Contact Us" />
                   </Link>
                   <CircleUserRound size={24} />
