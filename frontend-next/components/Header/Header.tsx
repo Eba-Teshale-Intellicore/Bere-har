@@ -70,9 +70,10 @@ export default function Header() {
                 <div
                   className={`${styles.menu} ${scrolled ? styles.menus : ""}`}
                 >
-                  <Link href="/contact-us" onClick={() => setContact(true)}>
+                  {/* <Link href="/" onClick={() => setContact(true)}>
                     <Button text="Contact Us" />
-                  </Link>
+                  </Link> */}
+                  <Button text="Contact Us" onClick={() => setContact(true)} />
                   <CircleUserRound size={24} />
                 </div>
               ) : (
