@@ -73,87 +73,91 @@ export default function Contact({ onClose }: ContactProps) {
             </div>
           </div>
 
-          <ul className={styles.nav}>
-            <li>
-              <Link href="/women-collections" onClick={() => setOpen(false)}>
-                Women
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/men-collections" onClick={() => setOpen(false)}>
-                Men
-              </Link>
-            </li>
-
-            <li
-              onMouseEnter={() => setOpenGift(true)}
-              onMouseLeave={() => setOpenGift(false)}
-            >
-              <div className={styles.menuItem}>
-                Gifts & Personalization{" "}
-                {openGift ? (
-                  <ChevronDown size={18} />
-                ) : (
-                  <ChevronRight size={18} />
-                )}
-              </div>
-
-              <AnimatePresence>
-                {openGift && (
-                  <motion.ul
-                    className={styles.subMenu}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <li>For her</li>
-                    <li>For him</li>
-                    <li>For kids</li>
-                  </motion.ul>
-                )}
-              </AnimatePresence>
-            </li>
-
-            <li onClick={() => setOpen(false)}>New Arrival</li>
-            <li onClick={() => setOpen(false)}>Jewelry</li>
-          </ul>
-
-          <ul className={styles.nav}>
-            <li className={styles.logout}>
-              <MapPin size={14} />
-              <Link href="/" onClick={() => setOpen(false)}>
-                {" "}
-                Find A Store
-              </Link>
-            </li>
-            <li>{/* <h1>{t.header.about}</h1> */}</li>
-            {isLoggedIn ? (
-              <li className={styles.logout}>
-                <Contact2 size={14} />
-                <Link href="/" onClick={() => setOpen(false)}>
-                  Contact Us
+          <ul>
+            <div className={styles.nav}>
+              <li>
+                <Link href="/women-collections" onClick={() => setOpen(false)}>
+                  Women
                 </Link>
               </li>
-            ) : (
-              ""
-            )}
-            <li className={styles.langItem}>
-              <Globe size={14} />
-              <span>
-                Rest of the World | English{/* <LanguageSwitcher /> */}
-              </span>
-            </li>
-            <li></li>
-            {isLoggedIn ? (
-              <li className={styles.logout} onClick={() => setOpen(false)}>
-                <Link href="/">Logout</Link>
-                <LogOut size={14} />
+
+              <li>
+                <Link href="/men-collections" onClick={() => setOpen(false)}>
+                  Men
+                </Link>
               </li>
-            ) : (
-              ""
-            )}
+
+              <li
+                onMouseEnter={() => setOpenGift(true)}
+                onMouseLeave={() => setOpenGift(false)}
+              >
+                <div className={styles.menuItem}>
+                  Gifts & Personalization{" "}
+                  {openGift ? (
+                    <ChevronDown size={18} />
+                  ) : (
+                    <ChevronRight size={18} />
+                  )}
+                </div>
+
+                <AnimatePresence>
+                  {openGift && (
+                    <motion.ul
+                      className={styles.subMenu}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <li>For her</li>
+                      <li>For him</li>
+                      <li>For kids</li>
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </li>
+
+              <li onClick={() => setOpen(false)}>New Arrival</li>
+              <li onClick={() => setOpen(false)}>Jewelry</li>
+            </div>
+          </ul>
+
+          <ul>
+            <div className={styles.nav}>
+              <li className={styles.logout}>
+                <MapPin size={14} />
+                <Link href="/" onClick={() => setOpen(false)}>
+                  {" "}
+                  Find A Store
+                </Link>
+              </li>
+              <li>{/* <h1>{t.header.about}</h1> */}</li>
+              {isLoggedIn ? (
+                <li className={styles.logout}>
+                  <Contact2 size={14} />
+                  <Link href="/" onClick={() => setOpen(false)}>
+                    Contact Us
+                  </Link>
+                </li>
+              ) : (
+                ""
+              )}
+              <li className={styles.langItem}>
+                <Globe size={14} />
+                <span>
+                  Rest of the World | English{/* <LanguageSwitcher /> */}
+                </span>
+              </li>
+              <li></li>
+              {isLoggedIn ? (
+                <li className={styles.logout} onClick={() => setOpen(false)}>
+                  <Link href="/">Logout</Link>
+                  <LogOut size={14} />
+                </li>
+              ) : (
+                ""
+              )}
+            </div>
           </ul>
         </motion.div>
       </>
