@@ -131,16 +131,17 @@ export default function Header() {
                 <li
                   onMouseEnter={() => setOpenGift(true)}
                   onMouseLeave={() => setOpenGift(false)}
-                  className={styles.logou}
                 >
-                  <Gift size={14} />
-                  <div className={styles.menuItem}>
-                    Gifts & Personalization{" "}
-                    {openGift ? (
-                      <ChevronDown size={18} />
-                    ) : (
-                      <ChevronRight size={18} />
-                    )}
+                  <div className={styles.logout}>
+                    <Gift size={14} />
+                    <div className={styles.menuItem}>
+                      Gifts & Personalization{" "}
+                      {openGift ? (
+                        <ChevronDown size={18} />
+                      ) : (
+                        <ChevronRight size={18} />
+                      )}
+                    </div>
                   </div>
 
                   <AnimatePresence>
