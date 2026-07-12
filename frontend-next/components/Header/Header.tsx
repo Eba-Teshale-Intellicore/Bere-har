@@ -131,7 +131,7 @@ export default function Header() {
                 <li
                   onMouseEnter={() => setOpenGift(true)}
                   onMouseLeave={() => setOpenGift(false)}
-                  className={styles.logout}
+                  className={styles.logou}
                 >
                   <Gift size={14} />
                   <div className={styles.menuItem}>
