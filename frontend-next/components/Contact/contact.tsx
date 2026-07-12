@@ -90,20 +90,29 @@ export default function Contact({ onClose }: ContactProps) {
           <hr />
           <ul>
             <div className={styles.nav}>
-              <li className={styles.logout}>
+              <li className={styles.langItem}>
                 <MapPin size={14} />
-                <Link href="/" onClick={onClose}>
-                  {" "}
-                  Find A Store
+                <a
+                  href="https://maps.google.com/?q=Addis+Ababa,Ethiopia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={onClose}
+                >
+                  Find A Store | Map
+                </a>
+              </li>
+              <li className={styles.logout}>
+                <Globe size={14} />
+                <Link
+                  href="https://bere-harv1.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={onClose}
+                >
+                  Website | English
                 </Link>
               </li>
 
-              <li className={styles.langItem}>
-                <Globe size={14} />
-                <span>
-                  Rest of the World | English{/* <LanguageSwitcher /> */}
-                </span>
-              </li>
               <li></li>
               {isLoggedIn ? (
                 <li className={styles.logout} onClick={onClose}>
