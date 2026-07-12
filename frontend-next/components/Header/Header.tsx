@@ -102,7 +102,14 @@ export default function Header() {
               transition={{ duration: 0.3 }}
             >
               <div className={styles.sidebarHeader}>
-                <X size={28} onClick={() => setOpen(false)} />
+                <div>
+                  <X size={28} onClick={() => setOpen(false)} />
+                </div>
+                <div className={styles.logo2}>
+                  <Link href="/">
+                    <Image src={logo} alt="logo" width={80} height={30} />
+                  </Link>
+                </div>
               </div>
 
               <ul className={styles.nav}>
