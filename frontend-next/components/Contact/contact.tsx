@@ -78,7 +78,7 @@ export default function Contact({ onClose }: ContactProps) {
               <li className={styles.langItem}>
                 <MapPin size={14} />
                 <a
-                  href="https://maps.app.goo.gl/i1CWkLhaaC9RzpBn8"
+                  href="https://maps.app.goo.gl/GHKTEiWRyNLqqnqU9"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={onClose}
