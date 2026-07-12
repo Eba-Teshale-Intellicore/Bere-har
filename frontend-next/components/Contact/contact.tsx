@@ -25,11 +25,7 @@ import Link from "next/link";
 import Register from "@/components/Acoount/register";
 import { AuthContext } from "@/app/AuthProvider";
 
-type ContactProps = {
-  onClick?: () => void;
-};
-
-export default function Contact(props: ContactProps) {
+export default function Contact() {
   const [open, setOpen] = useState(false);
   const [openGift, setOpenGift] = useState(false);
   const [scrolled, setScrolled] = useState(false);
