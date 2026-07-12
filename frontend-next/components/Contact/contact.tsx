@@ -78,7 +78,7 @@ export default function Contact({ onClose }: ContactProps) {
               <li className={styles.langItem}>
                 <MapPin size={14} />
                 <a
-                  href="https://maps.google.com/?q=Addis+Ababa,Ethiopia"
+                  href="https://maps.app.goo.gl/8WgT7CYQ2MTfyfVy5"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={onClose}
