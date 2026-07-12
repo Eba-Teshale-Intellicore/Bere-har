@@ -29,6 +29,7 @@ type ContactProps = {
 };
 
 export default function Contact({ onClose }: ContactProps) {
+  const [open, setOpen] = useState(false);
   const [openGift, setOpenGift] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { isLoggedIn } = useContext(AuthContext)!;
