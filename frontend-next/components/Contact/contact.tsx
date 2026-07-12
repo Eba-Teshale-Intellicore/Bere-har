@@ -65,6 +65,13 @@ export default function Contact({ onClose }: ContactProps) {
           <div className={styles.sidebarHeader}>
             <X size={28} onClick={onClose} />
           </div>
+          <div className={styles.logo}>
+            <div>
+              <Link href="/">
+                <Image src={logo} alt="logo" width={80} height={60} />
+              </Link>
+            </div>
+          </div>
 
           <ul className={styles.nav}>
             <li>
