@@ -84,7 +84,9 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <AnimatePresence>{contact && <Contact />}</AnimatePresence>
+      <AnimatePresence>
+        {contact && <Contact onClick={() => setOpen(true)} />}
+      </AnimatePresence>
       {/* Sidebar */}
       <AnimatePresence>
         {open && (
