@@ -63,14 +63,14 @@ export default function Contact({ onClose }: ContactProps) {
           transition={{ duration: 0.8 }}
         >
           <div className={styles.sidebarHeader}>
-            <X size={28} onClick={onClose} />
             <div className={styles.logo}>
               <div>
                 <Link href="/">
-                  <Image src={logo} alt="logo" width={80} height={60} />
+                  <Image src={logo} alt="logo" width={80} height={30} />
                 </Link>
               </div>
             </div>
+            <X size={28} onClick={onClose} />
           </div>
 
           <ul className={styles.nav}>
