@@ -13,6 +13,9 @@ import {
   Map,
   MapPin,
   CircleUserRound,
+  Gift,
+  Gem,
+  ListPlus,
 } from "lucide-react";
 import Image from "next/image";
 import Button from "@/components/Button";
@@ -121,7 +124,9 @@ export default function Header() {
                 <li
                   onMouseEnter={() => setOpenGift(true)}
                   onMouseLeave={() => setOpenGift(false)}
+                  className={styles.logout}
                 >
+                  <Gift size={14} />
                   <div className={styles.menuItem}>
                     Gifts & Personalization{" "}
                     {openGift ? (
@@ -148,8 +153,14 @@ export default function Header() {
                   </AnimatePresence>
                 </li>
 
-                <li onClick={() => setOpen(false)}>New Arrival</li>
-                <li onClick={() => setOpen(false)}>Jewelry</li>
+                <li className={styles.logout} onClick={() => setOpen(false)}>
+                  <ListPlus size={14} />
+                  New Arrival
+                </li>
+                <li className={styles.logout} onClick={() => setOpen(false)}>
+                  <Gem size={14} />
+                  Jewelry
+                </li>
               </ul>
 
               <ul className={styles.nav}>
