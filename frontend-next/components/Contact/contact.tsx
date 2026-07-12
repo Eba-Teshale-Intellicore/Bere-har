@@ -71,7 +71,6 @@ export default function Contact({ onClose }: ContactProps) {
               </li>
             </div>
           </ul>
-          <hr />
           <ul>
             <div className={styles.nav}>
               <li className={styles.langItem}>
