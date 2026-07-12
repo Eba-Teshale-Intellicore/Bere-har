@@ -24,9 +24,11 @@ import Link from "next/link";
 // import { useTranslations } from "next-intl";
 import Register from "@/components/Acoount/register";
 import { AuthContext } from "@/app/AuthProvider";
+type ContactProps = {
+  onClose: () => void;
+};
 
-export default function Contact() {
-  const [open, setOpen] = useState(false);
+export default function Contact({ onClose }: ContactProps) {
   const [openGift, setOpenGift] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { isLoggedIn } = useContext(AuthContext)!;
@@ -50,7 +52,7 @@ export default function Contact() {
       {/* Sidebar */}
       <AnimatePresence>
         <>
-          <div className={styles.overlay} onClick={() => setOpen(false)} />
+          <div className={styles.overlay} onClick={onClose} />
 
           <motion.div
             className={styles.sidebar}
@@ -60,7 +62,7 @@ export default function Contact() {
             transition={{ duration: 0.3 }}
           >
             <div className={styles.sidebarHeader}>
-              <X size={28} onClick={() => setOpen(false)} />
+              <X size={28} onClick={onClose} />
             </div>
 
             <ul className={styles.nav}>

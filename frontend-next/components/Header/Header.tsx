@@ -85,7 +85,7 @@ export default function Header() {
         </div>
       </div>
       <AnimatePresence>
-        {contact && <Contact onClick={() => setOpen(true)} />}
+        {contact && <Contact onClose={() => setContact(false)} />}
       </AnimatePresence>
       {/* Sidebar */}
       <AnimatePresence>
