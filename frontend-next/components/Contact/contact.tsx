@@ -25,7 +25,7 @@ import Link from "next/link";
 import Register from "@/components/Acoount/register";
 import { AuthContext } from "@/app/AuthProvider";
 type ContactProps = {
-  onClose: () => void;
+  onClose?: () => void;
 };
 
 export default function Contact({ onClose }: ContactProps) {
