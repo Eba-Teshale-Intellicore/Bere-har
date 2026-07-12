@@ -16,7 +16,6 @@ export default function Contact({ onClose }: ContactProps) {
 
   return (
     <>
-      {/* Sidebar */}
       <>
         <div className={styles.overlay} onClick={onClose} />
 
