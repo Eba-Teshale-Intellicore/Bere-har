@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import styles from "@/src/scss/header.module.scss";
+import styles from "@/src/scss/contact.module.scss";
 import {
   ChevronDown,
   ChevronRight,

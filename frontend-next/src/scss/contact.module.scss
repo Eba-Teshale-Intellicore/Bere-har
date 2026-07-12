@@ -1,0 +1,155 @@
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header {
+  min-height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+
+  background-color: transparent;
+  // background: red;
+  transition: all 0.3s ease;
+}
+.scrolled {
+  background: white;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+}
+.menus {
+  color: black;
+}
+
+.logo {
+  display: flex;
+  width: 5rem;
+  height: 4rem;
+  img {
+    object-fit: cover;
+  }
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .header {
+    padding: 0 1.5rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .contact {
+    display: none;
+  }
+
+  .header {
+    padding: 0 1rem;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .menu {
+    gap: 0.5rem;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #f7dc9d;
+  width: min(400px, 100vw);
+  height: 100dvh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3rem;
+  z-index: 1100;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.sticky2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 1rem;
+  cursor: pointer;
+  li {
+    font-size: 18px;
+    font-family: var(--font-blackops);
+    font-weight: 500;
+  }
+}
+
+.menuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subMenu {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.langItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  bottom: 2;
+}
