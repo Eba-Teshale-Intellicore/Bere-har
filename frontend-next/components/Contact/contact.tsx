@@ -12,23 +12,8 @@ type ContactProps = {
 };
 
 export default function Contact({ onClose }: ContactProps) {
-  const [scrolled, setScrolled] = useState(false);
   const { isLoggedIn } = useContext(AuthContext)!;
 
-  // const t = useTranslations();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
   return (
     <>
       {/* Sidebar */}
