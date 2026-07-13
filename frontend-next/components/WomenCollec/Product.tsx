@@ -119,14 +119,18 @@ export default function Product() {
                             style={{ objectFit: "cover" }}
                           />
                         </motion.div>
-                        <button onClick={() => toggleWishlist(product.id)}>
-                          {isWishlisted(product.id) ? (
-                            <Heart fill="red" />
-                          ) : (
-                            <Heart />
-                          )}
-                        </button>
+
                         <div className={styles.cardInfo}>
+                          <button
+                            onClick={() => toggleWishlist(product.id)}
+                            className={styles.favorites}
+                          >
+                            {isWishlisted(product.id) ? (
+                              <Heart fill="red" />
+                            ) : (
+                              <Heart />
+                            )}
+                          </button>
                           <h4>{product.p_title}</h4>
 
                           {product.variants?.length ? (
