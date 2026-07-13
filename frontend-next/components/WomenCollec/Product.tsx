@@ -121,17 +121,19 @@ export default function Product() {
                         </motion.div>
 
                         <div className={styles.cardInfo}>
-                          <button
-                            onClick={() => toggleWishlist(product.id)}
-                            className={styles.favorites}
-                          >
-                            {isWishlisted(product.id) ? (
-                              <Heart fill="red" />
-                            ) : (
-                              <Heart />
-                            )}
-                          </button>
-                          <h4>{product.p_title}</h4>
+                          <div className={styles.tf}>
+                            <h4>{product.p_title}</h4>
+                            <button
+                              onClick={() => toggleWishlist(product.id)}
+                              className={styles.favorites}
+                            >
+                              {isWishlisted(product.id) ? (
+                                <Heart fill="red" />
+                              ) : (
+                                <Heart />
+                              )}
+                            </button>
+                          </div>
 
                           {product.variants?.length ? (
                             <>
