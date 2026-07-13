@@ -19,14 +19,17 @@ class WishlistView(ModelViewSet):
     )
 
     def get_queryset(self):
-        return (
-            Wishlist.objects
-            .filter(user=self.request.user)
-            .select_related(
-                "image",
-                "image__product",
-            )
-        )
+      return (
+          Wishlist.objects
+          .filter(user=self.request.user)
+          .select_related(
+              "image",
+              "image__product",
+          )
+          .prefetch_related(
+              "image__product__variants"
+          )
+      )
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)

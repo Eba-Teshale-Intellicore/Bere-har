@@ -39,7 +39,7 @@ api.interceptors.response.use(
 
       if (refresh) {
         const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_API_URL}token/refresh/`,
+          `${process.env.NEXT_PUBLIC_API_URL}/accounts/token/refresh/`,
           {
             refresh,
           },
