@@ -10,6 +10,8 @@ import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
 import { getProducts } from "@/src/api/product";
 import Button from "../Button";
+import { useWishlistContext } from "@/app/WishlistContext";
+import { Heart } from "lucide-react";
 
 const womenCollections = [
   {
@@ -40,6 +42,7 @@ export default function Product() {
   const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
   const [visibleCount, setVisibleCount] = useState(5);
+  const { toggleWishlist, isWishlisted } = useWishlistContext();
 
   useEffect(() => {
     setVisibleCount(5);
@@ -116,6 +119,13 @@ export default function Product() {
                             style={{ objectFit: "cover" }}
                           />
                         </motion.div>
+                        <button onClick={() => toggleWishlist(product.id)}>
+                          {isWishlisted(product.id) ? (
+                            <Heart fill="red" />
+                          ) : (
+                            <Heart />
+                          )}
+                        </button>
                         <div className={styles.cardInfo}>
                           <h4>{product.p_title}</h4>
 

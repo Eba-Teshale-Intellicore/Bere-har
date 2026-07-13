@@ -12,6 +12,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import AuthProvider from "./AuthProvider";
+import WishlistProvider from "./WishlistContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,9 +62,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <AuthProvider>
-          <Header />
-          {children}
-          <Footer />
+          <WishlistProvider>
+            <Header />
+            {children}
+            <Footer />
+          </WishlistProvider>
         </AuthProvider>
       </body>
     </html>

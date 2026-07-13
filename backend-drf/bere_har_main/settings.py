@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     #App
     "account",
     "products",
+    "wishlist",
 ]
 REST_FRAMEWORK = {
 
