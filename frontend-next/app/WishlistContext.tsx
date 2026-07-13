@@ -31,7 +31,7 @@ export default function WishlistProvider({
         return;
       }
 
-      const data = await getWishlist(token);
+      const data = await getWishlist();
       setFavorites(data);
     } catch (error) {
       console.error(error);
@@ -51,7 +51,7 @@ export default function WishlistProvider({
 
       if (!token) return;
 
-      await addWishlist(productId, token);
+      await addWishlist(productId);
 
       // Refresh the wishlist after adding
       await fetchWishlist();
@@ -67,7 +67,7 @@ export default function WishlistProvider({
         (favorite: any) => favorite.product.id === productId,
       );
       if (!item) return;
-      await deleteWishlist(item.id, token);
+      await deleteWishlist(item.id);
 
       await fetchWishlist();
     } catch (error) {
