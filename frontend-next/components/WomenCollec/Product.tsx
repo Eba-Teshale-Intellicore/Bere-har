@@ -1,10 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "@/src/scss/product.module.scss";
-import Paragraph from "@/components/Paragraph";
 import Image from "next/image";
-import img1 from "@/public/flow1.jpeg";
-import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
@@ -13,31 +10,7 @@ import Button from "../Button";
 import { useWishlistContext } from "@/app/WishlistContext";
 import { Heart } from "lucide-react";
 
-const womenCollections = [
-  {
-    title: "Women's Shoes",
-    image: img2,
-  },
-  {
-    title: "Women's Ready-to-Wear",
-    image: img1,
-  },
-  {
-    title: "Women's Jewelry",
-    image: img1,
-  },
-  {
-    title: "Women's Jewelry",
-    image: img1,
-  },
-  {
-    title: "Women's Jewelry",
-    image: img1,
-  },
-];
-
 export default function Product() {
-  // const [active, setActive] = useState("all");
   const [active, setActive] = useState("all");
   const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
@@ -127,11 +100,6 @@ export default function Product() {
                               onClick={() => toggleWishlist(product.id)}
                               className={styles.favorites}
                             >
-                              {/* {isWishlisted(product.id) ? (
-                                <Heart fill="red" />
-                              ) : (
-                                <Heart />
-                              )} */}
                               <Heart
                                 fill={isWishlisted(product.id) ? "red" : "none"}
                                 color={

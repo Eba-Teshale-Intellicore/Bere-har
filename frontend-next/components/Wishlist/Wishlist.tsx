@@ -44,46 +44,40 @@ export default function Wishlist() {
             </div>
             <div>
               <div className={styles.collections}>
-                {wishlist.slice(0, visibleCount).map((item: any) => {
-                  const product = item.product;
+                {wishlist.slice(0, visibleCount).map((item: any) => (
+                  <div key={item.id} className={styles.card}>
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Image
+                        src={item.image.image}
+                        alt={item.title}
+                        fill
+                        className={styles.mainImage}
+                      />
+                    </motion.div>
 
-                  return (
-                    <div key={item.id} className={styles.card}>
-                      <motion.div
-                        className={styles.imageWrapper}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        {product.images.length > 0 && (
-                          <Image
-                            src={product.images[0].image}
-                            alt={product.p_title}
-                            fill
-                            className={styles.mainImage}
-                          />
-                        )}
-                      </motion.div>
+                    <div className={styles.cardInfo}>
+                      <div className={styles.tf}>
+                        <h4>{item.title}</h4>
 
-                      <div className={styles.cardInfo}>
-                        <div className={styles.tf}>
-                          <h4>{product.p_title}</h4>
-
-                          <button onClick={() => toggleWishlist(product.id)}>
-                            <Heart fill="red" color="red" />
-                          </button>
-                        </div>
-
-                        {product.variants.length > 0 ? (
-                          <>
-                            <p>Size: {product.variants[0].size}</p>
-                            <p>${product.variants[0].price}</p>
-                          </>
-                        ) : (
-                          <p>${product.p_price}</p>
-                        )}
+                        <button onClick={() => toggleWishlist(item.image.id)}>
+                          <Heart fill="red" color="red" />
+                        </button>
                       </div>
+
+                      {item.variants.length > 0 ? (
+                        <>
+                          <p>Size: {item.variants[0].size}</p>
+                          <p>${item.variants[0].price}</p>
+                        </>
+                      ) : (
+                        <p>${item.price}</p>
+                      )}
                     </div>
-                  );
-                })}
+                  </div>
+                ))}
               </div>
               {wishlist.length > visibleCount && (
                 <div className={styles.btn}>

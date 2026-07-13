@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from products.models import Product
+from products.models import ProductImage
 
 
 class Wishlist(models.Model):
@@ -10,8 +10,8 @@ class Wishlist(models.Model):
         related_name="wishlist"
     )
 
-    product = models.ForeignKey(
-        Product,
+    image = models.ForeignKey(
+        ProductImage,
         on_delete=models.CASCADE,
         related_name="wishlisted_by"
     )
@@ -19,7 +19,7 @@ class Wishlist(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ("user", "product")
+        unique_together = ("user", "image")
 
     def __str__(self):
-        return f"{self.user.username} - {self.product.p_title}"
+        return f"{self.user.username} - {self.image.id}"
