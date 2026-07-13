@@ -91,11 +91,9 @@ export default function WishlistProvider({
 
     if (isWishlisted(imageId)) {
       console.log("Removing");
-
       await removeFromWishlist(imageId);
     } else {
       console.log("Adding");
-
       await addToWishlist(imageId);
     }
   };
