@@ -77,10 +77,15 @@ export default function WishlistProvider({
   const isWishlisted = (productId: number) => {
     return favorites.some((item: any) => item.product.id === productId);
   };
+
   const toggleWishlist = async (productId: number) => {
+    console.log("Clicked:", productId);
+
     if (isWishlisted(productId)) {
+      console.log("Removing");
       await removeFromWishlist(productId);
     } else {
+      console.log("Adding");
       await addToWishlist(productId);
     }
   };
