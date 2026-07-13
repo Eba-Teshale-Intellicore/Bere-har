@@ -12,29 +12,6 @@ import Button from "../Button";
 import { useWishlistContext } from "@/app/WishlistContext";
 import { Heart } from "lucide-react";
 
-const womenCollections = [
-  {
-    title: "Women's Shoes",
-    image: img2,
-  },
-  {
-    title: "Women's Ready-to-Wear",
-    image: img1,
-  },
-  {
-    title: "Women's Jewelry",
-    image: img1,
-  },
-  {
-    title: "Women's Jewelry",
-    image: img1,
-  },
-  {
-    title: "Women's Jewelry",
-    image: img1,
-  },
-];
-
 export default function Wishlist() {
   // const [active, setActive] = useState("all");
   const [active, setActive] = useState("all");
