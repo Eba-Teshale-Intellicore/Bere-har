@@ -127,11 +127,19 @@ export default function Product() {
                               onClick={() => toggleWishlist(product.id)}
                               className={styles.favorites}
                             >
-                              {isWishlisted(product.id) ? (
+                              {/* {isWishlisted(product.id) ? (
                                 <Heart fill="red" />
                               ) : (
                                 <Heart />
-                              )}
+                              )} */}
+                              <Heart
+                                fill={isWishlisted(product.id) ? "red" : "none"}
+                                color={
+                                  isWishlisted(product.id)
+                                    ? "red"
+                                    : "currentColor"
+                                }
+                              />
                             </button>
                           </div>
 

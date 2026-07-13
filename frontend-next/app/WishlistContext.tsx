@@ -54,12 +54,11 @@ export default function WishlistProvider({
       await addWishlist(productId, token);
 
       // Refresh the wishlist after adding
-      fetchWishlist();
+      await fetchWishlist();
     } catch (error) {
       console.error(error);
     }
   };
-
   const removeFromWishlist = async (productId: number) => {
     try {
       const token = localStorage.getItem("accessToken");
@@ -70,7 +69,7 @@ export default function WishlistProvider({
       if (!item) return;
       await deleteWishlist(item.id, token);
 
-      fetchWishlist();
+      await fetchWishlist();
     } catch (error) {
       console.log(error);
     }
