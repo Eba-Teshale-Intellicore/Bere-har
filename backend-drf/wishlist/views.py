@@ -9,10 +9,13 @@ class WishlistView(ModelViewSet):
     serializer_class = WishlistSerializer
     permission_classes = [IsAuthenticated]
 
+   
     queryset = Wishlist.objects.select_related(
-        "user",
-        "image",
-        "image__product",
+    "user",
+    "image",
+    "image__product",
+    ).prefetch_related(
+    "image__product__variants"
     )
 
     def get_queryset(self):

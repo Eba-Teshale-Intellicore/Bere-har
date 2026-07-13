@@ -11,26 +11,12 @@ import { getWishlist } from "@/src/api/wishlist";
 
 export default function Wishlist() {
   const [active, setActive] = useState("all");
-  const [wishlist, setWishlist] = useState<any[]>([]);
   const [visibleCount, setVisibleCount] = useState(5);
-  const { toggleWishlist, isWishlisted } = useWishlistContext();
+  const { favorites, toggleWishlist, isWishlisted } = useWishlistContext();
 
   useEffect(() => {
     setVisibleCount(5);
   }, [active]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const wishListData = await getWishlist();
-        setWishlist(wishListData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <>
@@ -44,7 +30,7 @@ export default function Wishlist() {
             </div>
             <div>
               <div className={styles.collections}>
-                {wishlist.slice(0, visibleCount).map((item: any) => (
+                {favorites.slice(0, visibleCount).map((item: any) => (
                   <div key={item.id} className={styles.card}>
                     <motion.div
                       className={styles.imageWrapper}
@@ -63,7 +49,14 @@ export default function Wishlist() {
                         <h4>{item.title}</h4>
 
                         <button onClick={() => toggleWishlist(item.image.id)}>
-                          <Heart fill="red" color="red" />
+                          <Heart
+                            fill={isWishlisted(item.image.id) ? "red" : "none"}
+                            color={
+                              isWishlisted(item.image.id)
+                                ? "red"
+                                : "currentColor"
+                            }
+                          />
                         </button>
                       </div>
 
@@ -79,7 +72,7 @@ export default function Wishlist() {
                   </div>
                 ))}
               </div>
-              {wishlist.length > visibleCount && (
+              {favorites.length > visibleCount && (
                 <div className={styles.btn}>
                   <Button
                     text="View More"

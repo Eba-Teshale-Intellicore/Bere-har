@@ -97,15 +97,13 @@ export default function Product() {
                           <div className={styles.tf}>
                             <h4>{product.p_title}</h4>
                             <button
-                              onClick={() => toggleWishlist(product.id)}
+                              onClick={() => toggleWishlist(img.id)}
                               className={styles.favorites}
                             >
                               <Heart
-                                fill={isWishlisted(product.id) ? "red" : "none"}
+                                fill={isWishlisted(img.id) ? "red" : "none"}
                                 color={
-                                  isWishlisted(product.id)
-                                    ? "red"
-                                    : "currentColor"
+                                  isWishlisted(img.id) ? "red" : "currentColor"
                                 }
                               />
                             </button>

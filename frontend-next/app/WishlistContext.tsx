@@ -7,9 +7,11 @@ import {
   useState,
   ReactNode,
 } from "react";
+
 import { addWishlist, deleteWishlist, getWishlist } from "@/src/api/wishlist";
 
 const WishlistContext = createContext<any>(null);
+
 export const useWishlistContext = () => useContext(WishlistContext);
 
 export default function WishlistProvider({
@@ -32,9 +34,10 @@ export default function WishlistProvider({
       }
 
       const data = await getWishlist();
+
       setFavorites(data);
     } catch (error) {
-      console.error(error);
+      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -44,29 +47,32 @@ export default function WishlistProvider({
     fetchWishlist();
   }, []);
 
-  const addToWishlist = async (productId: number) => {
-    if (isWishlisted(productId)) return;
+  // ADD IMAGE TO WISHLIST
+  const addToWishlist = async (imageId: number) => {
+    if (isWishlisted(imageId)) return;
+
     try {
       const token = localStorage.getItem("accessToken");
 
       if (!token) return;
 
-      await addWishlist(productId);
+      await addWishlist(imageId);
 
-      // Refresh the wishlist after adding
       await fetchWishlist();
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
-  const removeFromWishlist = async (productId: number) => {
+
+  // REMOVE IMAGE FROM WISHLIST
+  const removeFromWishlist = async (imageId: number) => {
     try {
-      const token = localStorage.getItem("accessToken");
-      if (!token) return;
       const item = favorites.find(
-        (favorite: any) => favorite.product.id === productId,
+        (favorite: any) => favorite.image.id === imageId,
       );
+
       if (!item) return;
+
       await deleteWishlist(item.id);
 
       await fetchWishlist();
@@ -74,19 +80,23 @@ export default function WishlistProvider({
       console.log(error);
     }
   };
-  const isWishlisted = (productId: number) => {
-    return favorites.some((item: any) => item.product.id === productId);
+
+  // CHECK HEART STATUS
+  const isWishlisted = (imageId: number) => {
+    return favorites.some((item: any) => item.image.id === imageId);
   };
 
-  const toggleWishlist = async (productId: number) => {
-    console.log("Clicked:", productId);
+  const toggleWishlist = async (imageId: number) => {
+    console.log("Clicked image:", imageId);
 
-    if (isWishlisted(productId)) {
+    if (isWishlisted(imageId)) {
       console.log("Removing");
-      await removeFromWishlist(productId);
+
+      await removeFromWishlist(imageId);
     } else {
       console.log("Adding");
-      await addToWishlist(productId);
+
+      await addToWishlist(imageId);
     }
   };
 
@@ -94,11 +104,17 @@ export default function WishlistProvider({
     <WishlistContext.Provider
       value={{
         favorites,
+
         loading,
+
         isWishlisted,
+
         addToWishlist,
+
         removeFromWishlist,
+
         toggleWishlist,
+
         fetchWishlist,
       }}
     >
@@ -106,16 +122,3 @@ export default function WishlistProvider({
     </WishlistContext.Provider>
   );
 }
-
-// const {
-//     toggleWishlist,
-//     isWishlisted,
-// } = useWishlistContext();
-
-// <button
-//     onClick={() => toggleWishlist(product.id)}
-// >
-//     {isWishlisted(product.id)
-//         ? <Heart fill="red" />
-//         : <Heart />}
-// </button>
