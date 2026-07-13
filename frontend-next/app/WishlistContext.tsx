@@ -48,15 +48,26 @@ export default function WishlistProvider({
   }, []);
 
   // ADD IMAGE TO WISHLIST
+  // const addToWishlist = async (imageId: number) => {
+  //   if (isWishlisted(imageId)) return;
+
+  //   try {
+  //     const token = localStorage.getItem("accessToken");
+
+  //     if (!token) return;
+
+  //     await addWishlist(imageId);
+
+  //     await fetchWishlist();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   const addToWishlist = async (imageId: number) => {
-    if (isWishlisted(imageId)) return;
-
     try {
-      const token = localStorage.getItem("accessToken");
+      const response = await addWishlist(imageId);
 
-      if (!token) return;
-
-      await addWishlist(imageId);
+      console.log("Added:", response);
 
       await fetchWishlist();
     } catch (error) {
