@@ -5,6 +5,7 @@ from .models import Profile
 from django.contrib.auth.models import User
 from .serializer import UserSerializer, ProfileSerializer
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.generics import RetrieveUpdateAPIView
 
 
 class RegisterView(CreateAPIView):
@@ -12,14 +13,15 @@ class RegisterView(CreateAPIView):
   serializer_class = UserSerializer
   permission_classes = [AllowAny]
 
-class ProfileView(ModelViewSet):
-  # queryset = Profile.objects.all()
-  def get_queryset(self):
-    return Profile.objects.filter(
-        user=self.request.user
-    )
-  serializer_class = ProfileSerializer
-  permission_classes = [IsAuthenticated]
+class ProfileView(RetrieveUpdateAPIView):
+
+    serializer_class = ProfileSerializer
+    permission_classes = [
+        IsAuthenticated
+    ]
+
+    def get_object(self):
+        return self.request.user.profile
 
 # customer API
   

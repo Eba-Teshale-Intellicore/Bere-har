@@ -3,6 +3,7 @@ from rest_framework import serializers
 from .models import Profile
 
 
+
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     confirm_password = serializers.CharField(write_only=True)
@@ -17,10 +18,13 @@ class UserSerializer(serializers.ModelSerializer):
         ]
 
     def validate(self, attrs):
-        if attrs["password"] != attrs["confirm_password"]:
-            raise serializers.ValidationError({
-                "confirm_password": "Passwords do not match."
-            })
+        password = attrs.get("password")
+        confirm_password = attrs.pop("confirm_password")
+
+        if password != confirm_password:
+            raise serializers.ValidationError(
+                "Passwords do not match"
+            )
 
         if User.objects.filter(email=attrs["email"]).exists():
             raise serializers.ValidationError({
@@ -63,4 +67,6 @@ class ProfileSerializer(serializers.ModelSerializer):
             "phone",
             "address",
             "bio",
+            "created_at",
+            "updated_at",
         ]

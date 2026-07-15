@@ -8,7 +8,7 @@ class UserAdmin(admin.ModelAdmin):
     list_display = (
         "username",
         "email",
-        "is_staff",
+        # "is_staff",
     )
 
     search_fields = (
@@ -22,6 +22,7 @@ class ProfileAdmin(admin.ModelAdmin):
         "phone",
         "address",
         "bio",
+        "created_at"
     )
 
 admin.site.register(User, UserAdmin)

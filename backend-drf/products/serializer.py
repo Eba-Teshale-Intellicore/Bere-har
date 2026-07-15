@@ -1,13 +1,13 @@
 from rest_framework import serializers
 from .models import (
-    CampaignProduct,
-    Category,
-    Collection,
-    Product,
-    ProductImage,
-    ProductVariant,
-    GenderCollection,
-    CampaignHighlight,
+   Brand,
+   Category,
+   Collection,
+   GenderCollection,
+   Product,
+   ProductHighlight,
+   ProductVariant,
+   Size
 )
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -15,104 +15,120 @@ class CategorySerializer(serializers.ModelSerializer):
     model = Category
     fields = "__all__"
 
-
 class CollectionSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = Collection
-    fields = "__all__"
+   
+   class Meta:
+      model = Collection
+      fields = "__all__"
 
 class GenderCollectionSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = GenderCollection
-    fields = "__all__"
+   
+   class Meta:
+      model = GenderCollection
+      fields = "__all__"
 
-class ProductImageSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = ProductImage
-    fields = "__all__"
+class ProductHighlightSerializer(serializers.ModelSerializer):
+   
+   class Meta:
+      model = ProductHighlight
+      fields = "__all__"
 
+class BrandSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = Brand
+      fields = "__all__"
 
+class SizeSerializer(serializers.ModelSerializer):
+   
+   class Meta:
+      model = Size
+      fields = "__all__"
 class ProductVariantSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = ProductVariant
-    fields = "__all__"
-
-class CampaignHighlightSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CampaignHighlight
-        fields = [
-            "id",
-            "title",
-            "slug",
-            "description",
-            "banner",
-            "category",
-            "gendercollection",
-            "campaign_products",
-        ]
+   
+   size = SizeSerializer(read_only=True)
+   class Meta:
+      model = ProductVariant
+      fields = [
+         "id",
+         "product",
+         "size",
+         "color",
+         "image",
+         "alt_text",
+         "price",
+         "quantity",
+         "sku",
+         "is_active"
+      ]
 
 class ProductSerializer(serializers.ModelSerializer):
-    images = ProductImageSerializer(many=True, required=False)
-    variants = ProductVariantSerializer(many=True, read_only=True)
-    campaign = CampaignHighlightSerializer(
-        source="p_campaign",
-        read_only=True
+   category = CategorySerializer(read_only= True)
+   collections = CollectionSerializer(many=True,read_only=True)
+   variants = ProductVariantSerializer(many=True, read_only=True)
+   gender = GenderCollectionSerializer(many=True,read_only=True)
+   brand = BrandSerializer( read_only=True)
+   highlights = ProductHighlightSerializer( many=True, read_only=True)
+
+   # Create / Update
+   category_id = serializers.PrimaryKeyRelatedField(
+        queryset=Category.objects.all(),
+        source="category",
+        write_only=True
     )
-    category = CategorySerializer(
-        source="p_category",
-        read_only=True
+
+   brand_id = serializers.PrimaryKeyRelatedField(
+        queryset=Brand.objects.all(),
+        source="brand",
+        write_only=True,
+        required=False,
+        allow_null=True
     )
-    gendercollection = GenderCollectionSerializer(
-       source= "p_gendercollection",
-       read_only = True
+
+   collection_ids = serializers.PrimaryKeyRelatedField(
+        queryset=Collection.objects.all(),
+        source="collections",
+        many=True,
+        write_only=True,
+        required=False
     )
-    class Meta:
-        model = Product
-        fields = [
-            "id",
-            "p_title",
-            "p_slug",
-            "p_description",
-            "p_price",
 
-            "category",
-            "p_collection",
-            "p_gendercollection",
+   gender_ids = serializers.PrimaryKeyRelatedField(
+        queryset=GenderCollection.objects.all(),
+        source="gender",
+        many=True,
+        write_only=True,
+        required=False
+    )
+   
+   class Meta:
+      model = Product
+      fields = [
+         "id",
 
-            "p_brand",
-            "p_status",
+         "p_title",
+         "p_slug",
+         "p_description",
+         "main_thumbnail",
 
-            "campaign",
+         "category",
+         "category_id",
 
-            "is_featured",
-            "is_active",
+         "collections",
+         "collection_ids",
 
-            "images",
-            "variants",
+         "gender",
+         "gender_ids",
 
-            "created_at",
-            "updated_at",
-            "gendercollection",
-        ]
+         "brand",
+         "brand_id",
 
-    def validate_images(self, value):
-        """
-        Minimum two images required
-        """
+         "highlights",
+         "variants",
 
-        if len(value) < 2:
-            raise serializers.ValidationError(
-                "A product must have at least two images."
-            )
-        return value
-class CampaignProductSerializer(serializers.ModelSerializer):
+         "p_status",
+         "is_featured",
+         "is_active",
 
-    product = ProductSerializer(read_only=True)
-    class Meta:
-        model = CampaignProduct
-        fields = [
-            "id",
-            "product",
-            "order",
-        ]
-
+         "created_at",
+         "updated_at",
+      ]

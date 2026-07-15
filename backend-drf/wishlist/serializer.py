@@ -1,45 +1,28 @@
 from rest_framework import serializers
 from .models import Wishlist
-from products.models import ProductImage
-from products.serializer import (
-    ProductImageSerializer,
-    ProductVariantSerializer,
-)
+from products.serializer import ProductSerializer
+from products.models import Product
 
 
 class WishlistSerializer(serializers.ModelSerializer):
-    image = ProductImageSerializer(read_only=True)
 
-    image_id = serializers.PrimaryKeyRelatedField(
-        queryset=ProductImage.objects.all(),
-        source="image",
-        write_only=True,
+    product = ProductSerializer(
+        read_only=True
     )
 
-    title = serializers.CharField(
-        source="image.product.p_title",
-        read_only=True,
+    product_id = serializers.PrimaryKeyRelatedField(
+        queryset=Product.objects.all(),
+        source="product",
+        write_only=True
     )
 
-    price = serializers.CharField(
-        source="image.product.p_price",
-        read_only=True,
-    )
-
-    variants = ProductVariantSerializer(
-        source="image.product.variants",
-        many=True,
-        read_only=True,
-    )
 
     class Meta:
         model = Wishlist
+
         fields = [
             "id",
-            "image",
-            "image_id",
-            "title",
-            "price",
-            "variants",
+            "product",
+            "product_id",
             "created_at",
         ]
