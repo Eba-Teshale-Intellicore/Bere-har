@@ -167,7 +167,24 @@ class Product(models.Model):
       return self.p_title
    
 class Size(models.Model):
-    name = models.CharField(max_length=20, unique=True)
+
+    SIZE_TYPES = (
+        ("clothing", "Clothing"),
+        ("shoe", "Shoe"),
+        ("general", "General"),
+    )
+
+    name = models.CharField(
+        max_length=20,
+        unique=True
+    )
+
+    size_type = models.CharField(
+        max_length=20,
+        choices=SIZE_TYPES,
+        default="clothing"
+    )
+
 
     def __str__(self):
         return self.name
