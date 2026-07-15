@@ -4,28 +4,27 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
+
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-// ============================
-// Add Access Token
-// ============================
+// Attach JWT token
 
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("accessToken");
+  if (typeof window !== "undefined") {
+    const token = localStorage.getItem("accessToken");
 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
   }
 
   return config;
 });
 
-// ============================
-// Refresh Token
-// ============================
+// Refresh JWT
 
 api.interceptors.response.use(
   (response) => response,
@@ -36,24 +35,35 @@ api.interceptors.response.use(
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
-      const refresh = localStorage.getItem("refreshToken");
+      let refresh = null;
+
+      if (typeof window !== "undefined") {
+        refresh = localStorage.getItem("refreshToken");
+      }
 
       if (refresh) {
-        const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_API_URL}/accounts/token/refresh/`,
+        try {
+          const response = await axios.post(
+            `${process.env.NEXT_PUBLIC_API_URL}accounts/token/refresh/`,
 
-          {
-            refresh: refresh,
-          },
-        );
+            {
+              refresh,
+            },
+          );
 
-        const newAccess = response.data.access;
+          const newAccess = response.data.access;
 
-        localStorage.setItem("accessToken", newAccess);
+          localStorage.setItem("accessToken", newAccess);
 
-        originalRequest.headers.Authorization = `Bearer ${newAccess}`;
+          originalRequest.headers.Authorization = `Bearer ${newAccess}`;
 
-        return api(originalRequest);
+          return api(originalRequest);
+        } catch (error) {
+          localStorage.removeItem("accessToken");
+
+          localStorage.removeItem("refreshToken");
+          console.log(error);
+        }
       }
     }
 

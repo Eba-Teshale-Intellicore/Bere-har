@@ -1,4 +1,3 @@
-import React from "react";
 import api from "./axios";
 
 export const getCategories = async () => {
@@ -6,6 +5,6 @@ export const getCategories = async () => {
     const response = await api.get("categories/");
     return response.data;
   } catch (error) {
-    throw new Error("Failed to get Categories");
+    console.log(error);
   }
 };
