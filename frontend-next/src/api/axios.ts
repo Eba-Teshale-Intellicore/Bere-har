@@ -9,23 +9,24 @@ const api = axios.create({
   },
 });
 
-// Add Access Token automatically
-api.interceptors.request.use(
-  (config) => {
-    if (typeof window !== "undefined") {
-      const token = localStorage.getItem("accessToken");
+// ============================
+// Add Access Token
+// ============================
 
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-    }
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("accessToken");
 
-    return config;
-  },
-  (error) => Promise.reject(error),
-);
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
 
-// Refresh expired token automatically
+  return config;
+});
+
+// ============================
+// Refresh Token
+// ============================
+
 api.interceptors.response.use(
   (response) => response,
 
@@ -40,8 +41,9 @@ api.interceptors.response.use(
       if (refresh) {
         const response = await axios.post(
           `${process.env.NEXT_PUBLIC_API_URL}/accounts/token/refresh/`,
+
           {
-            refresh,
+            refresh: refresh,
           },
         );
 
