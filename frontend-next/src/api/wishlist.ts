@@ -7,9 +7,9 @@ export async function getWishlist() {
   return res.data;
 }
 
-export async function addWishlist(imageId: number) {
+export async function addWishlist(productId: number) {
   const res = await api.post("wishlists/", {
-    image_id: imageId,
+    product_id: productId,
   });
 
   return res.data;

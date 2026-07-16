@@ -10,7 +10,29 @@ import {
 
 import { addWishlist, deleteWishlist, getWishlist } from "@/src/api/wishlist";
 
-const WishlistContext = createContext<any>(null);
+interface WishlistContextType {
+  favorites: any[];
+  loading: boolean;
+
+  isWishlisted: (id: number) => boolean;
+
+  addToWishlist: (id: number) => Promise<void>;
+
+  removeFromWishlist: (id: number) => Promise<void>;
+
+  toggleWishlist: (id: number) => Promise<void>;
+
+  fetchWishlist: () => Promise<void>;
+}
+interface WishlistItem {
+  id: number;
+
+  product: {
+    id: number;
+    p_title: string;
+  };
+}
+const WishlistContext = createContext<WishlistContextType | null>(null);
 
 export const useWishlistContext = () => useContext(WishlistContext);
 
@@ -19,7 +41,7 @@ export default function WishlistProvider({
 }: {
   children: ReactNode;
 }) {
-  const [favorites, setFavorites] = useState<any[]>([]);
+  const [favorites, setFavorites] = useState<WishlistItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   const fetchWishlist = async () => {
@@ -47,25 +69,9 @@ export default function WishlistProvider({
     fetchWishlist();
   }, []);
 
-  // ADD IMAGE TO WISHLIST
-  // const addToWishlist = async (imageId: number) => {
-  //   if (isWishlisted(imageId)) return;
-
-  //   try {
-  //     const token = localStorage.getItem("accessToken");
-
-  //     if (!token) return;
-
-  //     await addWishlist(imageId);
-
-  //     await fetchWishlist();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  const addToWishlist = async (imageId: number) => {
+  const addToWishlist = async (productId: number) => {
     try {
-      const response = await addWishlist(imageId);
+      const response = await addWishlist(productId);
 
       console.log("Added:", response);
 
@@ -76,10 +82,10 @@ export default function WishlistProvider({
   };
 
   // REMOVE IMAGE FROM WISHLIST
-  const removeFromWishlist = async (imageId: number) => {
+  const removeFromWishlist = async (productId: number) => {
     try {
       const item = favorites.find(
-        (favorite: any) => favorite.image.id === imageId,
+        (favorite: any) => favorite.product.id === productId,
       );
 
       if (!item) return;
@@ -93,19 +99,15 @@ export default function WishlistProvider({
   };
 
   // CHECK HEART STATUS
-  const isWishlisted = (imageId: number) => {
-    return favorites.some((item: any) => item.image.id === imageId);
+  const isWishlisted = (productId: number) => {
+    return favorites.some((item: any) => item.product.id === productId);
   };
 
-  const toggleWishlist = async (imageId: number) => {
-    console.log("Clicked image:", imageId);
-
-    if (isWishlisted(imageId)) {
-      console.log("Removing");
-      await removeFromWishlist(imageId);
+  const toggleWishlist = async (productId: number) => {
+    if (isWishlisted(productId)) {
+      await removeFromWishlist(productId);
     } else {
-      console.log("Adding");
-      await addToWishlist(imageId);
+      await addToWishlist(productId);
     }
   };
 
