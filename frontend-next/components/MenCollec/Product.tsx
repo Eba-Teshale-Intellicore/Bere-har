@@ -62,10 +62,10 @@ export default function Product() {
 
   const filteredProducts =
     active === "all"
-      ? products.filter((p) => p.gender?.some((g: any) => g.title === "women"))
+      ? products.filter((p) => p.gender?.some((g: any) => g.title === "men"))
       : products.filter(
           (p) =>
-            p.gender?.some((g: any) => g.title === "women") &&
+            p.gender?.some((g: any) => g.title === "men") &&
             p.category.category_slug === active,
         );
   return (
@@ -75,7 +75,7 @@ export default function Product() {
           <div className={styles.herofea}>
             <div className={styles.content}>
               <p>
-                <Heading text="Women_Collection" />
+                <Heading text="Men_Collection" />
               </p>
               <ul>
                 <li
