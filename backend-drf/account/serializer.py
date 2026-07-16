@@ -7,6 +7,11 @@ from .models import Profile
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     confirm_password = serializers.CharField(write_only=True)
+    username = serializers.CharField(
+        min_length=3,
+        max_length=30
+    )
+    email = serializers.EmailField()
 
     class Meta:
         model = User

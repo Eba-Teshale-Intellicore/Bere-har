@@ -4,8 +4,8 @@ import styles from "@/src/scss/login.module.scss";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
-import { AuthContext } from "@/app/AuthProvider";
-import { loginUser } from "@/src/api/account";
+import { useAuth } from "@/app/AuthProvider";
+import { loginUser, getProfile } from "@/src/api/account";
 
 export default function Login() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { setIsLoggedIn } = useContext(AuthContext)!;
+  const { login } = useAuth();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,14 +29,12 @@ export default function Login() {
     };
 
     try {
-      const res = await loginUser(userData);
-      localStorage.setItem("accessToken", res.access);
-      localStorage.setItem("refreshToken", res.refresh);
-
-      console.log("Login Successful");
-      setIsLoggedIn(true);
+      const response = await loginUser(userData);
+      const profile = await getProfile();
+      login(profile);
       setError("");
       setSuccess(true);
+
       setTimeout(() => {
         router.push("/");
       }, 1000);

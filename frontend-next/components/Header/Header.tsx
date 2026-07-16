@@ -22,7 +22,8 @@ import Button from "@/components/Button";
 import logo from "@/public/bere-har-2.png";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { AuthContext } from "@/app/AuthProvider";
+import { useAuth } from "@/app/AuthProvider";
+
 import Contact from "../Contact/contact";
 
 export default function Header() {
@@ -30,7 +31,7 @@ export default function Header() {
   const [contact, setContact] = useState(false);
   const [openGift, setOpenGift] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { isLoggedIn } = useContext(AuthContext)!;
+  const { user, isLoggedIn, logout } = useAuth();
 
   // const t = useTranslations();
 
@@ -70,7 +71,7 @@ export default function Header() {
                   className={`${styles.menu} ${scrolled ? styles.menus : ""}`}
                 >
                   <Button text="Contact Us" onClick={() => setContact(true)} />
-                  <CircleUserRound size={24} />
+                  <CircleUserRound size={24} /> <span>{user?.username}</span>
                 </div>
               ) : (
                 <Link href="/account/register">
@@ -202,7 +203,13 @@ export default function Header() {
                 </li>
                 <li></li>
                 {isLoggedIn ? (
-                  <li className={styles.logout} onClick={() => setOpen(false)}>
+                  <li
+                    className={styles.logout}
+                    onClick={() => {
+                      logout();
+                      setOpen(false);
+                    }}
+                  >
                     <Link href="/">Logout</Link>
                     <LogOut size={14} />
                   </li>

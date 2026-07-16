@@ -1,44 +1,86 @@
 "use client";
 
-import { createContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 
-type AuthContextType = {
+import { getProfile } from "@/src/api/account";
+
+interface User {
+  id: number;
+  username: string;
+  email: string;
+  profile_image?: string;
+}
+
+interface AuthContextType {
+  user: User | null;
   isLoggedIn: boolean;
   loading: boolean;
-  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
-};
+  login: (user: User) => void;
+  logout: () => void;
+}
 
-export const AuthContext = createContext<AuthContextType | null>(null);
+const AuthContext = createContext<AuthContextType | null>(null);
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+
   const [loading, setLoading] = useState(true);
 
+  const logout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    setUser(null);
+  };
+
   useEffect(() => {
-    const checkAuth = () => {
+    const checkAuth = async () => {
       const token = localStorage.getItem("accessToken");
-      setIsLoggedIn(!!token);
+
+      if (token) {
+        try {
+          const profile = await getProfile();
+
+          setUser(profile);
+        } catch (error) {
+          logout();
+        }
+      }
+
       setLoading(false);
     };
 
     checkAuth();
-
-    window.addEventListener("storage", checkAuth);
-
-    return () => {
-      window.removeEventListener("storage", checkAuth);
-    };
   }, []);
+
+  const login = (userData: User) => {
+    setUser(userData);
+  };
 
   return (
     <AuthContext.Provider
       value={{
-        isLoggedIn,
+        user,
+        isLoggedIn: !!user,
         loading,
-        setIsLoggedIn,
+        login,
+        logout,
       }}
     >
       {children}
     </AuthContext.Provider>
   );
 }
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("AuthProvider missing");
+  }
+  return context;
+};
