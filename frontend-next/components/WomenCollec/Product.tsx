@@ -129,7 +129,9 @@ export default function Product() {
                               <>
                                 <div className={styles.info}>
                                   <h4>{product.p_title}</h4>
-                                  <p>${product.variants[0].price} USD</p>
+                                  <p className={styles.price}>
+                                    ${product.variants[0].price} USD
+                                  </p>
                                 </div>
                                 <div className={styles.info}>
                                   <button
