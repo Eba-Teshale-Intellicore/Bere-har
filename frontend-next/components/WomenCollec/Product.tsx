@@ -105,10 +105,7 @@ export default function Product() {
                       const liked = isWishlisted(product.id);
                       return (
                         <div key={product.id} className={styles.card}>
-                          <motion.div
-                            className={styles.imageWrapper}
-                            whileHover={{ scale: 1.05 }}
-                          >
+                          <motion.div className={styles.imageWrapper}>
                             <button
                               type="button"
                               aria-label="Add to wishlist"
@@ -121,19 +118,21 @@ export default function Product() {
                                 size={24}
                               />
                             </button>
-                            <Image
-                              src={
-                                product.variants?.[0]?.image ||
-                                "/placeholder.jpg"
-                              }
-                              alt={
-                                product.variants?.[0]?.alt_text ||
-                                product.p_title
-                              }
-                              fill
-                              className={styles.mainImage}
-                              style={{ objectFit: "cover" }}
-                            />
+                            <motion.div whileHover={{ scale: 1.05 }}>
+                              <Image
+                                src={
+                                  product.variants?.[0]?.image ||
+                                  "/placeholder.jpg"
+                                }
+                                alt={
+                                  product.variants?.[0]?.alt_text ||
+                                  product.p_title
+                                }
+                                fill
+                                className={styles.mainImage}
+                                style={{ objectFit: "cover" }}
+                              />
+                            </motion.div>
                           </motion.div>
 
                           <div className={styles.cardContent}>
