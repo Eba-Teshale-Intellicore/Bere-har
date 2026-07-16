@@ -20,7 +20,6 @@ export default function Product() {
   const [products, setProducts] = useState<any[]>([]);
   const [visibleCount, setVisibleCount] = useState(10);
   const { toggleWishlist, isWishlisted } = useWishlistContext();
-  const liked = isWishlisted(product.id);
 
   const { isLoggedIn } = useAuth();
 
@@ -92,48 +91,55 @@ export default function Product() {
             </div>
             <div>
               <div className={styles.collections}>
-                {filteredProducts.slice(0, visibleCount).map((product) => (
-                  <div key={product.id} className={styles.card}>
-                    <motion.div
-                      className={styles.imageWrapper}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Image
-                        src={product.variants?.[0]?.image || "/placeholder.jpg"}
-                        alt={product.variants?.[0]?.alt_text || product.p_title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      />
-                    </motion.div>
+                {filteredProducts.slice(0, visibleCount).map((product) => {
+                  const liked = isWishlisted(product.id);
+                  return (
+                    <div key={product.id} className={styles.card}>
+                      <motion.div
+                        className={styles.imageWrapper}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Image
+                          src={
+                            product.variants?.[0]?.image || "/placeholder.jpg"
+                          }
+                          alt={
+                            product.variants?.[0]?.alt_text || product.p_title
+                          }
+                          fill
+                          className={styles.mainImage}
+                          style={{ objectFit: "cover" }}
+                        />
+                      </motion.div>
 
-                    <div className={styles.cardInfo}>
-                      <div className={styles.tf}>
-                        <h4>{product.p_title}</h4>
+                      <div className={styles.cardInfo}>
+                        <div className={styles.tf}>
+                          <h4>{product.p_title}</h4>
 
-                        <button
-                          type="button"
-                          aria-label="Add to wishlist"
-                          onClick={() => handleWishlist(product.id)}
-                        >
-                          <Heart
-                            fill={liked ? "red" : "none"}
-                            color={liked ? "red" : "currentColor"}
-                          />
-                        </button>
+                          <button
+                            type="button"
+                            aria-label="Add to wishlist"
+                            onClick={() => handleWishlist(product.id)}
+                          >
+                            <Heart
+                              fill={liked ? "red" : "none"}
+                              color={liked ? "red" : "currentColor"}
+                            />
+                          </button>
+                        </div>
+
+                        {product.variants?.length > 0 ? (
+                          <>
+                            <p>Size: {product.variants[0].size.name}</p>
+                            <p>Price: ${product.variants[0].price}</p>
+                          </>
+                        ) : (
+                          <p>No variants available</p>
+                        )}
                       </div>
-
-                      {product.variants?.length > 0 ? (
-                        <>
-                          <p>Size: {product.variants[0].size.name}</p>
-                          <p>Price: ${product.variants[0].price}</p>
-                        </>
-                      ) : (
-                        <p>No variants available</p>
-                      )}
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
               <div className={styles.btn}>
                 {visibleCount < filteredProducts.length && (
