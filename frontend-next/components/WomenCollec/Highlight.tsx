@@ -33,11 +33,10 @@ export default function Highlight() {
 
   const filteredProducts =
     active === "all"
-      ? products.filter((p) => p.gendercollection?.title === "womencollection")
+      ? products.filter((p) => p.gender?.title === "women")
       : products.filter(
           (p) =>
-            p.gendercollection?.title === "womencollection" &&
-            p.category.category_slug === active,
+            p.gender?.title === "women" && p.category.category_slug === active,
         );
 
   return (
@@ -77,7 +76,7 @@ export default function Highlight() {
                   >
                     <Image
                       src={
-                        product.campaign?.banner ||
+                        product.main_thumbnail ||
                         // product.images?.[0]?.image ||
                         "/placeholder.jpg"
                       }
@@ -99,8 +98,8 @@ export default function Highlight() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <Image
-                      src={product.images?.[0]?.image}
-                      alt={product.p_title}
+                      src={product.variants?.[0]?.image}
+                      alt={product.variants?.alt_text}
                       fill
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
@@ -118,8 +117,8 @@ export default function Highlight() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <Image
-                      src={product.images?.[1]?.image}
-                      alt={product.p_title}
+                      src={product.variants?.[0]?.image}
+                      alt={product.variants?.alt_text}
                       fill
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
