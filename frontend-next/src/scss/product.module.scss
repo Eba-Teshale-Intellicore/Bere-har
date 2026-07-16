@@ -102,9 +102,9 @@
 }
 .cardContent {
   display: flex;
-  // text-align: center;
+  align-items: center;
+  justify-content: space-between;
   gap: 1rem;
-  padding-top: 1.5rem;
   .info {
     display: flex;
     flex-direction: column;
