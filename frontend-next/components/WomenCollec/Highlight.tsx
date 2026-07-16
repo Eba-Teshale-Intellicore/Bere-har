@@ -41,6 +41,7 @@ export default function Highlight() {
   const [active, setActive] = useState("all");
   const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -103,6 +104,7 @@ export default function Highlight() {
               <div key={product.id} className={styles.collections}>
                 {/* LARGE */}
                 <div className={styles.card} style={{ gridArea: "fir" }}>
+                  {!loaded && <div className={styles.skeleton} />}
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
@@ -118,6 +120,7 @@ export default function Highlight() {
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
                       placeholder="blur"
+                      onLoad={() => setLoaded(true)}
                     />
                   </motion.div>
 
