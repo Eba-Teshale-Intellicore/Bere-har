@@ -10,7 +10,6 @@ import {
   X,
   LogOut,
   Contact2,
-  Map,
   MapPin,
   CircleUserRound,
   Gift,
