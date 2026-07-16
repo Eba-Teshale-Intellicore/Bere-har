@@ -24,12 +24,12 @@ class UserSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         password = attrs.get("password")
-        confirm_password = attrs.pop("confirm_password")
+        confirm_password = attrs.get("confirm_password")
 
         if password != confirm_password:
-            raise serializers.ValidationError(
-                "Passwords do not match"
-            )
+            raise serializers.ValidationError({
+                "confirm_password": "Passwords do not match"
+            })
 
         if User.objects.filter(email=attrs["email"]).exists():
             raise serializers.ValidationError({
@@ -38,7 +38,9 @@ class UserSerializer(serializers.ModelSerializer):
 
         return attrs
 
+
     def create(self, validated_data):
+
         validated_data.pop("confirm_password")
 
         user = User.objects.create_user(

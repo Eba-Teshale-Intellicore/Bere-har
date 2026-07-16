@@ -48,7 +48,9 @@ export default function Register() {
       setErrors({});
       setSuccess(true);
 
-      router.push("/account/login");
+      setTimeout(() => {
+        router.push("/account/login");
+      }, 1500);
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         console.log("FULL ERROR:", error.response?.data);
@@ -152,7 +154,7 @@ export default function Register() {
                 </button>
               )}
               <div>
-                <button type="submit" className={styles.google}>
+                <button type="button" className={styles.google}>
                   Continue with Google
                 </button>
               </div>
