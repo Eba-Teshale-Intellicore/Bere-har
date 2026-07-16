@@ -107,7 +107,7 @@ export default function Product() {
                         <div key={product.id} className={styles.card}>
                           <motion.div
                             className={styles.imageWrapper}
-                            whileHover={{ scale: 0.04 }}
+                            whileHover={{ scale: 0.08 }}
                           >
                             <motion.button
                               type="button"
