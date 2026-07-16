@@ -7,7 +7,36 @@ import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
 import { getProducts } from "@/src/api/product";
+// export interface Category {
+//   id: number;
+//   category_name: string;
+//   category_slug: string;
+// }
 
+// export interface Gender {
+//   id: number;
+//   title: string;
+// }
+
+// export interface Variant {
+//   id: number;
+//   image: string;
+//   price: string;
+//   quantity: number;
+//   color: string;
+//   alt_text: string;
+// }
+
+// export interface Product {
+//   id: number;
+//   p_title: string;
+//   main_thumbnail: string;
+//   category: Category;
+//   gender: Gender[];
+//   variants: Variant[];
+// }
+
+// const [products, setProducts] = useState<Product[]>([]);
 export default function Highlight() {
   const [active, setActive] = useState("all");
   const [categories, setCategories] = useState<any[]>([]);
@@ -31,12 +60,16 @@ export default function Highlight() {
     fetchData();
   }, []);
 
+  // && p_status="published"
+  // ).order_by("-created_at")[:8]
+
   const filteredProducts =
     active === "all"
-      ? products.filter((p) => p.gender?.title === "women")
+      ? products.filter((p) => p.gender?.some((g: any) => g.title === "women"))
       : products.filter(
           (p) =>
-            p.gender?.title === "women" && p.category.category_slug === active,
+            p.gender?.some((g: any) => g.title === "women") &&
+            p.category.category_slug === active,
         );
 
   return (
@@ -98,8 +131,8 @@ export default function Highlight() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <Image
-                      src={product.variants?.[0]?.image}
-                      alt={product.variants?.alt_text}
+                      src={product.variants?.[0]?.image || "/placeholder.jpg"}
+                      alt={product.variants?.[0]?.alt_text || product.p_title}
                       fill
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
@@ -117,8 +150,8 @@ export default function Highlight() {
                     whileHover={{ scale: 1.05 }}
                   >
                     <Image
-                      src={product.variants?.[0]?.image}
-                      alt={product.variants?.alt_text}
+                      src={product.variants?.[1]?.image || "/placeholder.jpg"}
+                      alt={product.variants?.[1]?.alt_text || product.p_title}
                       fill
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
