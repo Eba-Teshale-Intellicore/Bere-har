@@ -12,14 +12,14 @@ import { addWishlist, deleteWishlist, getWishlist } from "@/src/api/wishlist";
 interface WishlistItem {
   id: number;
 
-  product?: {
+  product: {
     id: number;
     p_title: string;
 
     variants?: {
       image: string;
       price: number;
-      size: {
+      size?: {
         name: string;
       };
     }[];
