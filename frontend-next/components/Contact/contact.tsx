@@ -6,13 +6,13 @@ import Image from "next/image";
 import logo from "@/public/bere-har-2.png";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { AuthContext } from "@/app/AuthProvider";
+import { useAuth } from "@/app/AuthProvider";
 type ContactProps = {
   onClose?: () => void;
 };
 
 export default function Contact({ onClose }: ContactProps) {
-  const { isLoggedIn } = useContext(AuthContext)!;
+  const { isLoggedIn, logout } = useAuth();
 
   return (
     <>
@@ -98,7 +98,13 @@ export default function Contact({ onClose }: ContactProps) {
 
               <li></li>
               {isLoggedIn ? (
-                <li className={styles.logout} onClick={onClose}>
+                <li
+                  className={styles.logout}
+                  onClick={() => {
+                    logout();
+                    onClose?.();
+                  }}
+                >
                   <Link href="/">Logout</Link>
                   <LogOut size={14} />
                 </li>
