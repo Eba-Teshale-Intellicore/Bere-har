@@ -118,6 +118,7 @@ export default function Product() {
                                 fill={liked ? "red" : "none"}
                                 color={liked ? "red" : "currentColor"}
                                 className={styles.favorites}
+                                size={24}
                               />
                             </button>
                             <Image
