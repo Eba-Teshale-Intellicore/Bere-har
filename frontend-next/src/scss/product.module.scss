@@ -108,6 +108,9 @@
   .info {
     display: flex;
     flex-direction: column;
+    p {
+      font-size: x-large;
+    }
   }
 }
 
