@@ -9,7 +9,6 @@ import {
 } from "react";
 
 import { addWishlist, deleteWishlist, getWishlist } from "@/src/api/wishlist";
-
 interface WishlistItem {
   id: number;
   product: {
@@ -27,9 +26,18 @@ interface WishlistContextType {
   toggleWishlist: (id: number) => Promise<void>;
   fetchWishlist: () => Promise<void>;
 }
-const WishlistContext = createContext<WishlistContextType | null>(null);
 
-export const useWishlistContext = () => useContext(WishlistContext);
+const WishlistContext = createContext<WishlistContextType | undefined>(
+  undefined,
+);
+
+export const useWishlistContext = () => {
+  const context = useContext(WishlistContext);
+  if (!context) {
+    throw new Error("WishlistProvider is missing");
+  }
+  return context;
+};
 
 export default function WishlistProvider({
   children,
