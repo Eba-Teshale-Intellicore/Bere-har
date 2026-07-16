@@ -73,7 +73,9 @@ export default function Header() {
                 >
                   <CircleUserRound size={24} />
                   {/* <span>{user?.username}</span> */}
-                  <Heart size={24} />
+                  <Link href="/wishlists/">
+                    <Heart size={24} />
+                  </Link>
                   <Button text="Contact Us" onClick={() => setContact(true)} />
                 </div>
               ) : (
