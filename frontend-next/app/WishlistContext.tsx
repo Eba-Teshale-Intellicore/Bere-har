@@ -10,27 +10,22 @@ import {
 
 import { addWishlist, deleteWishlist, getWishlist } from "@/src/api/wishlist";
 
-interface WishlistContextType {
-  favorites: any[];
-  loading: boolean;
-
-  isWishlisted: (id: number) => boolean;
-
-  addToWishlist: (id: number) => Promise<void>;
-
-  removeFromWishlist: (id: number) => Promise<void>;
-
-  toggleWishlist: (id: number) => Promise<void>;
-
-  fetchWishlist: () => Promise<void>;
-}
 interface WishlistItem {
   id: number;
-
   product: {
     id: number;
     p_title: string;
   };
+}
+
+interface WishlistContextType {
+  favorites: WishlistItem[];
+  loading: boolean;
+  isWishlisted: (id: number) => boolean;
+  addToWishlist: (id: number) => Promise<void>;
+  removeFromWishlist: (id: number) => Promise<void>;
+  toggleWishlist: (id: number) => Promise<void>;
+  fetchWishlist: () => Promise<void>;
 }
 const WishlistContext = createContext<WishlistContextType | null>(null);
 
