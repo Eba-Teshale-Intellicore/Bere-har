@@ -69,7 +69,7 @@ export default function Product() {
           <div className={styles.herofea}>
             <div className={styles.content}>
               <p>
-                <Heading text="Women Collection" />
+                <Heading text="Women_Collection" />
               </p>
               <ul>
                 <li

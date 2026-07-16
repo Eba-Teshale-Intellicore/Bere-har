@@ -16,6 +16,7 @@ import {
   Gift,
   Gem,
   ListPlus,
+  Heart,
 } from "lucide-react";
 import Image from "next/image";
 import Button from "@/components/Button";
@@ -70,8 +71,10 @@ export default function Header() {
                 <div
                   className={`${styles.menu} ${scrolled ? styles.menus : ""}`}
                 >
+                  <CircleUserRound size={24} />
+                  {/* <span>{user?.username}</span> */}
+                  <Heart size={24} />
                   <Button text="Contact Us" onClick={() => setContact(true)} />
-                  <CircleUserRound size={24} /> <span>{user?.username}</span>
                 </div>
               ) : (
                 <Link href="/account/register">
