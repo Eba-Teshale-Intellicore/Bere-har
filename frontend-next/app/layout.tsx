@@ -49,12 +49,27 @@ export const metadata: Metadata = {
   title: "Bere har",
   description: "Build by Gpspace_Tech",
 };
+import { useEffect, useState } from "react";
+import SplashScreen from "@/components/SplashScreen/SplashScreen";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <SplashScreen />;
+  }
   return (
     <html
       lang="en"
