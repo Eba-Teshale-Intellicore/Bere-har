@@ -105,8 +105,12 @@ export default function Product() {
                       const liked = isWishlisted(product.id);
                       return (
                         <div key={product.id} className={styles.card}>
-                          <motion.div className={styles.imageWrapper}>
-                            <button
+                          <motion.div
+                            className={styles.imageWrapper}
+                            whileHover={{ scale: 1.05 }}
+                          >
+                            <motion.button
+                              whileHover={{ scale: -1.05 }}
                               type="button"
                               aria-label="Add to wishlist"
                               onClick={() => handleWishlist(product.id)}
@@ -117,8 +121,8 @@ export default function Product() {
                                 className={styles.favorites}
                                 size={24}
                               />
-                            </button>
-                            <motion.div whileHover={{ scale: 1.05 }}>
+                            </motion.button>
+                            <div>
                               <Image
                                 src={
                                   product.variants?.[0]?.image ||
@@ -132,7 +136,7 @@ export default function Product() {
                                 className={styles.mainImage}
                                 style={{ objectFit: "cover" }}
                               />
-                            </motion.div>
+                            </div>
                           </motion.div>
 
                           <div className={styles.cardContent}>
