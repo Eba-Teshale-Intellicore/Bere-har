@@ -92,9 +92,7 @@
     margin-top: 0.5rem;
     align-self: center;
     position: fixed;
-    top: 4.5rem;
-    left: 0;
-    right: 50px;
+    inset: 0;
     z-index: 1001;
   }
 }
