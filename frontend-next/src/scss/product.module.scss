@@ -95,8 +95,8 @@
     top: 12px;
     right: 12px;
 
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
 
     display: flex;
     align-items: center;
@@ -112,7 +112,7 @@
   }
 
   button:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255);
     // transform: scale(1.08);
   }
 }
