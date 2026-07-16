@@ -87,16 +87,18 @@
   aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: 8px;
+
+  button {
+    margin-top: 0.5rem;
+    align-self: center;
+    position: fixed;
+    top: 4.5rem;
+    left: 0;
+    right: 50px;
+    z-index: 1001;
+  }
 }
-button {
-  margin-top: 0.5rem;
-  align-self: center;
-  position: fixed;
-  top: 4.5rem;
-  left: 0;
-  right: 50px;
-  z-index: 1001;
-}
+
 .mainImage,
 .hoverImage {
   transition:
