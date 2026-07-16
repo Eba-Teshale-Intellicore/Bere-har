@@ -62,11 +62,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <AuthProvider>
-          <WishlistProvider>
-            <Header />
-            {children}
-            <Footer />
-          </WishlistProvider>
+          {/* <WishlistProvider> */}
+          <Header />
+          {children}
+          <Footer />
+          {/* </WishlistProvider> */}
         </AuthProvider>
       </body>
     </html>
