@@ -88,7 +88,15 @@
   overflow: hidden;
   border-radius: 8px;
 }
-
+button {
+  margin-top: 0.5rem;
+  align-self: center;
+  position: fixed;
+  top: 4.5rem;
+  left: 0;
+  right: 50px;
+  z-index: 1001;
+}
 .mainImage,
 .hoverImage {
   transition:
@@ -120,10 +128,6 @@
 .cardContent p {
   line-height: 1.7;
   color: #1f1f1f;
-}
-.cardContent button {
-  margin-top: 0.5rem;
-  align-self: center;
 }
 
 .btn {
