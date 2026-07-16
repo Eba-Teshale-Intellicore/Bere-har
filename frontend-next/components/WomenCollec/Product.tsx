@@ -107,10 +107,9 @@ export default function Product() {
                         <div key={product.id} className={styles.card}>
                           <motion.div
                             className={styles.imageWrapper}
-                            whileHover={{ scale: 1.01 }}
+                            whileHover={{ scale: 0.04 }}
                           >
                             <motion.button
-                              // whileHover={{ scale: -1.05 }}
                               type="button"
                               aria-label="Add to wishlist"
                               onClick={() => handleWishlist(product.id)}
