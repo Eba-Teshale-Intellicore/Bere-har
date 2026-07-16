@@ -1,7 +1,7 @@
 .herofea {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   position: relative;
 
   background: transparent;
@@ -20,7 +20,7 @@
   padding: 2rem;
   text-align: center;
   p {
-    max-width: 55vw;
+    max-width: 155vw;
   }
 
   ul {
@@ -44,24 +44,22 @@
   left: 50%;
   bottom: -8px;
   transform: translateX(-50%);
-  width: 24px;
+  width: 32px;
   height: 2px;
   background: black;
 }
 
 .collections {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(5, minmax(250px, 1fr));
   gap: 10px;
   margin-bottom: 2rem;
 }
-.collections {
-  display: grid;
-  gap: 10px;
-}
+
 @media (max-width: 992px) {
   .collections {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -75,8 +73,8 @@
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  // justify-content: center;
   overflow: hidden;
   aspect-ratio: 3 / 4;
   width: 100%;
@@ -104,17 +102,23 @@
 }
 .cardContent {
   display: flex;
-  flex-direction: column;
-  text-align: center;
+  // text-align: center;
   gap: 1rem;
   padding-top: 1.5rem;
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
+.cardContent h4 {
+  line-height: 1.7;
+  color: #5e5e5e;
+}
 .cardContent p {
   line-height: 1.7;
-  color: #555;
+  color: #1f1f1f;
 }
-
 .cardContent button {
   margin-top: 0.5rem;
   align-self: center;

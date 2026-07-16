@@ -125,29 +125,30 @@ export default function Product() {
                           </motion.div>
 
                           <div className={styles.cardContent}>
-                            <div className={styles.tf}>
-                              <h4>{product.p_title}</h4>
-
-                              <button
-                                type="button"
-                                aria-label="Add to wishlist"
-                                onClick={() => handleWishlist(product.id)}
-                              >
-                                <Heart
-                                  fill={liked ? "red" : "none"}
-                                  color={liked ? "red" : "currentColor"}
-                                  className={styles.favorites}
-                                />
-                              </button>
-                            </div>
-
                             {product.variants?.length > 0 ? (
                               <>
-                                <p>Size: {product.variants[0].size.name}</p>
-                                <p>Price: ${product.variants[0].price}</p>
+                                <div className={styles.info}>
+                                  <h4>{product.p_title}</h4>
+                                  <p>Price: ${product.variants[0].price}</p>
+                                </div>
+                                <div className={styles.info}>
+                                  <button
+                                    type="button"
+                                    aria-label="Add to wishlist"
+                                    onClick={() => handleWishlist(product.id)}
+                                  >
+                                    <Heart
+                                      fill={liked ? "red" : "none"}
+                                      color={liked ? "red" : "currentColor"}
+                                      className={styles.favorites}
+                                    />
+                                  </button>
+                                  <p>Size: {product.variants[0].size.name}</p>
+                                </div>
                               </>
                             ) : (
-                              <p>No variants available</p>
+                              // <p>No variants available</p>
+                              <p></p>
                             )}
                           </div>
                         </div>
