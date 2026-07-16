@@ -11,10 +11,12 @@ import { useWishlistContext } from "@/app/WishlistContext";
 import { Heart } from "lucide-react";
 import { useAuth } from "@/app/AuthProvider";
 import { useRouter } from "next/navigation";
+import ProductSkeleton from "@/components/ProductSkeleton";
 
 export default function Product() {
   const router = useRouter();
 
+  const [loading, setLoading] = useState(true);
   const [active, setActive] = useState("all");
   const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
@@ -39,6 +41,8 @@ export default function Product() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+
         const [categoriesData, productsData] = await Promise.all([
           getCategories(),
           getProducts(),
@@ -48,6 +52,8 @@ export default function Product() {
         setProducts(productsData);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -91,55 +97,61 @@ export default function Product() {
             </div>
             <div>
               <div className={styles.collections}>
-                {filteredProducts.slice(0, visibleCount).map((product) => {
-                  const liked = isWishlisted(product.id);
-                  return (
-                    <div key={product.id} className={styles.card}>
-                      <motion.div
-                        className={styles.imageWrapper}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <Image
-                          src={
-                            product.variants?.[0]?.image || "/placeholder.jpg"
-                          }
-                          alt={
-                            product.variants?.[0]?.alt_text || product.p_title
-                          }
-                          fill
-                          className={styles.mainImage}
-                          style={{ objectFit: "cover" }}
-                        />
-                      </motion.div>
-
-                      <div className={styles.cardInfo}>
-                        <div className={styles.tf}>
-                          <h4>{product.p_title}</h4>
-
-                          <button
-                            type="button"
-                            aria-label="Add to wishlist"
-                            onClick={() => handleWishlist(product.id)}
+                {loading
+                  ? Array.from({ length: 10 }).map((_, index) => (
+                      <ProductSkeleton key={index} />
+                    ))
+                  : filteredProducts.slice(0, visibleCount).map((product) => {
+                      const liked = isWishlisted(product.id);
+                      return (
+                        <div key={product.id} className={styles.card}>
+                          <motion.div
+                            className={styles.imageWrapper}
+                            whileHover={{ scale: 1.05 }}
                           >
-                            <Heart
-                              fill={liked ? "red" : "none"}
-                              color={liked ? "red" : "currentColor"}
+                            <Image
+                              src={
+                                product.variants?.[0]?.image ||
+                                "/placeholder.jpg"
+                              }
+                              alt={
+                                product.variants?.[0]?.alt_text ||
+                                product.p_title
+                              }
+                              fill
+                              className={styles.mainImage}
+                              style={{ objectFit: "cover" }}
                             />
-                          </button>
-                        </div>
+                          </motion.div>
 
-                        {product.variants?.length > 0 ? (
-                          <>
-                            <p>Size: {product.variants[0].size.name}</p>
-                            <p>Price: ${product.variants[0].price}</p>
-                          </>
-                        ) : (
-                          <p>No variants available</p>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
+                          <div className={styles.cardInfo}>
+                            <div className={styles.tf}>
+                              <h4>{product.p_title}</h4>
+
+                              <button
+                                type="button"
+                                aria-label="Add to wishlist"
+                                onClick={() => handleWishlist(product.id)}
+                              >
+                                <Heart
+                                  fill={liked ? "red" : "none"}
+                                  color={liked ? "red" : "currentColor"}
+                                />
+                              </button>
+                            </div>
+
+                            {product.variants?.length > 0 ? (
+                              <>
+                                <p>Size: {product.variants[0].size.name}</p>
+                                <p>Price: ${product.variants[0].price}</p>
+                              </>
+                            ) : (
+                              <p>No variants available</p>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
               </div>
               <div className={styles.btn}>
                 {visibleCount < filteredProducts.length && (
