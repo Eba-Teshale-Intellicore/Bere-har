@@ -9,6 +9,22 @@ import { useWishlistContext } from "@/app/WishlistContext";
 import { Heart } from "lucide-react";
 import { getWishlist } from "@/src/api/wishlist";
 
+interface WishlistItem {
+  id: number;
+
+  product: {
+    id: number;
+    p_title: string;
+    variants: {
+      image: string;
+      price: number;
+      size?: {
+        name: string;
+      };
+    }[];
+  };
+}
+
 export default function Wishlist() {
   const [active, setActive] = useState("all");
   const [visibleCount, setVisibleCount] = useState(5);
@@ -37,8 +53,11 @@ export default function Wishlist() {
                       whileHover={{ scale: 1.05 }}
                     >
                       <Image
-                        src={item.image.image}
-                        alt={item.title}
+                        src={
+                          item.product.variants?.[0]?.image ||
+                          "/placeholder.jpg"
+                        }
+                        alt={item.product.p_title}
                         fill
                         className={styles.mainImage}
                       />
@@ -46,13 +65,15 @@ export default function Wishlist() {
 
                     <div className={styles.cardInfo}>
                       <div className={styles.tf}>
-                        <h4>{item.title}</h4>
+                        <h4>{item.product.p_title}</h4>
 
-                        <button onClick={() => toggleWishlist(item.image.id)}>
+                        <button onClick={() => toggleWishlist(item.product.id)}>
                           <Heart
-                            fill={isWishlisted(item.image.id) ? "red" : "none"}
+                            fill={
+                              isWishlisted(item.product.id) ? "red" : "none"
+                            }
                             color={
-                              isWishlisted(item.image.id)
+                              isWishlisted(item.product.id)
                                 ? "red"
                                 : "currentColor"
                             }
@@ -60,13 +81,17 @@ export default function Wishlist() {
                         </button>
                       </div>
 
-                      {item.variants.length > 0 ? (
+                      {item.product.variants?.length > 0 ? (
                         <>
-                          <p>Size: {item.variants[0].size}</p>
-                          <p>${item.variants[0].price}</p>
+                          <p>
+                            Size:
+                            {item.product.variants[0]?.size?.name}
+                          </p>
+
+                          <p>${item.product.variants[0]?.price}</p>
                         </>
                       ) : (
-                        <p>${item.price}</p>
+                        <p>No price</p>
                       )}
                     </div>
                   </div>

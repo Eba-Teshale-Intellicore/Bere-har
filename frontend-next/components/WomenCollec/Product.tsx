@@ -9,13 +9,29 @@ import { getProducts } from "@/src/api/product";
 import Button from "../Button";
 import { useWishlistContext } from "@/app/WishlistContext";
 import { Heart } from "lucide-react";
+import { useAuth } from "@/app/AuthProvider";
+import { useRouter } from "next/navigation";
 
 export default function Product() {
+  const router = useRouter();
+
   const [active, setActive] = useState("all");
   const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
   const [visibleCount, setVisibleCount] = useState(10);
   const { toggleWishlist, isWishlisted } = useWishlistContext();
+  const liked = isWishlisted(product.id);
+
+  const { isLoggedIn } = useAuth();
+
+  const handleWishlist = async (id: number) => {
+    if (!isLoggedIn) {
+      router.push("/account/login");
+      return;
+    }
+
+    await toggleWishlist(id);
+  };
 
   useEffect(() => {
     setVisibleCount(5);
@@ -95,12 +111,14 @@ export default function Product() {
                       <div className={styles.tf}>
                         <h4>{product.p_title}</h4>
 
-                        <button onClick={() => toggleWishlist(product.id)}>
+                        <button
+                          type="button"
+                          aria-label="Add to wishlist"
+                          onClick={() => handleWishlist(product.id)}
+                        >
                           <Heart
-                            fill={isWishlisted(product.id) ? "red" : "none"}
-                            color={
-                              isWishlisted(product.id) ? "red" : "currentColor"
-                            }
+                            fill={liked ? "red" : "none"}
+                            color={liked ? "red" : "currentColor"}
                           />
                         </button>
                       </div>

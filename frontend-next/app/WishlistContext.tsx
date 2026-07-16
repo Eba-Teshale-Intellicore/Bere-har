@@ -11,9 +11,18 @@ import {
 import { addWishlist, deleteWishlist, getWishlist } from "@/src/api/wishlist";
 interface WishlistItem {
   id: number;
-  product: {
+
+  product?: {
     id: number;
     p_title: string;
+
+    variants?: {
+      image: string;
+      price: number;
+      size: {
+        name: string;
+      };
+    }[];
   };
 }
 
@@ -69,7 +78,11 @@ export default function WishlistProvider({
   };
 
   useEffect(() => {
-    fetchWishlist();
+    const token = localStorage.getItem("accessToken");
+
+    if (token) {
+      fetchWishlist();
+    }
   }, []);
 
   const addToWishlist = async (productId: number) => {
@@ -107,10 +120,22 @@ export default function WishlistProvider({
   };
 
   const toggleWishlist = async (productId: number) => {
-    if (isWishlisted(productId)) {
-      await removeFromWishlist(productId);
-    } else {
-      await addToWishlist(productId);
+    try {
+      if (isWishlisted(productId)) {
+        const item = favorites.find((item) => item.product.id === productId);
+
+        if (!item) return;
+
+        await deleteWishlist(item.id);
+
+        setFavorites((prev) => prev.filter((x) => x.id !== item.id));
+      } else {
+        await addWishlist(productId);
+
+        await fetchWishlist();
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
