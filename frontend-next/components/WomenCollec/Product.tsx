@@ -146,7 +146,7 @@ export default function Product() {
                                   </p>
                                 </div>
                                 <div className={styles.info}>
-                                  <p>Size: {product.variants[0].size.name}</p>
+                                  <p>{product.variants[0].size.name}</p>
                                 </div>
                               </>
                             ) : (
