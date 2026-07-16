@@ -14,7 +14,7 @@ export default function Product() {
   const [active, setActive] = useState("all");
   const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
-  const [visibleCount, setVisibleCount] = useState(5);
+  const [visibleCount, setVisibleCount] = useState(10);
   const { toggleWishlist, isWishlisted } = useWishlistContext();
 
   useEffect(() => {
@@ -41,10 +41,10 @@ export default function Product() {
 
   const filteredProducts =
     active === "all"
-      ? products.filter((p) => p.gendercollection?.title === "womencollection")
+      ? products.filter((p) => p.gender?.some((g: any) => g.title === "women"))
       : products.filter(
           (p) =>
-            p.gendercollection?.title === "womencollection" &&
+            p.gender?.some((g: any) => g.title === "women") &&
             p.category.category_slug === active,
         );
   return (
@@ -76,67 +76,63 @@ export default function Product() {
             </div>
             <div>
               <div className={styles.collections}>
-                {filteredProducts.map((product) => (
-                  <React.Fragment key={product.id}>
-                    {product.images.slice(0, visibleCount).map((img: any) => (
-                      <div key={img.id} className={styles.card}>
-                        <motion.div
-                          className={styles.imageWrapper}
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          <Image
-                            src={img.image}
-                            alt={product.p_title}
-                            fill
-                            className={styles.mainImage}
-                            style={{ objectFit: "cover" }}
+                {filteredProducts.slice(0, visibleCount).map((product) => (
+                  <div key={product.id} className={styles.card}>
+                    <motion.div
+                      className={styles.imageWrapper}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Image
+                        src={product.variants?.[0]?.image || "/placeholder.jpg"}
+                        alt={product.variants?.[0]?.alt_text || product.p_title}
+                        fill
+                        className={styles.mainImage}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </motion.div>
+
+                    <div className={styles.cardInfo}>
+                      <div className={styles.tf}>
+                        <h4>{product.p_title}</h4>
+
+                        <button onClick={() => toggleWishlist(product.id)}>
+                          <Heart
+                            fill={isWishlisted(product.id) ? "red" : "none"}
+                            color={
+                              isWishlisted(product.id) ? "red" : "currentColor"
+                            }
                           />
-                        </motion.div>
-
-                        <div className={styles.cardInfo}>
-                          <div className={styles.tf}>
-                            <h4>{product.p_title}</h4>
-                            <button
-                              onClick={() => toggleWishlist(img.id)}
-                              className={styles.favorites}
-                            >
-                              <Heart
-                                fill={isWishlisted(img.id) ? "red" : "none"}
-                                color={
-                                  isWishlisted(img.id) ? "red" : "currentColor"
-                                }
-                              />
-                            </button>
-                          </div>
-
-                          {product.variants?.length ? (
-                            <>
-                              <p>Size: {product.variants[0].size}</p>
-                              <p>Price: ${product.variants[0].price}</p>
-                            </>
-                          ) : (
-                            <p>Price: ${product.p_price}</p>
-                          )}
-                        </div>
+                        </button>
                       </div>
-                    ))}
-                  </React.Fragment>
+
+                      {product.variants?.length > 0 ? (
+                        <>
+                          <p>Size: {product.variants[0].size.name}</p>
+                          <p>Price: ${product.variants[0].price}</p>
+                        </>
+                      ) : (
+                        <p>No variants available</p>
+                      )}
+                    </div>
+                  </div>
                 ))}
               </div>
               <div className={styles.btn}>
-                <Button
-                  text={
-                    active === "all"
-                      ? "View More"
-                      : `More ${filteredProducts[0]?.category?.category_name ?? "Category"}`
-                  }
-                  onClick={() => setVisibleCount((prev) => prev + 5)}
-                />
+                {visibleCount < filteredProducts.length && (
+                  <Button
+                    text="View More"
+                    onClick={() => setVisibleCount((prev) => prev + 5)}
+                  />
+                )}
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </div>{" "}
+            {/* inner div */}
+          </div>{" "}
+          {/* herofea */}
+        </div>{" "}
+        {/* container */}
+      </div>{" "}
+      {/* sticky */}
     </>
   );
 }

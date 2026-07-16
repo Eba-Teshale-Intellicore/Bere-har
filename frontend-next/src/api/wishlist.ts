@@ -4,7 +4,6 @@ import api from "./axios";
 
 export async function getWishlist() {
   const res = await api.get("wishlists/");
-
   return res.data;
 }
 
