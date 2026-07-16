@@ -109,6 +109,17 @@ export default function Product() {
                             className={styles.imageWrapper}
                             whileHover={{ scale: 1.05 }}
                           >
+                            <button
+                              type="button"
+                              aria-label="Add to wishlist"
+                              onClick={() => handleWishlist(product.id)}
+                            >
+                              <Heart
+                                fill={liked ? "red" : "none"}
+                                color={liked ? "red" : "currentColor"}
+                                className={styles.favorites}
+                              />
+                            </button>
                             <Image
                               src={
                                 product.variants?.[0]?.image ||
@@ -134,17 +145,6 @@ export default function Product() {
                                   </p>
                                 </div>
                                 <div className={styles.info}>
-                                  <button
-                                    type="button"
-                                    aria-label="Add to wishlist"
-                                    onClick={() => handleWishlist(product.id)}
-                                  >
-                                    <Heart
-                                      fill={liked ? "red" : "none"}
-                                      color={liked ? "red" : "currentColor"}
-                                      className={styles.favorites}
-                                    />
-                                  </button>
                                   <p>Size: {product.variants[0].size.name}</p>
                                 </div>
                               </>
