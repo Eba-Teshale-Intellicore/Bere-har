@@ -71,7 +71,7 @@ export default function Header() {
                 <div
                   className={`${styles.menu} ${scrolled ? styles.menus : ""}`}
                 >
-                  <CircleUserRound size={24} />
+                  <CircleUserRound size={24} onClick={() => setContact(true)} />
                   {/* <span>{user?.username}</span> */}
                   <Link href="/wishlists/">
                     <Heart size={24} />
