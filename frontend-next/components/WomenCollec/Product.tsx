@@ -124,7 +124,7 @@ export default function Product() {
                             />
                           </motion.div>
 
-                          <div className={styles.cardInfo}>
+                          <div className={styles.cardContent}>
                             <div className={styles.tf}>
                               <h4>{product.p_title}</h4>
 
@@ -136,6 +136,7 @@ export default function Product() {
                                 <Heart
                                   fill={liked ? "red" : "none"}
                                   color={liked ? "red" : "currentColor"}
+                                  className={styles.favorites}
                                 />
                               </button>
                             </div>
