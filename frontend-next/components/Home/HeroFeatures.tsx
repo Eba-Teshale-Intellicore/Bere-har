@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import styles from "@/src/scss/herofeatues.module.scss";
 import Paragraph from "../Paragraph";
 import Image from "next/image";
+import fea1 from "@/public/fea1.jpeg";
 import img1 from "@/public/flow1.jpeg";
 import fea2 from "@/public/fea2.jpeg";
 import img2 from "@/public/flow2.jpeg";
@@ -11,12 +12,12 @@ import { motion } from "framer-motion";
 // import { getProducts } from "@/src/api/product";
 const womenCollections = [
   {
-    title: "Luxury Accessories",
-    image: img1,
+    title: "Handbags",
+    image: fea1,
     hover: img2,
   },
   {
-    title: "Women's Couture",
+    title: "Ready-to-Wear",
     image: fea2,
     hover: img2,
   },
