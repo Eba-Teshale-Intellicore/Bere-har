@@ -5,6 +5,9 @@ import styles from "@/src/scss/herowomenfea.module.scss";
 import Paragraph from "../Paragraph";
 import Image from "next/image";
 import img1 from "@/public/flow1.jpeg";
+import men1 from "@/public/men1.jpg";
+import men2 from "@/public/men2.jpg";
+
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 
@@ -12,8 +15,8 @@ const menCollections = [
   {
     title: "men's Accessories",
     price: 23,
-    image: img1,
-    hover: img2,
+    image: men1,
+    hover: men2,
   },
   {
     title: "Men T-shirt 'large",

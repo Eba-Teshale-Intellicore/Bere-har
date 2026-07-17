@@ -5,14 +5,15 @@ import styles from "@/src/scss/herowomenfea.module.scss";
 import Paragraph from "../Paragraph";
 import Image from "next/image";
 import img1 from "@/public/flow1.jpeg";
+import women1 from "@/public/women1.jpg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 const womenCollections = [
   {
     title: "Women's Accessories",
     price: 19,
-    image: img1,
-    hover: img2,
+    image: women1,
+    hover: women1,
   },
   {
     title: "her Dress",
