@@ -21,7 +21,7 @@ const womenCollections = [
   {
     title: "Handbags",
     image: fea1,
-    hover: fea1,
+    hover: feah1,
   },
   {
     title: "Ready-to-Wear",
@@ -42,23 +42,23 @@ const womenCollections = [
 const menCollections = [
   {
     title: "Luxury Accessories",
-    image: img1,
-    hover: img2,
+    image: fea1,
+    hover: feah1,
   },
   {
     title: "Men's Couture",
-    image: img1,
-    hover: img2,
+    image: fea2,
+    hover: feah2,
   },
   {
     title: "Fine Jewelry",
-    image: img1,
-    hover: img2,
+    image: fea3,
+    hover: feah3,
   },
   {
     title: "Designer Footwear",
-    image: img1,
-    hover: img2,
+    image: fea4,
+    hover: feah4,
   },
 ];
 
