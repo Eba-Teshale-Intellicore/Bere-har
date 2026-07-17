@@ -7,6 +7,8 @@ import Image from "next/image";
 import fea1 from "@/public/fea1.jpeg";
 import img1 from "@/public/flow1.jpeg";
 import fea2 from "@/public/fea2.jpeg";
+import feah2 from "@/public/feah2.jpeg";
+
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 // import { getProducts } from "@/src/api/product";
@@ -14,12 +16,12 @@ const womenCollections = [
   {
     title: "Handbags",
     image: fea1,
-    hover: img2,
+    hover: fea1,
   },
   {
     title: "Ready-to-Wear",
     image: fea2,
-    hover: img2,
+    hover: feah2,
   },
   {
     title: "Exclusive Jewelry",
