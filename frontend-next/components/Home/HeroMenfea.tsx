@@ -12,6 +12,8 @@ import menh2 from "@/public/menh2.jpg";
 
 import men3 from "@/public/men3.jpg";
 import menh3 from "@/public/menh3.jpg";
+import men4 from "@/public/men3.jpg";
+import menh4 from "@/public/menh4.jpg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 
@@ -37,8 +39,8 @@ const menCollections = [
   {
     title: "Shoes '35 ",
     price: 35,
-    image: img1,
-    hover: img2,
+    image: men4,
+    hover: menh4,
   },
 ];
 
