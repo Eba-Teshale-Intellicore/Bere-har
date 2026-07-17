@@ -5,6 +5,7 @@ import styles from "@/src/scss/herofeatues.module.scss";
 import Paragraph from "../Paragraph";
 import Image from "next/image";
 import img1 from "@/public/flow1.jpeg";
+import fea2 from "@/public/fea2.jpeg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 // import { getProducts } from "@/src/api/product";
@@ -16,7 +17,7 @@ const womenCollections = [
   },
   {
     title: "Women's Couture",
-    image: img1,
+    image: fea2,
     hover: img2,
   },
   {
