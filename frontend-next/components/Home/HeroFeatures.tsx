@@ -5,9 +5,12 @@ import styles from "@/src/scss/herofeatues.module.scss";
 import Paragraph from "../Paragraph";
 import Image from "next/image";
 import fea1 from "@/public/fea1.jpeg";
+import feah1 from "@/public/feah1.jpeg";
 import img1 from "@/public/flow1.jpeg";
 import fea2 from "@/public/fea2.jpeg";
 import feah2 from "@/public/feah2.jpeg";
+import fea4 from "@/public/fea4.jpeg";
+import feah4 from "@/public/fea4.jpeg";
 
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
@@ -30,8 +33,8 @@ const womenCollections = [
   },
   {
     title: "Elegant Footwear",
-    image: img1,
-    hover: img2,
+    image: fea4,
+    hover: feah4,
   },
 ];
 const menCollections = [
