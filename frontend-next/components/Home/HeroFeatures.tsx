@@ -9,6 +9,8 @@ import feah1 from "@/public/feah1.jpeg";
 import img1 from "@/public/flow1.jpeg";
 import fea2 from "@/public/fea2.jpeg";
 import feah2 from "@/public/feah2.jpeg";
+import fea3 from "@/public/fffff.jpg";
+import feah3 from "@/public/fffff.jpg";
 import fea4 from "@/public/fea4.jpeg";
 import feah4 from "@/public/fea4.jpeg";
 
@@ -28,8 +30,8 @@ const womenCollections = [
   },
   {
     title: "Exclusive Jewelry",
-    image: img1,
-    hover: img2,
+    image: fea3,
+    hover: feah3,
   },
   {
     title: "Elegant Footwear",
