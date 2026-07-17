@@ -2,6 +2,7 @@
 import React from "react";
 import styles from "@/src/scss/heroAbout.module.scss";
 import img1 from "@/public/flow1.jpeg";
+import her1 from "@/public/heritage.jpg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -14,8 +15,8 @@ const historyCollections = [
     title: "Our Heritage",
     description:
       "Since 1996, BERU HAR has celebrated Ethiopian craftsmanship by transforming traditional artistry into timeless luxury fashion.",
-    image: img1,
-    hover: img2,
+    image: her1,
+    hover: her1,
     button: "Discover Our Story",
   },
   {
