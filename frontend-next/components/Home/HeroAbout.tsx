@@ -3,6 +3,8 @@ import React from "react";
 import styles from "@/src/scss/heroAbout.module.scss";
 import img1 from "@/public/flow1.jpeg";
 import her1 from "@/public/heritage.jpg";
+import mlu from "@/public/mluxury.jpg";
+import molus from "@/public/moluxury.jpg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -31,8 +33,8 @@ const historyCollections = [
     title: "Modern Ethiopian Luxury",
     description:
       "Inspired by Ethiopia's rich cultural heritage, our collections blend authentic tradition with contemporary design for today's global lifestyle.",
-    image: img1,
-    hover: img2,
+    image: mlu,
+    hover: molus,
     button: "View Collections",
   },
 ];
