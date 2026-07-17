@@ -6,8 +6,9 @@ import Paragraph from "../Paragraph";
 import Image from "next/image";
 import img1 from "@/public/flow1.jpeg";
 import men1 from "@/public/men1.jpg";
+import menh1 from "@/public/menh1.jpg";
 import men2 from "@/public/men2.jpg";
-
+import menh2 from "@/public/menh2.jpg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 
@@ -16,13 +17,13 @@ const menCollections = [
     title: "men's Accessories",
     price: 23,
     image: men1,
-    hover: men2,
+    hover: menh1,
   },
   {
     title: "Men T-shirt 'large",
     price: 20,
-    image: img1,
-    hover: img2,
+    image: men2,
+    hover: menh2,
   },
   {
     title: "Watch",

@@ -6,6 +6,9 @@ import Paragraph from "../Paragraph";
 import Image from "next/image";
 import img1 from "@/public/flow1.jpeg";
 import women1 from "@/public/women1.jpg";
+import women2 from "@/public/women2.jpg";
+import womenh2 from "@/public/womenh2.jpg";
+
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 const womenCollections = [
@@ -18,8 +21,8 @@ const womenCollections = [
   {
     title: "her Dress",
     price: 25,
-    image: img1,
-    hover: img2,
+    image: women2,
+    hover: womenh2,
   },
   {
     title: "Jewelry for hand",

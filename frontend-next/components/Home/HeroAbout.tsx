@@ -5,6 +5,7 @@ import img1 from "@/public/flow1.jpeg";
 import her1 from "@/public/heritage.jpg";
 import mlu from "@/public/mluxury.jpg";
 import molus from "@/public/moluxury.jpg";
+import show from "@/public/dshow.jpg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -25,8 +26,8 @@ const historyCollections = [
     title: "Design Show",
     description:
       "Experience BERU HAR's signature collections through exclusive fashion presentations that celebrate timeless elegance, Ethiopian heritage, and contemporary design.",
-    image: img1,
-    hover: img2,
+    image: show,
+    hover: show,
     button: "Explore the Show",
   },
   {
@@ -64,13 +65,6 @@ export default function HeroAbout() {
                       alt={item.title}
                       fill
                       className={styles.mainImage}
-                      style={{ objectFit: "cover" }}
-                    />
-                    <Image
-                      src={item.hover}
-                      alt={item.title}
-                      fill
-                      className={styles.hoverImage}
                       style={{ objectFit: "cover" }}
                     />
                   </motion.div>
