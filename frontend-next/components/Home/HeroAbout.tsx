@@ -66,6 +66,13 @@ export default function HeroAbout() {
                       className={styles.mainImage}
                       style={{ objectFit: "cover" }}
                     />
+                    <Image
+                      src={item.hover}
+                      alt={item.title}
+                      fill
+                      className={styles.hoverImage}
+                      style={{ objectFit: "cover" }}
+                    />
                   </motion.div>
                   <div className={styles.cardContent}>
                     <Heading text={item.title} size="sm" />
