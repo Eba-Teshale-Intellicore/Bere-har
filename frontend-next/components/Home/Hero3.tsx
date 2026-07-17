@@ -4,6 +4,8 @@ import React from "react";
 import styles from "@/src/scss/hero2.module.scss";
 import Image from "next/image";
 import hero1 from "@/public/flow3.jpeg";
+import hero3 from "@/public/hero3.jpg";
+
 import Button from "../Button";
 import Link from "next/link";
 export default function Hero3() {
@@ -22,7 +24,7 @@ export default function Hero3() {
                 viewport={{ once: false, amount: 0.3 }}
               >
                 <Image
-                  src={hero1}
+                  src={hero3}
                   alt="Hero"
                   fill
                   priority
