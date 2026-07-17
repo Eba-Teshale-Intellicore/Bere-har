@@ -9,6 +9,9 @@ import men1 from "@/public/men1.jpg";
 import menh1 from "@/public/menh1.jpg";
 import men2 from "@/public/men2.jpg";
 import menh2 from "@/public/menh2.jpg";
+
+import men3 from "@/public/men3.jpg";
+import menh3 from "@/public/menh3.jpg";
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 
@@ -28,8 +31,8 @@ const menCollections = [
   {
     title: "Watch",
     price: 10,
-    image: img1,
-    hover: img2,
+    image: men3,
+    hover: menh3,
   },
   {
     title: "Shoes '35 ",
