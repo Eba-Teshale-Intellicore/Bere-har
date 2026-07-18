@@ -11,6 +11,45 @@ import men1 from "@/public/bere-har-2.png";
 import men2 from "@/public/bere-har.png";
 import men3 from "@/public/file2.jpg";
 
+import Link from "next/link";
+import {
+  FaTelegram,
+  FaInstagram,
+  FaTiktok,
+  FaYoutube,
+  FaLinkedin,
+  FaXTwitter,
+} from "react-icons/fa6";
+
+function SocialLinks() {
+  return (
+    <div className="socials">
+      <Link href="https://t.me/gpspace_tech" target="_blank">
+        <FaTelegram size={22} />
+      </Link>
+
+      <Link href="https://instagram.com/yourusername" target="_blank">
+        <FaInstagram size={22} />
+      </Link>
+
+      <Link href="https://tiktok.com/@yourusername" target="_blank">
+        <FaTiktok size={22} />
+      </Link>
+
+      <Link href="https://youtube.com/@yourchannel" target="_blank">
+        <FaYoutube size={22} />
+      </Link>
+
+      <Link href="https://linkedin.com/in/yourusername" target="_blank">
+        <FaLinkedin size={22} />
+      </Link>
+
+      <Link href="https://x.com/yourusername" target="_blank">
+        <FaXTwitter size={22} />
+      </Link>
+    </div>
+  );
+}
 import { AnimatePresence, motion } from "framer-motion";
 
 const womencoll = [hero1, hero2, hero3, hero4];
@@ -74,6 +113,7 @@ export default function Hero() {
                     color="white"
                   />
                 </p>
+                <SocialLinks />
               </motion.div>
             </AnimatePresence>
 
