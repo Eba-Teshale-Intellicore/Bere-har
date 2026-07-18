@@ -9,26 +9,27 @@
   align-items: center;
   gap: 13px;
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
-.textWrapper span {
-  display: block;
-}
+// .textWrapper span {
+//   display: block;
+// }
 
 .textWrapper {
   position: relative;
   height: 24px;
   width: max-content;
   overflow: hidden;
-  display: block;
 }
 
 .text {
+  position: absolute;
   top: 0;
   left: 0;
 
-  display: block;
   white-space: nowrap;
+  display: block;
 }
 
 .primary {

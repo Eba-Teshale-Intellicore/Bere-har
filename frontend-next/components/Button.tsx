@@ -21,11 +21,15 @@ export default function Button(props: ButtonProps) {
         <span className={styles.textWrapper}>
           <motion.span
             className={styles.text}
-            initial={{ y: 0 }}
+            initial={{ y: "0%" }}
             variants={{
               hover: {
                 y: "-100%",
               },
+            }}
+            transition={{
+              duration: 0.35,
+              ease: "easeInOut",
             }}
           >
             {props.text}
@@ -36,11 +40,11 @@ export default function Button(props: ButtonProps) {
             initial={{ y: "100%" }}
             variants={{
               hover: {
-                y: 0,
+                y: "0%",
               },
             }}
             transition={{
-              duration: 0.3,
+              duration: 0.35,
               ease: "easeInOut",
             }}
           >
