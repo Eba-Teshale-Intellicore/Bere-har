@@ -19,25 +19,25 @@ import { motion } from "framer-motion";
 
 const menCollections = [
   {
-    title: "men's Accessories",
+    title: "Signature Details",
     price: 23,
     image: men1,
     hover: menh1,
   },
   {
-    title: "Men T-shirt 'large",
+    title: "Modern Heritage",
     price: 20,
     image: men2,
     hover: menh2,
   },
   {
-    title: "Watch",
+    title: "Crafted for Generations",
     price: 10,
     image: men3,
     hover: menh3,
   },
   {
-    title: "Shoes '35 ",
+    title: "National Treasure",
     price: 35,
     image: men4,
     hover: menh4,
@@ -93,7 +93,7 @@ export default function HeroWomenFea() {
                     </motion.div>
                     <div className={styles.cardInfo}>
                       <Paragraph text={item.title} />
-                      <Paragraph text={`$${item.price}`} />
+                      {/* <Paragraph text={`$${item.price}`} /> */}
                     </div>
                   </div>
                 ))}

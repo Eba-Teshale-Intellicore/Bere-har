@@ -17,25 +17,25 @@ import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 const womenCollections = [
   {
-    title: "Women's Accessories",
+    title: "Her Signature",
     price: 19,
     image: women1,
     hover: women1,
   },
   {
-    title: "her Dress",
+    title: "Elegant Heritage",
     price: 25,
     image: women2,
     hover: womenh2,
   },
   {
-    title: "Jewelry for hand",
+    title: "Tradition Reimagined",
     price: 5,
     image: women3,
     hover: womenh3,
   },
   {
-    title: "Women's Shoes '34",
+    title: "The Progress",
     price: 32,
     image: women4,
     hover: womenh4,
@@ -91,7 +91,7 @@ export default function HeroWomenFea() {
                     </motion.div>
                     <div className={styles.cardInfo}>
                       <Paragraph text={item.title} />
-                      <Paragraph text={`$${item.price}`} />
+                      {/* <Paragraph text={`$${item.price}`} /> */}
                     </div>
                   </div>
                 ))}
