@@ -98,10 +98,10 @@ export default function Hero() {
               <motion.div
                 key={current}
                 className={styles.imagebg}
-                initial={{ opacity: 0, x: 80 }}
+                initial={{ opacity: 0.5, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -80 }}
-                transition={{ duration: 0.8 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.9 }}
               >
                 <Image
                   src={images[current]}
