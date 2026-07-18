@@ -18,35 +18,66 @@ import {
   FaTiktok,
   FaYoutube,
   FaLinkedin,
-  FaXTwitter,
-} from "react-icons/fa6";
+} from "react-icons/fa";
+
+import { FaXTwitter } from "react-icons/fa6";
 
 function SocialLinks() {
   return (
-    <div className="socials">
-      <Link href="https://t.me/gpspace_tech" target="_blank">
-        <FaTelegram size={22} />
-      </Link>
+    <div className={styles.socials}>
+      <a
+        href="https://t.me/gpspace_tech"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Telegram"
+      >
+        <FaTelegram size={32} color="#229ED9" />
+      </a>
 
-      <Link href="https://instagram.com/yourusername" target="_blank">
-        <FaInstagram size={22} />
-      </Link>
+      <a
+        href="https://instagram.com/yourusername"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
+        <FaInstagram size={32} color="#E4405F" />
+      </a>
 
-      <Link href="https://tiktok.com/@yourusername" target="_blank">
-        <FaTiktok size={22} />
-      </Link>
+      <a
+        href="https://tiktok.com/@yourusername"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="TikTok"
+      >
+        <FaTiktok size={32} color="#000000" />
+      </a>
 
-      <Link href="https://youtube.com/@yourchannel" target="_blank">
-        <FaYoutube size={22} />
-      </Link>
+      <a
+        href="https://youtube.com/@yourchannel"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="YouTube"
+      >
+        <FaYoutube size={32} color="#FF0000" />
+      </a>
 
-      <Link href="https://linkedin.com/in/yourusername" target="_blank">
-        <FaLinkedin size={22} />
-      </Link>
+      <a
+        href="https://linkedin.com/in/yourusername"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        <FaLinkedin size={32} color="#0A66C2" />
+      </a>
 
-      <Link href="https://x.com/yourusername" target="_blank">
-        <FaXTwitter size={22} />
-      </Link>
+      <a
+        href="https://x.com/yourusername"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="X"
+      >
+        <FaXTwitter size={32} color="#000000" />
+      </a>
     </div>
   );
 }
