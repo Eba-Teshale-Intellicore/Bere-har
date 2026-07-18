@@ -16,22 +16,30 @@ export default function Button(props: ButtonProps) {
       <motion.button
         className={`${styles.button} ${styles[props.variant || "primary"]} ${props.className || ""}`}
         onClick={props.onClick}
+        whileHover="hover"
       >
         <motion.span
-          initial={{ opacity: 0, y: -80 }}
-          whileHover={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -80 }}
-          transition={{ duration: 0.3 }}
-          viewport={{ once: false, amount: 0.3 }}
+          variants={{
+            hover: {
+              y: -80,
+            },
+          }}
+          transition={{
+            duration: 0.3,
+          }}
         >
           {props.text}
         </motion.span>
+
         <motion.span
-          initial={{ opacity: 1, y: 0 }}
-          whileHover={{ opacity: 0, y: 80 }}
-          exit={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          viewport={{ once: false, amount: 0.3 }}
+          variants={{
+            hover: {
+              y: 0,
+            },
+          }}
+          transition={{
+            duration: 0.3,
+          }}
         >
           {props.text}
         </motion.span>
