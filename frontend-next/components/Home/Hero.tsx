@@ -112,8 +112,8 @@ export default function Hero() {
                     size="md"
                     color="white"
                   />
+                  <SocialLinks />
                 </p>
-                <SocialLinks />
               </motion.div>
             </AnimatePresence>
 
