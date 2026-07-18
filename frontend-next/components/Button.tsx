@@ -21,6 +21,7 @@ export default function Button(props: ButtonProps) {
         <span className={styles.textWrapper}>
           <motion.span
             className={styles.text}
+            initial={{ y: "0%" }}
             variants={{
               hover: {
                 y: "-100%",
@@ -29,15 +30,15 @@ export default function Button(props: ButtonProps) {
           >
             {props.text}
           </motion.span>
+
           <motion.span
             className={styles.text}
+            initial={{ y: "100%" }}
             variants={{
               hover: {
                 y: "0%",
-                opacity: 1,
               },
             }}
-            initial={{ y: "100%" }}
           >
             {props.text}
           </motion.span>
