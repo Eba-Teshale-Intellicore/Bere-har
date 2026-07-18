@@ -18,17 +18,6 @@ export default function Button(props: ButtonProps) {
         onClick={props.onClick}
         whileHover="hover"
       >
-        <motion.span
-          className={styles.text}
-          variants={{
-            hover: {
-              y: "0%",
-            },
-          }}
-          initial={{ y: "100%" }}
-        >
-          {props.text}
-        </motion.span>
         <span className={styles.textWrapper}>
           <motion.span
             className={styles.text}
@@ -37,6 +26,17 @@ export default function Button(props: ButtonProps) {
                 y: "-100%",
               },
             }}
+          >
+            {props.text}
+          </motion.span>
+          <motion.span
+            className={styles.text}
+            variants={{
+              hover: {
+                y: "0%",
+              },
+            }}
+            initial={{ y: "100%" }}
           >
             {props.text}
           </motion.span>
