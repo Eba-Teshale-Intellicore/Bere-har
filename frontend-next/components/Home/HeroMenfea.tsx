@@ -98,7 +98,7 @@ export default function HeroWomenFea() {
                           className={styles.hoverImage}
                           style={{
                             objectFit: "cover",
-                            objectPosition: "center center",
+                            objectPosition: "top center",
                           }}
                         />
                       </motion.div>
