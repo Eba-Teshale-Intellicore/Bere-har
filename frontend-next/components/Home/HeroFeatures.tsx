@@ -19,6 +19,8 @@ import feam2 from "@/public/feam2.png";
 import feamh2 from "@/public/feamh2.png";
 import feam3 from "@/public/feam3.png";
 import feamh3 from "@/public/feamh3.png";
+import feam4 from "@/public/feam4.png";
+import feamh4 from "@/public/feamh4.png";
 
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
@@ -63,8 +65,8 @@ const menCollections = [
   },
   {
     title: "Designer Footwear",
-    image: fea4,
-    hover: feah4,
+    image: feam4,
+    hover: feamh4,
   },
 ];
 
