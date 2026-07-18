@@ -87,7 +87,10 @@ export default function HeroWomenFea() {
                           alt={item.title}
                           fill
                           className={styles.mainImage}
-                          style={{ objectFit: "cover" }}
+                          style={{
+                            objectFit: "cover",
+                            objectPosition: "top center",
+                          }}
                         />
 
                         <Image
@@ -97,12 +100,14 @@ export default function HeroWomenFea() {
                           className={styles.hoverImage}
                           style={{
                             objectFit: "cover",
-                            objectPosition: "center center",
+                            objectPosition: "top center",
                           }}
                         />
                       </motion.div>
                       <div className={styles.cardInfo}>
-                        <Paragraph text={item.title} />
+                        <p>
+                          <Paragraph text={item.title} />
+                        </p>
                         {/* <Paragraph text={`$${item.price}`} /> */}
                       </div>
                     </div>
