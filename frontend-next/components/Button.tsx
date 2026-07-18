@@ -34,6 +34,7 @@ export default function Button(props: ButtonProps) {
             variants={{
               hover: {
                 y: "0%",
+                opacity: 1,
               },
             }}
             initial={{ y: "100%" }}
