@@ -90,6 +90,14 @@
     padding-bottom: 10px;
     text-align: center;
   }
+  .content p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-blackops);
+    font-size: small;
+  }
   .socials {
     gap: 10px;
     a {
