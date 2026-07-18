@@ -24,7 +24,7 @@ export default function Button(props: ButtonProps) {
             initial={{ y: 0 }}
             variants={{
               hover: {
-                y: -40,
+                y: "-100%",
               },
             }}
             transition={{
@@ -40,7 +40,7 @@ export default function Button(props: ButtonProps) {
             initial={{ y: 40 }}
             variants={{
               hover: {
-                y: 0,
+                y: "100%",
               },
             }}
             transition={{
