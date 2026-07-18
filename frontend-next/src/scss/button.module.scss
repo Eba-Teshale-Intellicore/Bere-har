@@ -13,6 +13,20 @@
 .button:hover {
   padding: 1px 25px 1px 25px;
 }
+.button span {
+  display: block;
+}
+.textWrapper {
+  position: relative;
+  height: 24px;
+  overflow: hidden;
+}
+
+.text {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
 
 .primary {
   background-color: #d9d9d9;
