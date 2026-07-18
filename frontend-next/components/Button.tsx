@@ -27,10 +27,6 @@ export default function Button(props: ButtonProps) {
                 y: "-100%",
               },
             }}
-            transition={{
-              duration: 0.3,
-              ease: "easeInOut",
-            }}
           >
             {props.text}
           </motion.span>
@@ -42,10 +38,6 @@ export default function Button(props: ButtonProps) {
               hover: {
                 y: 0,
               },
-            }}
-            transition={{
-              duration: 0.3,
-              ease: "easeInOut",
             }}
           >
             {props.text}

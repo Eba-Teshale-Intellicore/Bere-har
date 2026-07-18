@@ -10,9 +10,7 @@
   gap: 13px;
   overflow: hidden;
 }
-// .button:hover {
-//   padding: 1px 25px 1px 25px;
-// }
+
 .textWrapper span {
   display: block;
 }
@@ -22,12 +20,15 @@
   height: 24px;
   width: max-content;
   overflow: hidden;
+  display: block;
 }
 
 .text {
   position: absolute;
   top: 0;
   left: 0;
+
+  display: block;
   white-space: nowrap;
 }
 
