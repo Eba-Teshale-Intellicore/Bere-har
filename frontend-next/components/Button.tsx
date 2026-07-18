@@ -14,22 +14,20 @@ export default function Button(props: ButtonProps) {
   return (
     <>
       <motion.button
-        className={`${styles.button} ${styles[props.variant || "primary"]}`}
+        className={`${styles.button} ${styles[props.variant || "primary"]} ${props.className || ""}`}
         onClick={props.onClick}
         whileHover="hover"
       >
         <span className={styles.textWrapper}>
           <motion.span
             className={styles.text}
-            initial={{ y: 0 }}
             variants={{
               hover: {
-                y: "-100%",
+                y: -40,
               },
             }}
             transition={{
               duration: 0.3,
-              ease: "easeInOut",
             }}
           >
             {props.text}
@@ -37,15 +35,13 @@ export default function Button(props: ButtonProps) {
 
           <motion.span
             className={styles.text}
-            initial={{ y: 40 }}
             variants={{
               hover: {
-                y: "100%",
+                y: 0,
               },
             }}
             transition={{
               duration: 0.3,
-              ease: "easeInOut",
             }}
           >
             {props.text}
