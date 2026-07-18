@@ -4,6 +4,7 @@
   background: rgb(255, 193, 122);
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -14,6 +15,9 @@
   }
   p {
     animation: slideIn 1s ease forwards;
+    font-family: var(--font-blackops);
+    font-weight: 550;
+    font-size: large;
   }
 }
 

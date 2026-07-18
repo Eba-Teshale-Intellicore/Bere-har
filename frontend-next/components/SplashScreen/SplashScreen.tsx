@@ -9,7 +9,7 @@ export default function SplashScreen() {
   return (
     <div className={styles.splash}>
       <Image src={logo} alt="Bere Har" width={180} height={180} priority />
-      <Paragraph text="Loaing..." color="white" />
+      <Paragraph text="Loaing..." color="black" />
     </div>
   );
 }
