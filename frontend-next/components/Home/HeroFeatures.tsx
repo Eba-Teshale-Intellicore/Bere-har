@@ -144,7 +144,6 @@ export default function HeroFeatures() {
                       <p>
                         <Paragraph text={item.title} />
                       </p>
-                      {/* <Paragraph text={`$${item.price}`} /> */}
                     </div>
                   </div>
                 ))}
