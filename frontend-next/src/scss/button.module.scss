@@ -18,11 +18,11 @@
 
 .textWrapper {
   position: relative;
+  display: inline-block;
   height: 1.2em;
-  width: max-content;
   overflow: hidden;
-  display: block;
-  background: red;
+  min-width: max-content;
+  background-color: red;
 }
 
 .text {
@@ -30,10 +30,10 @@
   top: 0;
   left: 0;
 
-  white-space: nowrap;
   display: block;
+  white-space: nowrap;
   line-height: 1.2;
-  color: #e9f109;
+  color: yellow;
 }
 
 .primary {
