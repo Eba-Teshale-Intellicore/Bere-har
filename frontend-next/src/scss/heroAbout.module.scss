@@ -20,8 +20,10 @@
   padding: 2rem 0;
   text-align: center;
   p {
-    max-width: 55vw;
+    max-width: 80vw;
     font-weight: 600;
+    line-height: 1.7;
+    color: #555;
   }
 
   h1 {
@@ -93,6 +95,7 @@
     font-family: var(--font-blackops);
   }
   p {
+    font-weight: 500;
     line-height: 1.7;
     color: #555;
   }
