@@ -17,7 +17,7 @@ export default function Hero2() {
             <AnimatePresence mode="wait">
               <motion.div
                 className={styles.imagebg}
-                initial={{ opacity: 0, y: 80 }}
+                initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: false, amount: 0.3 }}
