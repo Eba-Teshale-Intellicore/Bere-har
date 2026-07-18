@@ -18,21 +18,20 @@
 
 .textWrapper {
   position: relative;
-  display: flex;
-  height: 1.2em;
+  display: inline-block;
   overflow: hidden;
-  background-color: red;
-  width: 100px;
-  align-items: center;
-  justify-content: center;
+  height: 1.2em;
+}
+
+.sizer {
+  visibility: hidden;
+  white-space: nowrap;
 }
 
 .text {
   position: absolute;
-  left: 0;
-  top: 0;
+  inset: 0;
   white-space: nowrap;
-  color: yellow;
 }
 
 .primary {
