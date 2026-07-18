@@ -21,6 +21,7 @@
   text-align: center;
   p {
     max-width: 55vw;
+    font-weight: 600;
   }
 
   ul {
@@ -30,6 +31,7 @@
     gap: 2rem;
     li {
       cursor: pointer;
+      font-family: var(--font-blackops);
     }
   }
 }
@@ -111,4 +113,11 @@
 .card:hover .hoverImage {
   opacity: 1;
   transform: scale(1.05);
+}
+.cardInfo {
+  padding: 1rem;
+  p {
+    cursor: pointer;
+    font-family: var(--font-blackops);
+  }
 }

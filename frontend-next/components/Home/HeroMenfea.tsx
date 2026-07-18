@@ -106,7 +106,9 @@ export default function HeroWomenFea() {
                         />
                       </motion.div>
                       <div className={styles.cardInfo}>
-                        <Paragraph text={item.title} />
+                        <p>
+                          <Paragraph text={item.title} />
+                        </p>
                         {/* <Paragraph text={`$${item.price}`} /> */}
                       </div>
                     </div>

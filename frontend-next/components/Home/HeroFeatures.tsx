@@ -174,7 +174,11 @@ export default function HeroFeatures() {
                         }}
                       />
                     </motion.div>
-                    <Paragraph text={item.title} />
+                    <div className={styles.cardInfo}>
+                      <p>
+                        <Paragraph text={item.title} />
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
