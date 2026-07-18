@@ -13,6 +13,12 @@ import fea3 from "@/public/fea3.png";
 import feah3 from "@/public/feah3.png";
 import fea4 from "@/public/fea4.jpeg";
 import feah4 from "@/public/feah4.png";
+import feam1 from "@/public/feam1.png";
+import feamh1 from "@/public/feamh1.png";
+import feam2 from "@/public/feam2.png";
+import feamh2 from "@/public/feamh2.png";
+import feam3 from "@/public/feam3.png";
+import feamh3 from "@/public/feamh3.png";
 
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
@@ -42,18 +48,18 @@ const womenCollections = [
 const menCollections = [
   {
     title: "Luxury Accessories",
-    image: fea1,
-    hover: feah1,
+    image: feam1,
+    hover: feamh1,
   },
   {
     title: "Men's Couture",
-    image: fea2,
-    hover: feah2,
+    image: feam2,
+    hover: feamh2,
   },
   {
     title: "Fine Jewelry",
-    image: fea3,
-    hover: feah3,
+    image: feam3,
+    hover: feamh3,
   },
   {
     title: "Designer Footwear",
