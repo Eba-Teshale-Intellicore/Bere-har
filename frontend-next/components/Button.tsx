@@ -23,7 +23,7 @@ export default function Button(props: ButtonProps) {
             className={styles.text}
             variants={{
               hover: {
-                y: -40,
+                y: "-100%",
               },
             }}
             transition={{
@@ -37,7 +37,7 @@ export default function Button(props: ButtonProps) {
             className={styles.text}
             variants={{
               hover: {
-                y: 0,
+                y: "100%",
               },
             }}
             transition={{
