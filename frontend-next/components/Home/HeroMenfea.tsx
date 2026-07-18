@@ -54,7 +54,7 @@ export default function HeroWomenFea() {
                 className={styles.content}
                 initial={{ opacity: 0, y: 80 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.5 }}
                 viewport={{ once: false, amount: 0.3 }}
               >
                 <ul>
@@ -73,6 +73,8 @@ export default function HeroWomenFea() {
                 <div className={styles.collections}>
                   {menCollections.map((item) => (
                     <div key={item.title} className={styles.card}>
+                      <div className={styles.overlay} />
+
                       <motion.div
                         className={styles.imageWrapper}
                         whileHover={{ scale: 1.05 }}
