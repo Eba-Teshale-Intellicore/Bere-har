@@ -12,23 +12,23 @@
   transition: background-color 0.3s ease;
 }
 
-.textWrapper span {
-  display: block;
-}
+// .textWrapper span {
+//   display: block;
+// }
 
 .textWrapper {
   position: relative;
-  height: 24px;
-  width: max-content;
+  height: 1.2em;
   overflow: hidden;
+  width: max-content;
 }
 
 .text {
-  top: 0;
-  left: 0;
-
-  white-space: nowrap;
+  position: absolute;
+  inset: 0 auto auto 0;
   display: block;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 .primary {
