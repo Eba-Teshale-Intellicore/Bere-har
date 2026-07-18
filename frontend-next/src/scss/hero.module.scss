@@ -136,14 +136,23 @@
 }
 .socials {
   display: flex;
-  gap: 18px;
+  flex-direction: row;
   align-items: center;
+  gap: 20px;
 
   a {
-    transition: 0.3s ease;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
   }
 
   a:hover {
-    transform: scale(1.15);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   }
 }

@@ -10,6 +10,7 @@ import hero4 from "@/public/flow3.jpeg";
 import men1 from "@/public/bere-har-2.png";
 import men2 from "@/public/bere-har.png";
 import men3 from "@/public/file2.jpg";
+import { AnimatePresence, motion } from "framer-motion";
 
 import Link from "next/link";
 import {
@@ -25,63 +26,52 @@ import { FaXTwitter } from "react-icons/fa6";
 function SocialLinks() {
   return (
     <div className={styles.socials}>
-      <a
+      <Link
         href="https://t.me/gpspace_tech"
         target="_blank"
-        rel="noopener noreferrer"
         aria-label="Telegram"
       >
         <FaTelegram size={32} color="#229ED9" />
-      </a>
+      </Link>
 
-      <a
+      <Link
         href="https://instagram.com/yourusername"
         target="_blank"
-        rel="noopener noreferrer"
         aria-label="Instagram"
       >
         <FaInstagram size={32} color="#E4405F" />
-      </a>
+      </Link>
 
-      <a
+      <Link
         href="https://tiktok.com/@yourusername"
         target="_blank"
-        rel="noopener noreferrer"
         aria-label="TikTok"
       >
         <FaTiktok size={32} color="#000000" />
-      </a>
+      </Link>
 
-      <a
+      <Link
         href="https://youtube.com/@yourchannel"
         target="_blank"
-        rel="noopener noreferrer"
         aria-label="YouTube"
       >
         <FaYoutube size={32} color="#FF0000" />
-      </a>
+      </Link>
 
-      <a
+      <Link
         href="https://linkedin.com/in/yourusername"
         target="_blank"
-        rel="noopener noreferrer"
         aria-label="LinkedIn"
       >
         <FaLinkedin size={32} color="#0A66C2" />
-      </a>
+      </Link>
 
-      <a
-        href="https://x.com/yourusername"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="X"
-      >
+      <Link href="https://x.com/yourusername" target="_blank" aria-label="X">
         <FaXTwitter size={32} color="#000000" />
-      </a>
+      </Link>
     </div>
   );
 }
-import { AnimatePresence, motion } from "framer-motion";
 
 const womencoll = [hero1, hero2, hero3, hero4];
 const mencoll = [men1, men2, men3];
