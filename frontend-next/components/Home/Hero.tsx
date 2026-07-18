@@ -63,7 +63,7 @@ function SocialLinks() {
         target="_blank"
         aria-label="LinkedIn"
       >
-        <FaLinkedin size={32} color="#0A66C2" />
+        <FaLinkedin size={28} color="#0A66C2" />
       </Link>
 
       <Link href="https://x.com/yourusername" target="_blank" aria-label="X">
