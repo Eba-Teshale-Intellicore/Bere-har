@@ -13,15 +13,13 @@
   img {
     animation: pulse 1.2s ease-in-out infinite;
   }
-  p {
-    font-family: var(--font-blackops);
-    font-weight: 550;
-  }
 }
 .loading {
   display: flex;
   align-items: center;
   gap: 4px;
+  font-family: var(--font-blackops);
+  font-weight: 550;
 
   span::after {
     content: "";
