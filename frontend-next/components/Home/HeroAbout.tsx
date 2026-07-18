@@ -69,8 +69,12 @@ export default function HeroAbout() {
                     />
                   </motion.div>
                   <div className={styles.cardContent}>
-                    <Heading text={item.title} size="sm" />
-                    <Paragraph text={item.description} />
+                    <h1>
+                      <Heading text={item.title} size="sm" />
+                    </h1>
+                    <p>
+                      <Paragraph text={item.description} />
+                    </p>
                     <Button text={item.button} />
                   </div>
                 </div>

@@ -20,7 +20,7 @@
   padding: 2rem;
   text-align: center;
   p {
-    max-width: 55vw;
+    // max-width: 55vw;
     font-weight: 600;
   }
 
@@ -119,5 +119,7 @@
   p {
     cursor: pointer;
     font-family: var(--font-blackops);
+    line-height: 1.7;
+    color: #555;
   }
 }

@@ -21,6 +21,7 @@
   text-align: center;
   p {
     max-width: 55vw;
+    font-weight: 600;
   }
 
   h1 {
@@ -28,6 +29,8 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    font-family: var(--font-blackops);
+    cursor: pointer;
   }
 }
 
@@ -86,6 +89,9 @@
   text-align: center;
   gap: 1rem;
   padding-top: 1.5rem;
+  h1 {
+    font-family: var(--font-blackops);
+  }
 }
 
 .cardContent p {
