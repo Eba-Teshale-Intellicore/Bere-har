@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import styles from "@/src/scss/herowomenfea.module.scss";
 import Paragraph from "../Paragraph";
 import Image from "next/image";
-import img1 from "@/public/flow1.jpeg";
 import men1 from "@/public/men1.jpg";
 import menh1 from "@/public/menh1.jpg";
 import men2 from "@/public/men2.jpg";
@@ -12,9 +11,8 @@ import menh2 from "@/public/menh2.jpg";
 
 import men3 from "@/public/men3.jpg";
 import menh3 from "@/public/menh3.jpg";
-import men4 from "@/public/men3.jpg";
+import men4 from "@/public/men4.jpg";
 import menh4 from "@/public/menh4.jpg";
-import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
 
 const menCollections = [

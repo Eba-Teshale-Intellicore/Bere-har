@@ -10,7 +10,7 @@ import women2 from "@/public/women2.jpg";
 import womenh2 from "@/public/womenh2.jpg";
 import women3 from "@/public/women3.jpg";
 import womenh3 from "@/public/womenh3.jpg";
-import women4 from "@/public/women3.jpg";
+import women4 from "@/public/women4.jpg";
 import womenh4 from "@/public/womenh4.jpg";
 
 import img2 from "@/public/flow2.jpeg";
