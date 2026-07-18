@@ -17,14 +17,14 @@
 // }
 
 .textWrapper {
-  position: relative;
+  position: absolute;
   height: 1.2em;
   overflow: hidden;
   width: max-content;
 }
 
 .text {
-  position: absolute;
+  position: relative;
   inset: 0 auto auto 0;
   display: block;
   white-space: nowrap;
