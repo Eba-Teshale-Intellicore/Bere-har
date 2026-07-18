@@ -18,21 +18,17 @@
 
 .textWrapper {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
   height: 1.2em;
   overflow: hidden;
-  min-width: max-content;
   background-color: red;
 }
 
 .text {
   position: absolute;
-  top: 0;
   left: 0;
-
-  display: block;
+  top: 0;
   white-space: nowrap;
-  line-height: 1.2;
   color: yellow;
 }
 
