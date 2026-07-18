@@ -3,11 +3,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  position: relative;
+  position: absolute;
 
   background: transparent;
   transition: all 0.3s ease;
-  height: 90vh;
+  min-height: 90vh;
   overflow: hidden;
 }
 
