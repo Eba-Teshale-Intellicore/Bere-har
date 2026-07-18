@@ -49,14 +49,14 @@ export default function HeroWomenFea() {
       <div className={styles.sticky}>
         <div className={styles.container}>
           <AnimatePresence mode="wait">
-            <motion.div
-              className={styles.herowfea}
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: false, amount: 0.3 }}
-            >
-              <div className={styles.content}>
+            <div className={styles.herowfea}>
+              <motion.div
+                className={styles.content}
+                initial={{ opacity: 0, y: 80 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: false, amount: 0.3 }}
+              >
                 <ul>
                   <li
                     onClick={() => setActive("men")}
@@ -68,7 +68,7 @@ export default function HeroWomenFea() {
                 <p>
                   <Paragraph text="Inspired by Ethiopia's rich textile heritage, our men's collection showcases premium materials, clean tailoring, and timeless craftsmanship, delivering effortless sophistication for every occasion." />
                 </p>
-              </div>
+              </motion.div>
               {active == "men" && (
                 <div className={styles.collections}>
                   {menCollections.map((item) => (
@@ -104,7 +104,7 @@ export default function HeroWomenFea() {
                   ))}
                 </div>
               )}
-            </motion.div>
+            </div>
           </AnimatePresence>
         </div>
       </div>
