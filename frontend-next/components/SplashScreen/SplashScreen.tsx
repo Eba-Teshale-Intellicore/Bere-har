@@ -9,10 +9,10 @@ export default function SplashScreen() {
   return (
     <div className={styles.splash}>
       <Image src={logo} alt="Bere Har" width={180} height={180} priority />
-      <p className={styles.loading}>
+      <div className={styles.loading}>
         <Paragraph text="Loading" color="black" />
         <span></span>
-      </p>
+      </div>
     </div>
   );
 }
