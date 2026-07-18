@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  position: absolute;
+  position: relative;
 
   background: transparent;
   transition: all 0.3s ease;
@@ -101,8 +101,8 @@
   .socials {
     gap: 10px;
     a {
-      width: 35px;
-      height: 35px;
+      width: 42px;
+      height: 42px;
     }
   }
 }
