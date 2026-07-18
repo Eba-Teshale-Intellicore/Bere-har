@@ -121,6 +121,9 @@
   gap: 1rem;
 
   z-index: 4;
+  button {
+    font-family: var(--font-blackops);
+  }
 }
 
 .inactive {
