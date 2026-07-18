@@ -39,6 +39,10 @@ export default function Button(props: ButtonProps) {
                 y: 0,
               },
             }}
+            transition={{
+              duration: 0.3,
+              ease: "easeInOut",
+            }}
           >
             {props.text}
           </motion.span>
