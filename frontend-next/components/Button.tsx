@@ -37,7 +37,7 @@ export default function Button(props: ButtonProps) {
 
           <motion.span
             className={styles.text}
-            initial={{ y: 1 }}
+            initial={{ y: "1%" }}
             variants={{
               hover: {
                 y: "0%",
