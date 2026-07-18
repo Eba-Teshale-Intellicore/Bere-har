@@ -25,7 +25,9 @@
     max-width: 80vw;
     font-weight: 600;
     line-height: 1.7;
-    color: #555;
+    p {
+      color: #555;
+    }
   }
 
   ul {
