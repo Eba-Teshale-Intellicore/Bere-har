@@ -17,18 +17,23 @@
 // }
 
 .textWrapper {
-  position: absolute;
+  position: relative;
   height: 1.2em;
-  overflow: hidden;
   width: max-content;
+  overflow: hidden;
+  display: block;
+  background: red;
 }
 
 .text {
-  position: relative;
-  inset: 0 auto auto 0;
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+
   white-space: nowrap;
+  display: block;
   line-height: 1.2;
+  color: #1c3b30;
 }
 
 .primary {
