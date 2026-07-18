@@ -9,10 +9,10 @@ import feah1 from "@/public/feah1.jpeg";
 import img1 from "@/public/flow1.jpeg";
 import fea2 from "@/public/fea2.jpeg";
 import feah2 from "@/public/feah2.jpeg";
-import fea3 from "@/public/fffff.jpg";
-import feah3 from "@/public/fffff.jpg";
+import fea3 from "@/public/fea3.png";
+import feah3 from "@/public/feah3.png";
 import fea4 from "@/public/fea4.jpeg";
-import feah4 from "@/public/fea4.jpeg";
+import feah4 from "@/public/feah4.png";
 
 import img2 from "@/public/flow2.jpeg";
 import { motion } from "framer-motion";
