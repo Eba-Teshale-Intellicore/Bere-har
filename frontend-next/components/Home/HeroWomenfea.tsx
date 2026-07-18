@@ -14,7 +14,7 @@ import women4 from "@/public/women4.jpg";
 import womenh4 from "@/public/womenh4.jpg";
 
 import img2 from "@/public/flow2.jpeg";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 const womenCollections = [
   {
     title: "Her Signature",
@@ -48,56 +48,69 @@ export default function HeroWomenFea() {
     <>
       <div className={styles.sticky}>
         <div className={styles.container}>
-          <div className={styles.herowfea}>
-            <div className={styles.content}>
-              <ul>
-                <li
-                  onClick={() => setActive("women")}
-                  className={active === "women" ? styles.active : ""}
-                >
-                  Women
-                </li>
-              </ul>
-              <p>
-                <Paragraph text="Inspired by Ethiopia's rich textile heritage, our women's collection blends luxurious fabrics, elegant silhouettes, and meticulous craftsmanship to create effortless sophistication." />
-              </p>
-            </div>
-            {active == "women" && (
-              <div className={styles.collections}>
-                {womenCollections.map((item) => (
-                  <div key={item.title} className={styles.card}>
-                    <motion.div
-                      className={styles.imageWrapper}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className={styles.mainImage}
-                        style={{ objectFit: "cover" }}
-                      />
+          <AnimatePresence mode="wait">
+            <div className={styles.herowfea}>
+              <motion.div
+                className={styles.content}
+                initial={{ opacity: 0, y: 80 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: false, amount: 0.3 }}
+              >
+                <ul>
+                  <li
+                    onClick={() => setActive("women")}
+                    className={active === "women" ? styles.active : ""}
+                  >
+                    Women
+                  </li>
+                </ul>
+                <p>
+                  <Paragraph text="Inspired by Ethiopia's rich textile heritage, our women's collection blends luxurious fabrics, elegant silhouettes, and meticulous craftsmanship to create effortless sophistication." />
+                </p>
+              </motion.div>
+              {active == "women" && (
+                <div className={styles.collections}>
+                  {womenCollections.map((item) => (
+                    <div key={item.title} className={styles.card}>
+                      <div className={styles.overlay} />
+                      <motion.div
+                        className={styles.imageWrapper}
+                        whileHover={{ scale: 1.05 }}
+                        initial={{ opacity: 0, y: 80 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                      >
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className={styles.mainImage}
+                          style={{ objectFit: "cover" }}
+                        />
 
-                      <Image
-                        src={item.hover}
-                        alt={item.title}
-                        fill
-                        className={styles.hoverImage}
-                        style={{
-                          objectFit: "cover",
-                          objectPosition: "center center",
-                        }}
-                      />
-                    </motion.div>
-                    <div className={styles.cardInfo}>
-                      <Paragraph text={item.title} />
-                      {/* <Paragraph text={`$${item.price}`} /> */}
+                        <Image
+                          src={item.hover}
+                          alt={item.title}
+                          fill
+                          className={styles.hoverImage}
+                          style={{
+                            objectFit: "cover",
+                            objectPosition: "center center",
+                          }}
+                        />
+                      </motion.div>
+                      <div className={styles.cardInfo}>
+                        <Paragraph text={item.title} />
+                        {/* <Paragraph text={`$${item.price}`} /> */}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </AnimatePresence>
         </div>
       </div>
     </>

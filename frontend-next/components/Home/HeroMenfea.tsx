@@ -88,7 +88,10 @@ export default function HeroWomenFea() {
                           alt={item.title}
                           fill
                           className={styles.mainImage}
-                          style={{ objectFit: "cover" }}
+                          style={{
+                            objectFit: "cover",
+                            objectPosition: "top center",
+                          }}
                         />
 
                         <Image
