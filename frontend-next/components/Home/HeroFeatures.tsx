@@ -37,7 +37,7 @@ const womenCollections = [
     hover: feah2,
   },
   {
-    title: "Exclusive Jewelry",
+    title: "Designer Hats",
     image: fea3,
     hover: feah3,
   },
@@ -49,7 +49,7 @@ const womenCollections = [
 ];
 const menCollections = [
   {
-    title: "Luxury Accessories",
+    title: "Signature Scarves",
     image: feam1,
     hover: feamh1,
   },
@@ -59,7 +59,7 @@ const menCollections = [
     hover: feamh2,
   },
   {
-    title: "Fine Jewelry",
+    title: "Designer Bags",
     image: feam3,
     hover: feamh3,
   },
