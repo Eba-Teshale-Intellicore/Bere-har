@@ -1,7 +1,6 @@
 .wcontent {
   min-height: 100vh;
   padding-top: 5rem;
-  background-color: #d9d9d9;
 }
 
 .wheader {
@@ -31,6 +30,7 @@
     border-radius: 2rem;
     li {
       cursor: pointer;
+      font-family: var(--font-blackops);
     }
   }
 }

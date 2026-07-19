@@ -174,7 +174,7 @@ export default function HeroFeatures() {
                         placeholder="blur"
                         style={{
                           objectFit: "cover",
-                          objectPosition: "center center",
+                          objectPosition: "top center",
                         }}
                       />
                     </motion.div>
