@@ -136,7 +136,7 @@ export default function HeroFeatures() {
                         className={styles.hoverImage}
                         style={{
                           objectFit: "cover",
-                          objectPosition: "top center",
+                          objectPosition: "center top",
                         }}
                       />
                     </motion.div>
