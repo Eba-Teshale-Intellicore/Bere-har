@@ -74,9 +74,9 @@ export default function Product() {
         <div className={styles.container}>
           <div className={styles.herofea}>
             <div className={styles.content}>
-              <p>
+              <h1>
                 <Heading text="Women_Collection" />
-              </p>
+              </h1>
               <ul>
                 <li
                   onClick={() => setActive("all")}
