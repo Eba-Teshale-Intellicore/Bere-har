@@ -53,8 +53,10 @@
 .collections {
   display: grid;
   gap: 10px;
-  border: 1px solid #1f1f1f;
+  margin-bottom: 2rem;
   padding: 2rem 0;
+  border: 1px solid #1f1f1f;
+  min-height: max-content;
 
   grid-template-columns:
     2fr
