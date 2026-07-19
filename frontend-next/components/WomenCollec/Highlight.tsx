@@ -123,6 +123,18 @@ export default function Highlight() {
                       onLoad={() => setLoaded(true)}
                     />
                   </motion.div>
+                  <div className={styles.cardContent}>
+                    {product.variants?.length > 0 ? (
+                      <>
+                        <div className={styles.info}>
+                          <h4>{product.p_title}</h4>
+                        </div>
+                      </>
+                    ) : (
+                      // <p>No variants available</p>
+                      <p></p>
+                    )}
+                  </div>
 
                   <Paragraph text={product.p_title} />
                 </div>
@@ -173,6 +185,18 @@ export default function Highlight() {
                       placeholder="blur"
                     />
                   </motion.div>
+                  <div className={styles.cardContent}>
+                    {product.variants?.length > 0 ? (
+                      <>
+                        <div className={styles.info}>
+                          <h4>{product.p_title}</h4>
+                        </div>
+                      </>
+                    ) : (
+                      // <p>No variants available</p>
+                      <p></p>
+                    )}
+                  </div>
 
                   <Paragraph text={product.p_title} />
                 </div>
