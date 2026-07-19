@@ -51,6 +51,8 @@
   background: black;
 }
 .collections {
+  position: relative;
+
   display: grid;
   gap: 10px;
   margin-bottom: 2rem;
@@ -91,7 +93,7 @@
   }
 }
 .card {
-  position: relative;
+  position: absolute;
 
   display: flex;
   flex-direction: column;
