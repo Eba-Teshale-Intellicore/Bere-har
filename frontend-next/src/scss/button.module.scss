@@ -21,12 +21,12 @@
   display: inline-block;
   overflow: hidden;
   height: 1.2em;
-  min-width: max-content;
 }
 
 .sizer {
   visibility: hidden;
   white-space: nowrap;
+  min-width: max-content;
 }
 
 .text {
