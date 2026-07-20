@@ -212,12 +212,13 @@ export default function Highlight() {
         </div>
         {open && (
           <>
-            <div className={styles.overlay2} onClick={() => setOpen(false)} />
-            <div className={styles.dir}>
-              <ChevronLeft size={32} />
-              <ChevronRight size={32} />
-
-              <p>Hell</p>
+            <div className={styles.zoomin}>
+              <div className={styles.overlay2} onClick={() => setOpen(false)} />
+              <div className={styles.dir}>
+                <ChevronLeft size={32} />
+                <p>Hell</p>
+                <ChevronRight size={32} />
+              </div>
             </div>
           </>
         )}

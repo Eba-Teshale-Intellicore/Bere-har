@@ -184,7 +184,9 @@
     color: #5e5e5e;
   }
 }
-
+.zoomin {
+  max-height: 100vh;
+}
 .overlay2 {
   position: fixed;
   top: 0;
@@ -194,10 +196,11 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
+
 .dir {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  max-height: 100vh;
+  gap: 2rem;
 }
