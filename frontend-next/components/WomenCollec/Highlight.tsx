@@ -43,7 +43,8 @@ export default function Highlight() {
   const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
   const [loaded, setLoaded] = useState(false);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -111,7 +112,10 @@ export default function Highlight() {
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
-                    onClick={() => setOpen(true)}
+                    onClick={() => {
+                      setSelectedImage(product.main_thumbnail);
+                      setOpen(true);
+                    }}
                   >
                     <Image
                       src={
@@ -147,7 +151,10 @@ export default function Highlight() {
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
-                    onClick={() => setOpen(true)}
+                    onClick={() => {
+                      setSelectedImage(product.variants?.[0]?.image);
+                      setOpen(true);
+                    }}
                   >
                     <Image
                       src={product.variants?.[0]?.image || "/placeholder.jpg"}
@@ -183,7 +190,10 @@ export default function Highlight() {
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
-                    onClick={() => setOpen(true)}
+                    onClick={() => {
+                      setSelectedImage(product.variants?.[1]?.image);
+                      setOpen(true);
+                    }}
                   >
                     <Image
                       src={product.variants?.[1]?.image || "/placeholder.jpg"}
@@ -222,7 +232,15 @@ export default function Highlight() {
               </div>
               <div className={styles.dir}>
                 <ChevronLeft size={32} />
-                <p>Hell</p>
+                {selectedImage && (
+                  <Image
+                    src={selectedImage}
+                    alt="Zoom image"
+                    width={800}
+                    height={1000}
+                    className={styles.zoomImage}
+                  />
+                )}
                 <ChevronRight size={32} />
               </div>
             </div>

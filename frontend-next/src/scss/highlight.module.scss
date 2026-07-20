@@ -219,3 +219,8 @@
   height: 100%;
   padding: 2rem;
 }
+.zoomImage {
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
