@@ -214,8 +214,10 @@ export default function Highlight() {
           <>
             <div className={styles.overlay2} onClick={() => setOpen(false)} />
             <div className={styles.dir}>
-              <ChevronRight size={32} />
               <ChevronLeft size={32} />
+              <ChevronRight size={32} />
+
+              <p>Hell</p>
             </div>
           </>
         )}
