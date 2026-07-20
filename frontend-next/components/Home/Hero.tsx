@@ -36,7 +36,7 @@ function SocialLinks() {
       </Link>
 
       <Link
-        href="https://instagram.com/yourusername"
+        href="https://www.instagram.com/bere_har?igsh=MWljOXNsZHFhMmZjZg=="
         target="_blank"
         aria-label="Instagram"
       >
