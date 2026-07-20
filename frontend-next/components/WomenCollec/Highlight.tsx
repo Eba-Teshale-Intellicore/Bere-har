@@ -150,7 +150,10 @@ export default function Highlight() {
                       alt={product.variants?.[0]?.alt_text || product.p_title}
                       fill
                       className={styles.mainImage}
-                      style={{ objectFit: "cover" }}
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: "top center",
+                      }}
                       placeholder="blur"
                     />
                   </motion.div>
@@ -182,7 +185,9 @@ export default function Highlight() {
                       alt={product.variants?.[1]?.alt_text || product.p_title}
                       fill
                       className={styles.mainImage}
-                      style={{ objectFit: "cover" }}
+                      style={{
+                        objectFit: "cover",
+                      }}
                       placeholder="blur"
                     />
                   </motion.div>
