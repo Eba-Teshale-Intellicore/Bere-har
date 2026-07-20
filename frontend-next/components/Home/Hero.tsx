@@ -122,7 +122,7 @@ export default function Hero() {
                 exit={{ opacity: 0, x: -80 }}
                 transition={{ duration: 0.8 }}
               >
-                <div>
+                <div className={styles.contentInfo}>
                   <p className={styles.heroTitle}>
                     <Paragraph text="HandMade Ethiopian Silk " size="xl" />
                   </p>
