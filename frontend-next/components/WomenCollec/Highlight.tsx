@@ -45,7 +45,8 @@ export default function Highlight() {
   const [loaded, setLoaded] = useState(false);
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -76,6 +77,22 @@ export default function Highlight() {
             p.category.category_slug === active,
         );
 
+  const openGallery = (images: string[], index: number) => {
+    setGalleryImages(images);
+    setCurrentIndex(index);
+    setOpen(true);
+  };
+  const nextImage = () => {
+    setCurrentIndex((prev) =>
+      prev === galleryImages.length - 1 ? 0 : prev + 1,
+    );
+  };
+
+  const previousImage = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1,
+    );
+  };
   return (
     <>
       <div className={styles.sticky}>
@@ -112,10 +129,15 @@ export default function Highlight() {
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
-                    onClick={() => {
-                      setSelectedImage(product.main_thumbnail);
-                      setOpen(true);
-                    }}
+                    onClick={() =>
+                      openGallery(
+                        [
+                          product.main_thumbnail,
+                          ...product.variants.map((v: any) => v.image),
+                        ],
+                        0,
+                      )
+                    }
                   >
                     <Image
                       src={
@@ -151,10 +173,15 @@ export default function Highlight() {
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
-                    onClick={() => {
-                      setSelectedImage(product.variants?.[0]?.image);
-                      setOpen(true);
-                    }}
+                    onClick={() =>
+                      openGallery(
+                        [
+                          product.main_thumbnail,
+                          ...product.variants.map((v: any) => v.image),
+                        ],
+                        1,
+                      )
+                    }
                   >
                     <Image
                       src={product.variants?.[0]?.image || "/placeholder.jpg"}
@@ -190,10 +217,15 @@ export default function Highlight() {
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
-                    onClick={() => {
-                      setSelectedImage(product.variants?.[1]?.image);
-                      setOpen(true);
-                    }}
+                    onClick={() =>
+                      openGallery(
+                        [
+                          product.main_thumbnail,
+                          ...product.variants.map((v: any) => v.image),
+                        ],
+                        2,
+                      )
+                    }
                   >
                     <Image
                       src={product.variants?.[1]?.image || "/placeholder.jpg"}
@@ -231,17 +263,25 @@ export default function Highlight() {
                 <X size={28} />
               </div>
               <div className={styles.dir}>
-                <ChevronLeft size={32} />
-                {selectedImage && (
-                  <Image
-                    src={selectedImage}
-                    alt="Zoom image"
-                    width={800}
-                    height={1000}
-                    className={styles.zoomImage}
-                  />
-                )}
-                <ChevronRight size={32} />
+                <ChevronLeft
+                  size={32}
+                  onClick={previousImage}
+                  className={styles.arrow}
+                />
+
+                <Image
+                  src={galleryImages[currentIndex]}
+                  alt="Zoom image"
+                  width={800}
+                  height={1000}
+                  className={styles.zoomImage}
+                />
+
+                <ChevronRight
+                  size={32}
+                  onClick={nextImage}
+                  className={styles.arrow}
+                />
               </div>
             </div>
           </>

@@ -206,7 +206,10 @@
   z-index: 1002;
   cursor: pointer;
   width: 100%;
+  padding: 3rem 0;
   background: black;
+  cursor: pointer;
+  color: white;
 }
 .dir {
   position: relative;
@@ -218,6 +221,10 @@
 
   height: 100%;
   padding: 2rem;
+}
+.arrow {
+  cursor: pointer;
+  color: white;
 }
 .zoomImage {
   max-width: 80vw;
