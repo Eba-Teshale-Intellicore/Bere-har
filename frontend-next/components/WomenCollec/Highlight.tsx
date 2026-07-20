@@ -42,6 +42,7 @@ export default function Highlight() {
   const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState<any[]>([]);
   const [loaded, setLoaded] = useState(false);
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -208,6 +209,9 @@ export default function Highlight() {
             ))}
           </div>
         </div>
+        {open && (
+          <div className={styles.overlay2} onClick={() => setOpen(false)} />
+        )}
       </div>
     </>
   );
