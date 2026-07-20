@@ -175,13 +175,9 @@ export default function Product() {
                 )}
               </div>
             </div>{" "}
-            {/* inner div */}
           </div>{" "}
-          {/* herofea */}
         </div>{" "}
-        {/* container */}
       </div>{" "}
-      {/* sticky */}
     </>
   );
 }
