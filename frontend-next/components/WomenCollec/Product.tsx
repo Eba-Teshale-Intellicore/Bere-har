@@ -151,7 +151,7 @@ export default function Product() {
                                   </p>
                                   <p>{product.variants[0].size.name}</p>
                                 </div>
-                                <div className={styles.info}>
+                                <div className={styles.info2}>
                                   <h4>{product.p_title}</h4>
                                 </div>
                               </>
