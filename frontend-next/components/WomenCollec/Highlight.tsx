@@ -104,6 +104,7 @@ export default function Highlight() {
               <div key={product.id} className={styles.collections}>
                 {/* LARGE */}
                 <div className={styles.card} style={{ gridArea: "fir" }}>
+                  <div className={styles.overlay} />
                   {!loaded && <div className={styles.skeleton} />}
                   <motion.div
                     className={styles.imageWrapper}
