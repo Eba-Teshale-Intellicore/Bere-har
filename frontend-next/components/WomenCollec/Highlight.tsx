@@ -140,6 +140,7 @@ export default function Highlight() {
 
                 {/* SMALL 1 */}
                 <div className={styles.card} style={{ gridArea: "sec" }}>
+                  <div className={styles.overlay} />
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
@@ -171,6 +172,7 @@ export default function Highlight() {
 
                 {/* SMALL 2 */}
                 <div className={styles.card} style={{ gridArea: "thir" }}>
+                  <div className={styles.overlay} />
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
