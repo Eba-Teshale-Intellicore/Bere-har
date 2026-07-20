@@ -124,20 +124,20 @@ export default function Hero() {
                 transition={{ duration: 0.8 }}
               >
                 <div className={styles.contentInfo}>
-                  <h1 className={styles.heroTitle}>
+                  <div className={styles.heroTitle}>
                     <Heading
                       text="HandMade Ethiopian Silk "
-                      size="xl"
+                      size="xxl"
                       color="primary"
                     />
-                  </h1>
-                  <h1 className={styles.heroSubtitle}>
+                  </div>
+                  <div className={styles.heroSubtitle}>
                     <Heading
                       text="Timeless elegance inspired by Ethiopian culture, crafted for the modern world."
                       size="md"
                       color="secondary"
                     />
-                  </h1>
+                  </div>
                   <SocialLinks />
                 </div>
               </motion.div>
