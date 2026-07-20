@@ -60,10 +60,14 @@ export default function Product() {
     fetchData();
   }, []);
 
+  const womenProducts = products.filter((p) =>
+    p.gender?.some((g: any) => g.title === "women"),
+  );
+
   const filteredProducts =
     active === "all"
-      ? products.filter((p) => p.gender?.some((g: any) => g.title === "women"))
-      : products.filter(
+      ? womenProducts
+      : womenProducts.filter(
           (p) =>
             p.gender?.some((g: any) => g.title === "women") &&
             p.category.category_slug === active,

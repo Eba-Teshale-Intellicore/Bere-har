@@ -122,19 +122,19 @@ export default function Hero() {
                 exit={{ opacity: 0, x: -80 }}
                 transition={{ duration: 0.8 }}
               >
-                <p>
-                  <Paragraph
-                    text="HandMade Ethiopian Silk "
-                    size="lg"
-                    // color="white"
-                  />
-                  <Paragraph
-                    text="Timeless elegance inspired by Ethiopian culture, crafted for the modern world."
-                    size="md"
-                    color="white"
-                  />
+                <div>
+                  <p className={styles.heroTitle}>
+                    <Paragraph text="HandMade Ethiopian Silk " size="xl" />
+                  </p>
+                  <p className={styles.heroSubtitle}>
+                    <Paragraph
+                      text="Timeless elegance inspired by Ethiopian culture, crafted for the modern world."
+                      size="md"
+                      color="white"
+                    />
+                  </p>
                   <SocialLinks />
-                </p>
+                </div>
               </motion.div>
             </AnimatePresence>
 

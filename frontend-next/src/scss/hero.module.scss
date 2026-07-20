@@ -53,11 +53,22 @@
 }
 .content p {
   color: rgba(255, 255, 255, 0.3);
-  font-family: var(--font-blackops);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+.heroTitle {
+  font-family: var(--font-blackops);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.heroSubtitle {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
 }
 .socials {
   display: flex;
@@ -70,7 +81,8 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,6 +157,7 @@
   color: rgba(255, 255, 255, 0.5);
   font-size: 1rem;
   transition: all 0.3s ease;
+  opacity: 0.45;
   cursor: pointer;
 }
 
@@ -153,9 +166,13 @@
 }
 
 .active {
-  color: white;
   font-size: 1.5rem;
-  font-weight: 900;
+  font-weight: 500;
+  color: #fff;
+  opacity: 1;
+}
+
+.inactive {
 }
 .active::before {
   content: "";

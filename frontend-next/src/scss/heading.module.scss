@@ -1,38 +1,50 @@
 :root {
-  --text-sm: clamp(0.9rem, 2vw, 1.2rem);
-  --text-md: clamp(1.1rem, 3vw, 1.7rem);
-  --text-lg: clamp(2rem, 3vw, 3rem);
-  --text-xl: clamp(3rem, 6vw, 7rem);
+  /* Typography */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  --text-md: clamp(1rem, 0.95rem + 0.5vw, 1.25rem);
+  --text-lg: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --text-xl: clamp(2.5rem, 2rem + 2vw, 4rem);
+  --text-2xl: clamp(4rem, 3rem + 4vw, 6rem);
+  /* Text Colors */
   --color-white: #d9d9d9;
   --color-black: black;
   --color-green: green;
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-dark: #111111;
+  /* Brand */
+  --accent: #b38b59;
 }
 
 .heading {
   font-family: var(--font-roboto), sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--color-black);
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
-
+.xs {
+  font-size: var(--text-xs);
+}
 .sm {
   font-size: var(--text-sm);
 }
-
 .md {
   font-size: var(--text-md);
 }
-
 .lg {
   font-size: var(--text-lg);
 }
-
 .xl {
   font-size: var(--text-xl);
+}
+.xxl {
+  font-size: var(--text-2xl);
 }
 .white {
   color: var(--color-white);
