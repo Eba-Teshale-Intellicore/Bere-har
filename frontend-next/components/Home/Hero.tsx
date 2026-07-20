@@ -127,7 +127,7 @@ export default function Hero() {
                   <div className={styles.heroTitle}>
                     <Heading
                       text="HandMade Ethiopian Silk "
-                      size="lg"
+                      size="xl"
                       color="primary"
                     />
                   </div>
