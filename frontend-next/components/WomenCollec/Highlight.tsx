@@ -198,8 +198,6 @@ export default function Highlight() {
                       <p></p>
                     )}
                   </div>
-
-                  <Paragraph text={product.p_title} />
                 </div>
               </div>
             ))}

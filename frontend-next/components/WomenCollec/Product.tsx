@@ -146,13 +146,13 @@ export default function Product() {
                             {product.variants?.length > 0 ? (
                               <>
                                 <div className={styles.info}>
-                                  <h4>{product.p_title}</h4>
                                   <p className={styles.price}>
                                     ${product.variants[0].price} USD
                                   </p>
+                                  <p>{product.variants[0].size.name}</p>
                                 </div>
                                 <div className={styles.info}>
-                                  <p>{product.variants[0].size.name}</p>
+                                  <h4>{product.p_title}</h4>
                                 </div>
                               </>
                             ) : (

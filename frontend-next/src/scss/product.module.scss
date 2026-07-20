@@ -131,23 +131,27 @@
 }
 .cardContent {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
+  flex-direction: column;
+  // gap: 1rem;
   padding: 10px;
   .info {
     display: flex;
-    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
     .price {
       font-size: large;
     }
   }
 }
-
-.cardContent h4 {
-  line-height: 1.7;
-  color: #5e5e5e;
+.cardContent {
+  padding: 1rem;
+  h4 {
+    cursor: pointer;
+    font-family: var(--font-blackops);
+    color: #5e5e5e;
+  }
 }
+
 .cardContent p {
   line-height: 1.7;
   color: #1f1f1f;
