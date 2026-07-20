@@ -108,7 +108,7 @@ export default function Highlight() {
                   {!loaded && <div className={styles.skeleton} />}
                   <motion.div
                     className={styles.imageWrapper}
-                    whileHover={{ scale: -1.05 }}
+                    whileHover={{ scale: 1.05 }}
                   >
                     <Image
                       src={
