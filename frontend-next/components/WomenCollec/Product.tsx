@@ -109,6 +109,8 @@ export default function Product() {
                       const liked = isWishlisted(product.id);
                       return (
                         <div key={product.id} className={styles.card}>
+                          <div className={styles.overlay} />
+
                           <motion.div
                             className={styles.imageWrapper}
                             whileHover={{ scale: 1.04 }}
