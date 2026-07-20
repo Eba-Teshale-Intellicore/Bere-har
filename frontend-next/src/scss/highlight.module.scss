@@ -103,7 +103,8 @@
   aspect-ratio: 3 / 4;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
+  cursor: zoom-in;
+  // cursor: pointer;
 }
 .overlay {
   position: absolute;
