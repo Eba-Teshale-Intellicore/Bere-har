@@ -22,6 +22,7 @@ import {
 } from "react-icons/fa";
 
 import { FaXTwitter } from "react-icons/fa6";
+import Heading from "../Heading";
 
 function SocialLinks() {
   return (
@@ -124,13 +125,17 @@ export default function Hero() {
               >
                 <div className={styles.contentInfo}>
                   <p className={styles.heroTitle}>
-                    <Paragraph text="HandMade Ethiopian Silk " size="xl" />
+                    <Heading
+                      text="HandMade Ethiopian Silk "
+                      size="xl"
+                      color="primary"
+                    />
                   </p>
                   <p className={styles.heroSubtitle}>
-                    <Paragraph
+                    <Heading
                       text="Timeless elegance inspired by Ethiopian culture, crafted for the modern world."
                       size="md"
-                      color="white"
+                      color="secondary"
                     />
                   </p>
                   <SocialLinks />

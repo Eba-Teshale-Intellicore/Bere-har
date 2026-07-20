@@ -6,52 +6,65 @@
   --text-lg: clamp(1.5rem, 1.2rem + 1vw, 2rem);
   --text-xl: clamp(2.5rem, 2rem + 2vw, 4rem);
   --text-2xl: clamp(4rem, 3rem + 4vw, 6rem);
-  /* Text Colors */
-  --color-white: #d9d9d9;
-  --color-black: black;
-  --color-green: green;
+
+  /* Text */
   --text-primary: #111111;
   --text-secondary: #666666;
   --text-muted: #999999;
-  /* Surfaces */
-  --surface: #ffffff;
-  --surface-dark: #111111;
+  --text-inverse: #ffffff;
+
   /* Brand */
-  --accent: #b38b59;
+  --accent: #4d801b;
 }
 
 .heading {
   font-family: var(--font-roboto), sans-serif;
   line-height: 1.1;
-  color: var(--color-black);
-
+  letter-spacing: -0.03em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
-.xs {
-  font-size: var(--text-xs);
-}
+
+/* Sizes */
+
 .sm {
   font-size: var(--text-sm);
 }
+
 .md {
   font-size: var(--text-md);
 }
+
 .lg {
   font-size: var(--text-lg);
 }
+
 .xl {
   font-size: var(--text-xl);
 }
+
 .xxl {
   font-size: var(--text-2xl);
 }
-.white {
-  color: var(--color-white);
+
+/* Colors */
+
+.primary {
+  color: var(--text-primary);
 }
-.black {
-  color: var(--color-black);
+
+.secondary {
+  color: var(--text-secondary);
 }
-.green {
-  color: var(--color-green);
+
+.muted {
+  color: var(--text-muted);
+}
+
+.inverse {
+  color: var(--text-inverse);
+}
+
+.brand {
+  color: var(--accent);
 }
