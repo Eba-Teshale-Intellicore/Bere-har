@@ -111,6 +111,7 @@ export default function Highlight() {
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
+                    onClick={() => setOpen(true)}
                   >
                     <Image
                       src={
@@ -124,7 +125,6 @@ export default function Highlight() {
                       style={{ objectFit: "cover" }}
                       placeholder="blur"
                       onLoad={() => setLoaded(true)}
-                      onClick={() => setOpen(false)}
                     />
                   </motion.div>
                   <div className={styles.cardContent}>
@@ -147,7 +147,7 @@ export default function Highlight() {
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
-                    onClick={() => setOpen(false)}
+                    onClick={() => setOpen(true)}
                   >
                     <Image
                       src={product.variants?.[0]?.image || "/placeholder.jpg"}
@@ -183,7 +183,7 @@ export default function Highlight() {
                   <motion.div
                     className={styles.imageWrapper}
                     whileHover={{ scale: 1.05 }}
-                    onClick={() => setOpen(false)}
+                    onClick={() => setOpen(true)}
                   >
                     <Image
                       src={product.variants?.[1]?.image || "/placeholder.jpg"}
