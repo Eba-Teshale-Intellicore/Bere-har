@@ -148,7 +148,10 @@ export default function Highlight() {
                       alt={product.p_title}
                       fill
                       className={styles.mainImage}
-                      style={{ objectFit: "cover" }}
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: "top center",
+                      }}
                       placeholder="blur"
                       onLoad={() => setLoaded(true)}
                     />
@@ -190,7 +193,6 @@ export default function Highlight() {
                       className={styles.mainImage}
                       style={{
                         objectFit: "cover",
-                        objectPosition: "top center",
                       }}
                       placeholder="blur"
                     />
@@ -234,6 +236,7 @@ export default function Highlight() {
                       className={styles.mainImage}
                       style={{
                         objectFit: "cover",
+                        objectPosition: "top center",
                       }}
                       placeholder="blur"
                     />
