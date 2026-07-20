@@ -132,7 +132,7 @@
 .cardContent {
   display: flex;
   flex-direction: column;
-  // gap: 1rem;
+  gap: 1rem;
   padding: 10px;
   .info {
     display: flex;
@@ -142,22 +142,22 @@
       font-size: large;
     }
   }
-}
-.cardContent {
-  padding: 1rem;
-  h4 {
-    cursor: pointer;
-    font-family: var(--font-blackops);
-    color: #5e5e5e;
-    align-items: center;
-    justify-content: center;
+  .info2 {
+    padding: 1rem;
+    h4 {
+      cursor: pointer;
+      font-family: var(--font-blackops);
+      color: #5e5e5e;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
-.cardContent p {
-  line-height: 1.7;
-  color: #1f1f1f;
-}
+// .cardContent p {
+//   line-height: 1.7;
+//   color: #1f1f1f;
+// }
 
 .btn {
   display: flex;
