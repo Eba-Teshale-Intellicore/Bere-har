@@ -60,7 +60,7 @@
   border: 1px solid #1f1f1f;
 
   grid-template-columns:
-    minmax(180px, 1fr)
+    2fr
     minmax(180px, 1fr)
     minmax(180px, 1fr);
 
@@ -93,25 +93,21 @@
   }
 }
 .card {
-  position: absolute;
+  // position: absolute; ❌ Remove this
 
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   overflow: hidden;
-  aspect-ratio: 3 / 4;
   width: 100%;
-  gap: 1px;
-  cursor: pointer;
   border: 10px solid #1f1f1f;
+  cursor: pointer;
 }
 
 .imageWrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 100%;
   overflow: hidden;
-  padding: 0 1rem;
 }
 
 .mainImage,
