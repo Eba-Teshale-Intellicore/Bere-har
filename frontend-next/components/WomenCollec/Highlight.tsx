@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import { getCategories } from "@/src/api/category";
 import { getProducts } from "@/src/api/product";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 // export interface Category {
 //   id: number;
 //   category_name: string;
@@ -214,6 +214,9 @@ export default function Highlight() {
           <>
             <div className={styles.zoomin}>
               <div className={styles.overlay2} onClick={() => setOpen(false)} />
+              <div className={styles.close} onClick={() => setOpen(false)}>
+                <X size={28} />
+              </div>
               <div className={styles.dir}>
                 <ChevronLeft size={32} />
                 <p>Hell</p>

@@ -199,7 +199,13 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
-
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1002;
+  cursor: pointer;
+}
 .dir {
   position: relative;
   z-index: 1001;
