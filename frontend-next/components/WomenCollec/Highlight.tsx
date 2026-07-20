@@ -135,8 +135,6 @@ export default function Highlight() {
                       <p></p>
                     )}
                   </div>
-
-                  <Paragraph text={product.p_title} />
                 </div>
 
                 {/* SMALL 1 */}
@@ -167,7 +165,7 @@ export default function Highlight() {
                     )}
                   </div>
 
-                  <Paragraph text={product.p_title} />
+                  {/* <Paragraph text={product.p_title} /> */}
                 </div>
 
                 {/* SMALL 2 */}
