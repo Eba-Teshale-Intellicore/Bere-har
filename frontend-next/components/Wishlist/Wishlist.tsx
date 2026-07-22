@@ -42,7 +42,7 @@ export default function Wishlist() {
     <>
       <div className={styles.sticky}>
         <div className={styles.container}>
-          <div className={styles.herofea}>
+          <div className={styles.herofea2}>
             <div className={styles.content}>
               <h1>
                 <Heading text="Your Favorites" />
