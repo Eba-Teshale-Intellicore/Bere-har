@@ -154,7 +154,7 @@
     padding: 3rem 2rem;
     border-left: none;
     backdrop-filter: blur(18px);
-    height: 100%;
+    max-height: 80vh;
   }
 
   .title {
@@ -190,6 +190,7 @@
     padding: 2rem 1.25rem;
     max-width: 100%;
     border-left: none;
+    max-height: 80vh;
   }
 
   .title {
