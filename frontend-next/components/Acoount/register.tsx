@@ -161,7 +161,7 @@ export default function Register() {
             </form>
             <p className={styles.text}>
               Already have an account?
-              <Link href="/account/login">Sign in</Link>
+              <Link href="/account/login"> Sign in</Link>
             </p>
           </div>
         </div>
