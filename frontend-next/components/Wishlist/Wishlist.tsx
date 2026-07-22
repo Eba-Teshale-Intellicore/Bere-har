@@ -47,7 +47,6 @@ export default function Wishlist() {
               <h1>
                 <Heading text="Your Favorites" />
               </h1>
-              <div></div>
             </div>
             <div>
               <div className={styles.collections}>
