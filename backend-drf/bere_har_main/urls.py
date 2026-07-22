@@ -37,6 +37,10 @@ urlpatterns = [
         "api/v1/",
         include("wishlist.urls"),
     ),
+    path(
+        "api/v1/",
+        include("locations.urls"),
+    )
 ]
 urlpatterns += static(
     settings.MEDIA_URL,
