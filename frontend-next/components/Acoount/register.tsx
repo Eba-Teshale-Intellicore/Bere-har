@@ -102,7 +102,7 @@ export default function Register() {
                 onChange={(e) => setForm({ ...form, username: e.target.value })}
                 value={form.username}
               />
-              <small>{errors.username?.[0]}</small>
+              <small className={styles.error}>{errors.username?.[0]}</small>
 
               <input
                 type="email"
@@ -124,7 +124,9 @@ export default function Register() {
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
                 value={form.password}
               />
-              <small>{errors.password?.[0]}</small>
+              {errors.password && (
+                <small className={styles.error}>{errors.password?.[0]}</small>
+              )}
 
               <input
                 type="password"
@@ -140,7 +142,9 @@ export default function Register() {
                 value={form.confirm_password}
               />
 
-              <small>{errors.confirm_password?.[0]}</small>
+              <small className={styles.error}>
+                {errors.confirm_password?.[0]}
+              </small>
 
               {success && <small>Registration Successful</small>}
               {loading ? (
