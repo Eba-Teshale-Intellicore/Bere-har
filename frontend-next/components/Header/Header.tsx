@@ -194,7 +194,13 @@ export default function Header() {
                     }}
                   >
                     <Contact2 size={14} />
-                    <span>Contact Us</span>
+                    <Link
+                      href="/store-locations/"
+                      onClick={() => setOpen(false)}
+                    >
+                      {" "}
+                      <span>Contact Us</span>
+                    </Link>
                   </li>
                 ) : (
                   ""
