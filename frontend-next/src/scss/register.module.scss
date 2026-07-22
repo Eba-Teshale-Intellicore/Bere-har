@@ -155,13 +155,12 @@
 
     width: min(90%, 520px);
 
-    min-height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    margin: 2.5rem;
+    margin: 2.5rem auto;
+    min-height: fit-content;
 
     border: none;
 
