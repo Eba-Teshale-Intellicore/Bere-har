@@ -46,9 +46,10 @@
   backdrop-filter: blur(24px);
   background: rgba(15, 15, 15, 0.65);
   border-left: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 100vh;
   form {
     width: 100%;
-    max-width: 430px;
+    // max-width: 430px;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -71,15 +72,15 @@
   color: white;
 }
 
-.input {
-  width: 100%;
-  padding: 5px 10px;
-  margin: 1rem 0;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 16px;
-}
+// .input {
+//   width: 100%;
+//   padding: 5px 10px;
+//   margin: 1rem 0;
+//   border-radius: 8px;
+//   background: rgba(255, 255, 255, 0.08);
+//   border: 1px solid rgba(255, 255, 255, 0.12);
+//   padding: 16px;
+// }
 .input {
   height: 56px;
   padding: 0 18px;
@@ -93,12 +94,12 @@
 }
 
 .input:focus {
-  border-color: #d4af37;
+  border-color: #328303;
   box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.18);
 }
 .error {
   font-size: 13px;
-  color: #ff7d7d;
+  color: #f82a2a;
   margin-top: -10px;
 }
 
@@ -106,14 +107,14 @@
   height: 58px;
   font-size: 16px;
   font-weight: 700;
-  background: #d4af37;
+  background: rgb(255, 255, 255, 0.5);
   border-radius: 12px;
   transition: 0.35s;
   cursor: pointer;
 }
 
 .button:hover {
-  background: #2563eb;
+  background: rgba(0, 255, 0, 0.5);
   transform: translateY(-3px);
   box-shadow: 0 15px 35px rgba(212, 175, 55, 0.35);
 }
