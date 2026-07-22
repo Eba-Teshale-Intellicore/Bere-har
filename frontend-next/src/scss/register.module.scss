@@ -169,6 +169,11 @@
   }
 }
 @media (max-width: 425px) {
+  .register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .content {
     width: 92%;
 
