@@ -65,7 +65,7 @@ export default function Register() {
   return (
     <div className={styles.container}>
       <div className={styles.formBox}>
-        <div className={styles.register}>
+        <div className={styles.forms}>
           <div className={styles.overlay} />
           <AnimatePresence mode="wait">
             <motion.div
