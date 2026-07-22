@@ -169,6 +169,11 @@
   }
 }
 @media (max-width: 425px) {
+  .register {
+    display: block;
+    padding: 2rem 3rem;
+  }
+
   .content {
     width: 92%;
 
