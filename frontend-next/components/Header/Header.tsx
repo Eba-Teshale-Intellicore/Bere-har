@@ -195,7 +195,7 @@ export default function Header() {
                   >
                     <Contact2 size={14} />
                     <Link
-                      href="/store-locations/"
+                      href="/store-locations"
                       onClick={() => setOpen(false)}
                     >
                       {" "}
