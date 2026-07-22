@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 3rem;
+  padding: 3rem;
 
   background: transparent;
   transition: all 0.3s ease;
@@ -136,7 +136,7 @@
 @media (max-width: 768px) {
   .register {
     display: block;
-    padding: 2rem 3rem;
+    padding: 2rem;
   }
 
   .imagebg {
@@ -169,16 +169,11 @@
   }
 }
 @media (max-width: 425px) {
-  .register {
-    display: block;
-    padding: 2rem 3rem;
-  }
-
   .content {
     width: 92%;
 
     padding: 1.25rem;
-    margin: 2.5rem;
+    margin: 2rem auto;
 
     border-radius: 18px;
   }
