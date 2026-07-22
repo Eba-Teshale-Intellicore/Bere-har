@@ -45,77 +45,99 @@ export default function Wishlist() {
           <div className={styles.herofea2}>
             <div className={styles.content}>
               <h1>
-                <Heading text="Your Favorites" />
+                <Heading text="Your_Favorites" />
               </h1>
             </div>
             <div>
-              <div className={styles.collections}>
-                {favorites.slice(0, visibleCount).map((item: any) => {
-                  const liked = isWishlisted(item.product.id);
-                  return (
-                    <div key={item.id} className={styles.card}>
-                      <motion.div
-                        className={styles.imageWrapper}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <motion.button
-                          type="button"
-                          aria-label="Add to wishlist"
-                          onClick={() => handleWishlist(item.product.id)}
-                        >
-                          <Heart
-                            fill={liked ? "red" : "none"}
-                            color={liked ? "red" : "currentColor"}
-                            className={styles.favorites}
-                            size={24}
-                          />
-                        </motion.button>
-                        <div>
-                          <Image
-                            src={
-                              item.product.variants?.[0]?.image ||
-                              "/placeholder.jpg"
-                            }
-                            alt={item.product.p_title}
-                            fill
-                            className={styles.mainImage}
-                            style={{ objectFit: "cover" }}
-                          />
-                        </div>
-                      </motion.div>
+              {favorites.length === 0 ? (
+                <div className={styles.emptyWishlist}>
+                  <Heart size={60} fill="red" color="red" />
 
-                      <div className={styles.cardContent}>
-                        {item.product.variants?.length > 0 ? (
-                          <>
-                            <div className={styles.info}>
-                              <p className={styles.price}>
-                                ${item.product.variants[0]?.price} USD
-                              </p>
-                              <p>
-                                Size:
-                                {item.product.variants[0]?.size?.name}
-                              </p>
-                            </div>
-                            <div className={styles.info2}>
-                              <h4>{item.product.p_title}</h4>
-                            </div>
-                          </>
-                        ) : (
-                          <p>No Wishlist Availlable</p>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className={styles.btn}>
-                {visibleCount < favorites.length && (
+                  <h2>Your Wishlist is Empty</h2>
+
+                  <p>
+                    Save your favorite products to your wishlist so you can
+                    easily find them later.
+                  </p>
+
                   <Button
-                    text="View More"
-                    onClick={() => setVisibleCount((prev) => prev + 5)}
+                    text="Explore Collections"
+                    onClick={() => {
+                      window.location.href = "/products"; // change to your shop route
+                    }}
                   />
-                )}
-              </div>
+                </div>
+              ) : (
+                <>
+                  <div className={styles.collections}>
+                    {favorites.slice(0, visibleCount).map((item: any) => {
+                      const liked = isWishlisted(item.product.id);
+                      return (
+                        <div key={item.id} className={styles.card}>
+                          <motion.div
+                            className={styles.imageWrapper}
+                            whileHover={{ scale: 1.05 }}
+                          >
+                            <motion.button
+                              type="button"
+                              aria-label="Add to wishlist"
+                              onClick={() => handleWishlist(item.product.id)}
+                            >
+                              <Heart
+                                fill={liked ? "red" : "none"}
+                                color={liked ? "red" : "currentColor"}
+                                className={styles.favorites}
+                                size={24}
+                              />
+                            </motion.button>
+                            <div>
+                              <Image
+                                src={
+                                  item.product.variants?.[0]?.image ||
+                                  "/placeholder.jpg"
+                                }
+                                alt={item.product.p_title}
+                                fill
+                                className={styles.mainImage}
+                                style={{ objectFit: "cover" }}
+                              />
+                            </div>
+                          </motion.div>
+
+                          <div className={styles.cardContent}>
+                            {item.product.variants?.length > 0 ? (
+                              <>
+                                <div className={styles.info}>
+                                  <p className={styles.price}>
+                                    ${item.product.variants[0]?.price} USD
+                                  </p>
+                                  <p>
+                                    Size:
+                                    {item.product.variants[0]?.size?.name}
+                                  </p>
+                                </div>
+                                <div className={styles.info2}>
+                                  <h4>{item.product.p_title}</h4>
+                                </div>
+                              </>
+                            ) : (
+                              <p>No Wishlist Availlable</p>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className={styles.btn}>
+                    {visibleCount < favorites.length && (
+                      <Button
+                        text="View More"
+                        onClick={() => setVisibleCount((prev) => prev + 5)}
+                      />
+                    )}
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
