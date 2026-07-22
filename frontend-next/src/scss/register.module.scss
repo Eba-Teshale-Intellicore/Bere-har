@@ -104,6 +104,10 @@
 }
 
 .button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   height: 58px;
   font-size: 16px;
   font-weight: 700;
