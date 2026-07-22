@@ -47,6 +47,7 @@ export default function Wishlist() {
               <h1>
                 <Heading text="Your Favorites" />
               </h1>
+              <div></div>
             </div>
             <div>
               <div className={styles.collections}>
@@ -87,17 +88,17 @@ export default function Wishlist() {
                       <div className={styles.cardContent}>
                         {item.product.variants?.length > 0 ? (
                           <>
-                            <div className={styles.info2}>
-                              <h4>{item.product.p_title}</h4>
-                            </div>
                             <div className={styles.info}>
                               <p className={styles.price}>
-                                ${item.product.variants[0]?.price}
+                                ${item.product.variants[0]?.price} USD
                               </p>
                               <p>
                                 Size:
                                 {item.product.variants[0]?.size?.name}
                               </p>
+                            </div>
+                            <div className={styles.info2}>
+                              <h4>{item.product.p_title}</h4>
                             </div>
                           </>
                         ) : (
