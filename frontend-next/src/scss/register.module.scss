@@ -154,8 +154,6 @@
 
     width: min(90%, 520px);
 
-    margin: auto;
-
     min-height: 100vh;
 
     display: flex;
@@ -172,9 +170,9 @@
 }
 @media (max-width: 425px) {
   .content {
-    width: 92%;
+    width: 100%;
 
-    padding: 5rem 1.25rem;
+    padding: 1.25rem;
 
     border-radius: 18px;
   }
