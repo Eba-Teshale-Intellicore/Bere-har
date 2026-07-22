@@ -9,8 +9,8 @@
   transition: all 0.3s ease;
   min-height: 100vh;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
+  // display: grid;
+  // grid-template-columns: 1.3fr 0.9fr;
 }
 // .overlay {
 //   position: absolute;
@@ -166,7 +166,7 @@
   }
 
   .input {
-    height: 50px;
+    height: 42px;
     font-size: 15px;
   }
 
