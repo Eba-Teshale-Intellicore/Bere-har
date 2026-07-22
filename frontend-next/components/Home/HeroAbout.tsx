@@ -12,6 +12,7 @@ import Image from "next/image";
 import Paragraph from "../Paragraph";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button";
+import Link from "next/link";
 
 const historyCollections = [
   {
@@ -75,7 +76,9 @@ export default function HeroAbout() {
                     <p>
                       <Paragraph text={item.description} />
                     </p>
-                    <Button text={item.button} />
+                    <Link href="/account/register">
+                      <Button text={item.button} />
+                    </Link>
                   </div>
                 </div>
               ))}
