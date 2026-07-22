@@ -52,12 +52,12 @@
     // max-width: 430px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 1rem;
   }
 }
 
 .title {
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: -1px;
   margin-bottom: 0.4rem;
@@ -82,8 +82,8 @@
 //   padding: 16px;
 // }
 .input {
-  height: 56px;
-  padding: 0 18px;
+  height: 42px;
+  padding: 0 1rem;
   border-radius: 12px;
   font-size: 16px;
   transition: 0.3s;
@@ -95,7 +95,7 @@
 
 .input:focus {
   border-color: #328303;
-  box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.18);
+  box-shadow: 0 0 0 5px rgba(92, 212, 55, 0.18);
 }
 .error {
   font-size: 13px;
@@ -107,7 +107,7 @@
   height: 58px;
   font-size: 16px;
   font-weight: 700;
-  background: rgb(255, 255, 255, 0.5);
+  background: rgb(255, 255, 255, 0.7);
   border-radius: 12px;
   transition: 0.35s;
   cursor: pointer;
@@ -124,6 +124,9 @@
   margin-top: 15px;
   font-size: 14px;
   color: #9ca3af;
+  a {
+    color: white;
+  }
 }
 .google {
   background: white;

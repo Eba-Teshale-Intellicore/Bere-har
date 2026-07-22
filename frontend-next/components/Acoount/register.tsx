@@ -154,9 +154,9 @@ export default function Register() {
                 </button>
               )}
               <div>
-                <button type="button" className={styles.google}>
+                {/* <button type="button" className={styles.google}>
                   Continue with Google
-                </button>
+                </button> */}
               </div>
             </form>
             <p className={styles.text}>
