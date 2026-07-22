@@ -63,7 +63,7 @@ export default function Wishlist() {
                   <Button
                     text="Explore Collections"
                     onClick={() => {
-                      window.location.href = "/products"; // change to your shop route
+                      window.location.href = "/products";
                     }}
                   />
                 </div>
