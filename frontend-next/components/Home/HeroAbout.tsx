@@ -76,7 +76,7 @@ export default function HeroAbout() {
                     <p>
                       <Paragraph text={item.description} />
                     </p>
-                    <Link href="/account/register">
+                    <Link href="/products">
                       <Button text={item.button} />
                     </Link>
                   </div>
