@@ -1,4 +1,4 @@
-.register {
+.forms {
   position: relative;
 
   display: flex;
@@ -134,7 +134,7 @@
   margin-top: 10px;
 }
 @media (max-width: 768px) {
-  .register {
+  .forms {
     display: block;
     padding: 2rem;
   }
@@ -169,18 +169,15 @@
   }
 }
 @media (max-width: 425px) {
-  .register {
+  .forms {
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .content {
     width: 92%;
-
     padding: 2.25rem;
     margin: 2rem auto;
-
-    border-radius: 18px;
     min-height: fit-content;
   }
 
