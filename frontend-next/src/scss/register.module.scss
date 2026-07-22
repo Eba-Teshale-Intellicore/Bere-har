@@ -39,6 +39,7 @@
 }
 .content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 4rem;
@@ -55,8 +56,15 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 1rem;
   font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 0.4rem;
+  text-align: center;
+  color: white;
+}
+.subtitle {
+  font-weight: 500;
   letter-spacing: -1px;
   margin-bottom: 0.4rem;
   text-align: center;
