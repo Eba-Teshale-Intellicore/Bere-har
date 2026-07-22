@@ -71,7 +71,7 @@ export default function Products() {
       <div className={styles.sticky}>
         <div className={styles.container}>
           <div className={styles.herofea}>
-            <div className={styles.content}>
+            <div className={styles.content2}>
               <h1>
                 <Heading text="Our_Products" />
               </h1>
