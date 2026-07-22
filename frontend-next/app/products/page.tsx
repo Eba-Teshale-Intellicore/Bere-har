@@ -1,9 +1,10 @@
 import React from "react";
-import Products from "@/components/Products/products";
+import Pro from "@/components/Products/Products";
+
 export default function Product() {
   return (
     <div>
-      <Products />
+      <Pro />
     </div>
   );
 }
