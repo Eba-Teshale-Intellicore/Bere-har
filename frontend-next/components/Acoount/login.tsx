@@ -115,7 +115,7 @@ export default function Login() {
 
             <p className={styles.text}>
               Create Account?
-              <Link href="/account/register"> Sign in</Link>
+              <Link href="/account/register"> Sign Up</Link>
             </p>
           </div>
         </div>
