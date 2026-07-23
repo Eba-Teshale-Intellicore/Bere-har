@@ -64,15 +64,14 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ClientLayout>
-          <ChatBot>
-            <AuthProvider>
-              <WishlistProvider>
-                <Header />
-                {children}
-                <Footer />
-              </WishlistProvider>
-            </AuthProvider>
-          </ChatBot>
+          <AuthProvider>
+            <WishlistProvider>
+              <Header />
+              {children}
+              <Footer />
+              <ChatBot />
+            </WishlistProvider>
+          </AuthProvider>
         </ClientLayout>
       </body>
     </html>
