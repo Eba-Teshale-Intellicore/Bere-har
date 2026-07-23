@@ -12,7 +12,8 @@ export default function ChatBot() {
     [],
   );
 
-  const handleSend = async () => {
+  const handleSend = async (e?: React.FormEvent) => {
+    e?.preventDefault();
     if (!message.trim()) return;
 
     const userMessage = {
@@ -76,7 +77,7 @@ export default function ChatBot() {
               ))}
               <div ref={messagesEndRef} />
             </div>
-            <div className={styles.input}>
+            <form className={styles.input} onSubmit={handleSend}>
               <input
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -85,7 +86,7 @@ export default function ChatBot() {
               <button onClick={handleSend}>
                 <ArrowUp />
               </button>
-            </div>
+            </form>
           </motion.div>
           <div className={styles.center}>
             <X onClick={() => setActive(false)} />
