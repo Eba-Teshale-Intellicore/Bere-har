@@ -55,7 +55,7 @@ export default function Wishlist() {
                   <div className={styles.map}>
                     <GoogleMap
                       mapContainerStyle={{
-                        width: "50%",
+                        width: "100%",
                         height: "500px",
                       }}
                       center={{
