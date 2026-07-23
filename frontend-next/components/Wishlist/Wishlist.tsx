@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import styles from "@/src/scss/product.module.scss";
+import styles from "@/src/scss/contactus.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
@@ -45,7 +45,7 @@ export default function Wishlist() {
           <div className={styles.herofea2}>
             <div className={styles.content}>
               <h1>
-                <Heading text="Your_Favorites" />
+                <Heading text="Contact_us" />
               </h1>
             </div>
             <div>
