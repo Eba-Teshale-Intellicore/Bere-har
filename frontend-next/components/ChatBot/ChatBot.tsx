@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import styles from "@/src/scss/splash.module.scss";
 import { Bot, X } from "lucide-react";
