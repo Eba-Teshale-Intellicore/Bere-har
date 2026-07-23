@@ -97,6 +97,9 @@
   z-index: 9998;
 }
 .center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 24px;
   width: 24px;
   border-radius: 50%;
