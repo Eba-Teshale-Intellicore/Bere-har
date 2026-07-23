@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "@/src/scss/splash.module.scss";
-import { Bot, X } from "lucide-react";
+import { ArrowUp, Bot, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { sendMessage } from "@/src/api/chatbot";
 
@@ -63,7 +63,9 @@ export default function ChatBot() {
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Ask Bere-har Assistant..."
               />
-              <button onClick={handleSend}>Send</button>
+              <button onClick={handleSend}>
+                <ArrowUp />
+              </button>
             </div>
           </motion.div>
           <div className={styles.center}>
