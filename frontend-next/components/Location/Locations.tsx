@@ -61,7 +61,7 @@ export default function Wishlist() {
                         lat: Number(locations[0]?.latitude ?? 9.03),
                         lng: Number(locations[0]?.longitude ?? 38.74),
                       }}
-                      zoom={7}
+                      zoom={4}
                     >
                       {locations.map((location) => (
                         <Marker
