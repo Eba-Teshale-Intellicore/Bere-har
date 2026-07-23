@@ -48,7 +48,7 @@ export default function ChatBot() {
         <>
           <motion.div className={styles.content}>
             <div className={styles.title}>Bere-har Assistant </div>
-            <div className={styles.meassage}>
+            <div className={styles.message}>
               {messages.map((msg, index) => (
                 <div key={index}>
                   <strong>{msg.role}</strong>
