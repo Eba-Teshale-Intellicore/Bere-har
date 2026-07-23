@@ -175,10 +175,11 @@ export default function Header() {
               <ul className={styles.nav}>
                 <li className={styles.logout}>
                   <MapPin size={14} />
-                  <Link
+                  {/* <Link
                     href="https://maps.app.goo.gl/GHKTEiWRyNLqqnqU9"
                     onClick={() => setOpen(false)}
-                  >
+                  > */}
+                  <Link href="/store-locations" onClick={() => setOpen(false)}>
                     {" "}
                     Find A Store
                   </Link>
