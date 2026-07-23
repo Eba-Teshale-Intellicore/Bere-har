@@ -173,18 +173,24 @@ export default function Header() {
               </ul>
 
               <ul className={styles.nav}>
-                <li className={styles.logout}>
-                  <MapPin size={14} />
-                  {/* <Link
+                {!isLoggedIn ? (
+                  <li className={styles.logout}>
+                    <MapPin size={14} />
+                    {/* <Link
                     href="https://maps.app.goo.gl/GHKTEiWRyNLqqnqU9"
                     onClick={() => setOpen(false)}
                   > */}
-                  <Link href="/store-locations" onClick={() => setOpen(false)}>
-                    {" "}
-                    Find A Store
-                  </Link>
-                </li>
-
+                    <Link
+                      href="/store-locations"
+                      onClick={() => setOpen(false)}
+                    >
+                      {" "}
+                      Find A Store
+                    </Link>
+                  </li>
+                ) : (
+                  ""
+                )}
                 <li>{/* <h1>{t.header.about}</h1> */}</li>
                 {isLoggedIn ? (
                   <li
