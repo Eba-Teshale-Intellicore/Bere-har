@@ -71,14 +71,44 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      .storeTitle {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        color: #111;
+      }
 
       .storeCard {
         display: flex;
         justify-content: space-between;
         gap: 1rem;
 
-        padding: 1rem;
-        border-bottom: 1px solid #444;
+        padding: 1.2rem;
+        border-bottom: 1px solid #e8e8e8;
+        transition: 0.3s ease;
+
+        h3 {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 0.4rem;
+          color: #222;
+        }
+        p:first-of-type {
+          font-size: 0.95rem;
+          line-height: 1.7;
+          color: #666;
+        }
+        p:last-of-type {
+          font-size: 0.9rem;
+          color: #888;
+        }
+        .phone,
+        .email {
+          font-size: 0.9rem;
+          color: #777;
+        }
       }
     }
     .ele {
@@ -92,6 +122,19 @@
       gap: 10px;
     }
   }
+}
+.storeCard:hover {
+  background: #fafafa;
+}
+.ele a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
+  text-decoration: none;
+}
+
+.ele a:hover {
+  color: #0a7c2f;
 }
 @media (max-width: 768px) {
   .contact {

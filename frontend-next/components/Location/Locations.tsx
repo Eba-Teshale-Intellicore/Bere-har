@@ -4,7 +4,7 @@ import styles from "@/src/scss/contactus.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
-import { Mail } from "lucide-react";
+import { Mail, Send } from "lucide-react";
 import Link from "next/link";
 import { getStoreLocations } from "@/src/api/storelocation";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
@@ -76,7 +76,7 @@ export default function Wishlist() {
                     </GoogleMap>
                   </div>
                   <div className={styles.storeList}>
-                    <div>Our_Stores</div>
+                    <h2 className={styles.storeTitle}>Our Stores</h2>
 
                     {locations.map((location) => (
                       <div key={location.id} className={styles.storeCard}>
@@ -85,8 +85,8 @@ export default function Wishlist() {
                           <p>{location.address}</p>
                         </div>
                         <div>
-                          <p>{location.phone}</p>
-                          <p>{location.email}</p>
+                          <p className={styles.phone}>{location.phone}</p>
+                          <p className={styles.email}>{location.email}</p>
                         </div>
                       </div>
                     ))}
@@ -94,9 +94,9 @@ export default function Wishlist() {
                 </div>
                 <div className={styles.contact}>
                   <div className={styles.ele}>
-                    <Mail size={18} />
-                    <Link href="https://wa.me/2519XXXXXXXX" target="_blank">
-                      WhatsApp
+                    <Send size={18} />
+                    <Link href="https://t.me/gpspace_tech" target="_blank">
+                      Telegram
                     </Link>
                   </div>
                   <div className={styles.ele}>
@@ -107,8 +107,8 @@ export default function Wishlist() {
                   </div>
                   <div className={styles.ele}>
                     <Mail size={18} />
-                    <Link href="https://wa.me/2519XXXXXXXX" target="_blank">
-                      WhatsApp
+                    <Link href="mailto:ebateshale40@gmail.com">
+                      Send an Email
                     </Link>
                   </div>
                 </div>
