@@ -55,13 +55,14 @@ export default function Wishlist() {
                   <div className={styles.map}>
                     <GoogleMap
                       mapContainerStyle={{
+                        width: "100%",
                         height: "400px",
                       }}
                       center={{
                         lat: Number(locations[0]?.latitude ?? 9.03),
                         lng: Number(locations[0]?.longitude ?? 38.74),
                       }}
-                      zoom={4}
+                      zoom={6}
                     >
                       {locations.map((location) => (
                         <Marker
