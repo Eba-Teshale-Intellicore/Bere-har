@@ -4,40 +4,40 @@ import styles from "@/src/scss/contactus.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
-import Button from "../Button";
-import { useWishlistContext } from "@/app/WishlistContext";
-import { Heart, Mail } from "lucide-react";
-import { getWishlist } from "@/src/api/wishlist";
+import { Mail } from "lucide-react";
 import Link from "next/link";
+import { getStoreLocations } from "@/src/api/storelocation";
+import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
-interface WishlistItem {
+interface StoreLocation {
   id: number;
-
-  product: {
-    id: number;
-    p_title: string;
-    variants: {
-      image: string;
-      price: number;
-      size?: {
-        name: string;
-      };
-    }[];
-  };
+  name: string;
+  address: string;
+  latitude: string;
+  longitude: string;
+  phone: string;
+  email: string;
 }
 
 export default function Wishlist() {
-  const [active, setActive] = useState("all");
-  const [visibleCount, setVisibleCount] = useState(5);
-  const { favorites, toggleWishlist, isWishlisted } = useWishlistContext();
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
+  });
 
-  const handleWishlist = async (id: number) => {
-    await toggleWishlist(id);
-  };
+  const [locations, setLocations] = useState<StoreLocation[]>([]);
 
   useEffect(() => {
-    setVisibleCount(5);
-  }, [active]);
+    const fetchData = async () => {
+      const data = await getStoreLocations();
+      setLocations(data);
+    };
+
+    fetchData();
+  }, []);
+
+  if (loadError) return <p>Map failed to load.</p>;
+
+  if (!isLoaded) return <p>Loading map...</p>;
 
   return (
     <>
@@ -50,12 +50,40 @@ export default function Wishlist() {
               </h1>
             </div>
             <div>
-              {favorites.length === 0 ? (
-                <div className={styles.emptyWishlist}>
+              {locations.map((location) => (
+                <div key={location.id} className={styles.storelocations}>
                   <div className={styles.contact}>
-                    <div className={styles.map}></div>
+                    <div className={styles.map}>
+                      <GoogleMap
+                        mapContainerStyle={{
+                          width: "100%",
+                          height: "400px",
+                        }}
+                        center={{
+                          lat: Number(location.latitude),
+                          lng: Number(location.longitude),
+                        }}
+                        zoom={15}
+                      >
+                        <Marker
+                          position={{
+                            lat: Number(location.latitude),
+                            lng: Number(location.longitude),
+                          }}
+                        />
+                      </GoogleMap>
+                    </div>
+
                     <div className={styles.mapcontent}>
                       <div>Our_Stores</div>
+
+                      <h2>{location.name}</h2>
+
+                      <p>{location.address}</p>
+
+                      <p>{location.phone}</p>
+
+                      <p>{location.email}</p>
                     </div>
                   </div>
                   <div className={styles.contact}>
@@ -79,77 +107,7 @@ export default function Wishlist() {
                     </div>
                   </div>
                 </div>
-              ) : (
-                <>
-                  <div className={styles.collections}>
-                    {favorites.slice(0, visibleCount).map((item: any) => {
-                      const liked = isWishlisted(item.product.id);
-                      return (
-                        <div key={item.id} className={styles.card}>
-                          <motion.div
-                            className={styles.imageWrapper}
-                            whileHover={{ scale: 1.05 }}
-                          >
-                            <motion.button
-                              type="button"
-                              aria-label="Add to wishlist"
-                              onClick={() => handleWishlist(item.product.id)}
-                            >
-                              <Heart
-                                fill={liked ? "red" : "none"}
-                                color={liked ? "red" : "currentColor"}
-                                className={styles.favorites}
-                                size={24}
-                              />
-                            </motion.button>
-                            <div>
-                              <Image
-                                src={
-                                  item.product.variants?.[0]?.image ||
-                                  "/placeholder.jpg"
-                                }
-                                alt={item.product.p_title}
-                                fill
-                                className={styles.mainImage}
-                                style={{ objectFit: "cover" }}
-                              />
-                            </div>
-                          </motion.div>
-
-                          <div className={styles.cardContent}>
-                            {item.product.variants?.length > 0 ? (
-                              <>
-                                <div className={styles.info}>
-                                  <p className={styles.price}>
-                                    ${item.product.variants[0]?.price} USD
-                                  </p>
-                                  <p>
-                                    Size:
-                                    {item.product.variants[0]?.size?.name}
-                                  </p>
-                                </div>
-                                <div className={styles.info2}>
-                                  <h4>{item.product.p_title}</h4>
-                                </div>
-                              </>
-                            ) : (
-                              <p>No Wishlist Availlable</p>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <div className={styles.btn}>
-                    {visibleCount < favorites.length && (
-                      <Button
-                        text="View More"
-                        onClick={() => setVisibleCount((prev) => prev + 5)}
-                      />
-                    )}
-                  </div>
-                </>
-              )}
+              ))}
             </div>
           </div>
         </div>
