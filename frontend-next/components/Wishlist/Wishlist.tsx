@@ -45,7 +45,7 @@ export default function Wishlist() {
           <div className={styles.herofea2}>
             <div className={styles.content}>
               <h1>
-                <Heading text="Contact_us" />
+                <Heading text="Your_Wishlist" />
               </h1>
             </div>
             <div>
