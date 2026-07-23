@@ -165,11 +165,11 @@ export default function Header() {
 
                 <li className={styles.logout} onClick={() => setOpen(false)}>
                   <ListPlus size={14} />
-                  New Arrival
+                  <Link href="/products"> New Arrival</Link>
                 </li>
                 <li className={styles.logout} onClick={() => setOpen(false)}>
                   <Gem size={14} />
-                  Jewelry
+                  About Us
                 </li>
               </ul>
 
