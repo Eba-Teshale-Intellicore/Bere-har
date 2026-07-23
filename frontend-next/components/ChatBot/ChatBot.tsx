@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "@/src/scss/splash.module.scss";
 import { ArrowUp, Bot, X } from "lucide-react";
 import { motion } from "framer-motion";
@@ -21,18 +21,33 @@ export default function ChatBot() {
     };
 
     setMessages((prev) => [...prev, userMessage]);
-
-    const res = await sendMessage(message);
-
-    const botMessage = {
-      role: "assistant",
-      content: res.reply,
-    };
-
-    setMessages((prev) => [...prev, botMessage]);
-
     setMessage("");
+
+    try {
+      const res = await sendMessage(message);
+
+      const botMessage = {
+        role: "assistant",
+        content: res.reply,
+      };
+
+      setMessages((prev) => [...prev, botMessage]);
+    } catch {
+      const errorMessage = {
+        role: "assistant",
+        content: "Sorry, something went wrong.",
+      };
+
+      setMessages((prev) => [...prev, errorMessage]);
+    }
   };
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, [messages]);
 
   return (
     <div className={styles.chatbot}>
@@ -56,6 +71,7 @@ export default function ChatBot() {
                   <p>{msg.content}</p>
                 </div>
               ))}
+              <div ref={messagesEndRef} />
             </div>
             <div className={styles.input}>
               <input
