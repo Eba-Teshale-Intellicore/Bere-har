@@ -190,7 +190,6 @@ export default function Header() {
                     className={styles.logout}
                     onClick={() => {
                       setOpen(false);
-                      setContact(true);
                     }}
                   >
                     <Contact2 size={14} />
