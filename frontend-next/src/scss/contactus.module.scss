@@ -185,6 +185,7 @@
 
   text-align: center;
   gap: 1rem;
+  padding: 1rem;
 
   .contact {
     display: flex;
@@ -228,6 +229,16 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .contact {
+    flex-direction: column;
+
+    .map,
+    .storeList {
+      width: 100%;
     }
   }
 }
