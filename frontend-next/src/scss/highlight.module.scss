@@ -77,6 +77,8 @@
 @media (max-width: 992px) {
   .collections {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+
     grid-template-areas:
       "fir fir"
       "sec thir";
@@ -86,6 +88,7 @@
 @media (max-width: 480px) {
   .collections {
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
     grid-template-areas:
       "fir"
       "sec"
