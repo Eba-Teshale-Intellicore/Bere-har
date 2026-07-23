@@ -198,19 +198,18 @@
       padding: 1rem;
       border: 1px solid #333;
     }
-    .storeList {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid #333;
+  }
+  .storeList {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #333;
 
-      .storeCard {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
+    .storeCard {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
-
   .ele {
     display: flex;
     flex-direction: row;
