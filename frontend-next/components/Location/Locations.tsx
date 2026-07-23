@@ -1,13 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import styles from "@/src/scss/product.module.scss";
+import styles from "@/src/scss/contactus.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
 import Button from "../Button";
 import { useWishlistContext } from "@/app/WishlistContext";
-import { Heart } from "lucide-react";
+import { Heart, Mail } from "lucide-react";
 import { getWishlist } from "@/src/api/wishlist";
+import Link from "next/link";
 
 interface WishlistItem {
   id: number;
@@ -45,27 +46,38 @@ export default function Wishlist() {
           <div className={styles.herofea2}>
             <div className={styles.content}>
               <h1>
-                <Heading text="Your_Favorites" />
+                <Heading text="Contact_Us" />
               </h1>
             </div>
             <div>
               {favorites.length === 0 ? (
                 <div className={styles.emptyWishlist}>
-                  <Heart size={60} fill="red" color="red" />
-
-                  <h2>Your Wishlist is Empty</h2>
-
-                  <p>
-                    Save your favorite products to your wishlist so you can
-                    easily find them later.
-                  </p>
-
-                  <Button
-                    text="Explore Collections"
-                    onClick={() => {
-                      window.location.href = "/products";
-                    }}
-                  />
+                  <div className={styles.contact}>
+                    <div className={styles.map}></div>
+                    <div className={styles.mapcontent}>
+                      <div>Our_Stores</div>
+                    </div>
+                  </div>
+                  <div className={styles.contact}>
+                    <div className={styles.ele}>
+                      <Mail size={18} />
+                      <Link href="https://wa.me/2519XXXXXXXX" target="_blank">
+                        WhatsApp
+                      </Link>
+                    </div>
+                    <div className={styles.ele}>
+                      <Mail size={18} />
+                      <Link href="https://wa.me/2519XXXXXXXX" target="_blank">
+                        WhatsApp
+                      </Link>
+                    </div>
+                    <div className={styles.ele}>
+                      <Mail size={18} />
+                      <Link href="https://wa.me/2519XXXXXXXX" target="_blank">
+                        WhatsApp
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <>
