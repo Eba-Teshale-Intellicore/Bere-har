@@ -90,8 +90,8 @@
         transition: 0.3s ease;
 
         h3 {
-          font-size: 1.2rem;
-          font-weight: 600;
+          font-size: 1rem;
+          font-weight: bold;
           margin-bottom: 0.4rem;
           color: #222;
         }
@@ -133,7 +133,7 @@
   text-decoration: none;
 }
 
-.ele a:hover {
+.ele:hover {
   color: #0a7c2f;
 }
 @media (max-width: 768px) {
