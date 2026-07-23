@@ -148,14 +148,3 @@
 .ele:hover {
   background: #0a7c2f;
 }
-@media (max-width: 768px) {
-  .contact {
-    display: flex;
-    flex-direction: column;
-
-    .map,
-    .storeList {
-      width: 100%;
-    }
-  }
-}
