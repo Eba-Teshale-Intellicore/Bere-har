@@ -50,64 +50,70 @@ export default function Wishlist() {
               </h1>
             </div>
             <div>
-              {locations.map((location) => (
-                <div key={location.id} className={styles.storelocations}>
-                  <div className={styles.contact}>
-                    <div className={styles.map}>
-                      <GoogleMap
-                        mapContainerStyle={{
-                          width: "100%",
-                          height: "400px",
-                        }}
-                        center={{
-                          lat: Number(location.latitude),
-                          lng: Number(location.longitude),
-                        }}
-                        zoom={15}
-                      >
+              <div className={styles.storelocations}>
+                <div className={styles.contact}>
+                  <div className={styles.map}>
+                    <GoogleMap
+                      mapContainerStyle={{
+                        width: "50%",
+                        height: "500px",
+                      }}
+                      center={{
+                        lat: Number(locations[0]?.latitude ?? 9.03),
+                        lng: Number(locations[0]?.longitude ?? 38.74),
+                      }}
+                      zoom={7}
+                    >
+                      {locations.map((location) => (
                         <Marker
+                          key={location.id}
                           position={{
                             lat: Number(location.latitude),
                             lng: Number(location.longitude),
                           }}
+                          title={location.name}
                         />
-                      </GoogleMap>
-                    </div>
-
-                    <div className={styles.mapcontent}>
-                      <div>Our_Stores</div>
-
-                      <h2>{location.name}</h2>
-
-                      <p>{location.address}</p>
-
-                      <p>{location.phone}</p>
-
-                      <p>{location.email}</p>
-                    </div>
+                      ))}
+                    </GoogleMap>
                   </div>
-                  <div className={styles.contact}>
-                    <div className={styles.ele}>
-                      <Mail size={18} />
-                      <Link href="https://wa.me/2519XXXXXXXX" target="_blank">
-                        WhatsApp
-                      </Link>
-                    </div>
-                    <div className={styles.ele}>
-                      <Mail size={18} />
-                      <Link href="https://wa.me/2519XXXXXXXX" target="_blank">
-                        WhatsApp
-                      </Link>
-                    </div>
-                    <div className={styles.ele}>
-                      <Mail size={18} />
-                      <Link href="https://wa.me/2519XXXXXXXX" target="_blank">
-                        WhatsApp
-                      </Link>
-                    </div>
+                  <div className={styles.storeList}>
+                    <div>Our_Stores</div>
+
+                    {locations.map((location) => (
+                      <div key={location.id} className={styles.storeCard}>
+                        <div>
+                          <h3>{location.name}</h3>
+                          <p>{location.address}</p>
+                        </div>
+                        <div>
+                          <p>{location.phone}</p>
+                          <p>{location.email}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
+                <div className={styles.contact}>
+                  <div className={styles.ele}>
+                    <Mail size={18} />
+                    <Link href="https://wa.me/2519XXXXXXXX" target="_blank">
+                      WhatsApp
+                    </Link>
+                  </div>
+                  <div className={styles.ele}>
+                    <Mail size={18} />
+                    <Link href="https://wa.me/2519XXXXXXXX" target="_blank">
+                      WhatsApp
+                    </Link>
+                  </div>
+                  <div className={styles.ele}>
+                    <Mail size={18} />
+                    <Link href="https://wa.me/2519XXXXXXXX" target="_blank">
+                      WhatsApp
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

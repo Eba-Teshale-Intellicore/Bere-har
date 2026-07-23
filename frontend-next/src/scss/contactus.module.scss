@@ -175,23 +175,7 @@
   }
 }
 
-.btn {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-}
-
-.favorites {
-  cursor: pointer;
-}
-
-.tf {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.emptyWishlist {
+.storelocations {
   min-height: 60vh;
 
   display: flex;
@@ -210,6 +194,18 @@
     justify-content: space-around;
     gap: 0;
     width: 100%;
+    .map {
+      padding: 1rem;
+    }
+    .storeList {
+      display: flex;
+      flex-direction: column;
+      .storeCard {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
   }
 
   .ele {
