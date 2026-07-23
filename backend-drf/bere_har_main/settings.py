@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "products",
     "wishlist",
     "locations",
+    "chatbot",
 ]
 REST_FRAMEWORK = {
 

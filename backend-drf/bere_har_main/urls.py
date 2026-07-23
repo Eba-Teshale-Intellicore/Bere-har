@@ -40,7 +40,11 @@ urlpatterns = [
     path(
         "api/v1/",
         include("locations.urls"),
-    )
+    ),
+    path(
+        "api/v1/chat/", 
+         include("chatbot.urls")
+    ),
 ]
 urlpatterns += static(
     settings.MEDIA_URL,
