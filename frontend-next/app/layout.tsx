@@ -14,6 +14,7 @@ import Footer from "@/components/Footer/Footer";
 import AuthProvider from "./AuthProvider";
 import WishlistProvider from "./WishlistContext";
 import ClientLayout from "./ClientLayout";
+import ChatBot from "@/components/ChatBot/ChatBot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -63,13 +64,15 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ClientLayout>
-          <AuthProvider>
-            <WishlistProvider>
-              <Header />
-              {children}
-              <Footer />
-            </WishlistProvider>
-          </AuthProvider>
+          <ChatBot>
+            <AuthProvider>
+              <WishlistProvider>
+                <Header />
+                {children}
+                <Footer />
+              </WishlistProvider>
+            </AuthProvider>
+          </ChatBot>
         </ClientLayout>
       </body>
     </html>
