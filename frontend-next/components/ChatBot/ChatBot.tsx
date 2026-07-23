@@ -36,9 +36,14 @@ export default function ChatBot() {
 
   return (
     <div className={styles.chatbot}>
-      <div className={styles.center}>
-        <Bot onClick={() => setActive(true)} />
-      </div>
+      {!active && (
+        <>
+          <div className={styles.center}>
+            <Bot onClick={() => setActive(true)} />
+          </div>
+        </>
+      )}
+
       {active && (
         <>
           <motion.div className={styles.content}>

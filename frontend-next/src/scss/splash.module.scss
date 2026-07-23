@@ -97,8 +97,8 @@
   z-index: 9998;
 }
 .center {
-  height: 92px;
-  width: 92px;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
   background: rgb(29, 171, 0);
 }
@@ -116,6 +116,7 @@
 .message {
   height: 80%;
   width: 100%;
+  background: rgb(29, 171, 0);
 }
 .input {
   display: flex;
