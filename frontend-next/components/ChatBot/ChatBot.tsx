@@ -16,18 +16,17 @@ export default function ChatBot() {
     if (!message.trim()) return;
 
     const userMessage = {
-      role: "user",
+      role: "",
       content: message,
     };
 
     setMessages((prev) => [...prev, userMessage]);
-    setMessage("");
 
     try {
       const res = await sendMessage(message);
 
       const botMessage = {
-        role: "assistant",
+        role: "",
         content: res.reply,
       };
 
@@ -40,6 +39,7 @@ export default function ChatBot() {
 
       setMessages((prev) => [...prev, errorMessage]);
     }
+    setMessage("");
   };
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
