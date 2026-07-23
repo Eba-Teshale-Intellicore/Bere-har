@@ -219,25 +219,10 @@
         border-bottom: 1px solid #444;
       }
     }
+    .ele {
+      flex: 1;
+      border: 1px solid #333;
+      padding: 1rem;
+    }
   }
-}
-
-// .storeList {
-//   display: flex;
-//   flex-direction: column;
-//   border: 1px solid #333;
-
-//   .storeCard {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//   }
-// }
-.ele {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  border: 1px solid #333;
 }

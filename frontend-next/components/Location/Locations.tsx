@@ -54,9 +54,6 @@ export default function Wishlist() {
                 <div className={styles.contact}>
                   <div className={styles.map}>
                     <GoogleMap
-                      mapContainerStyle={{
-                        height: "500px",
-                      }}
                       center={{
                         lat: Number(locations[0]?.latitude ?? 9.03),
                         lng: Number(locations[0]?.longitude ?? 38.74),
