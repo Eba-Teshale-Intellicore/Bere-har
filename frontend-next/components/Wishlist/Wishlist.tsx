@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import styles from "@/src/scss/contactus.module.scss";
+import styles from "@/src/scss/product.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Heading from "@/components/Heading";
