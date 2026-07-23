@@ -16,6 +16,7 @@ import {
   Gem,
   ListPlus,
   Heart,
+  LogIn,
 } from "lucide-react";
 import Image from "next/image";
 import Button from "@/components/Button";
@@ -227,7 +228,15 @@ export default function Header() {
                     <LogOut size={14} />
                   </li>
                 ) : (
-                  ""
+                  <li
+                    className={styles.logout}
+                    onClick={() => {
+                      setOpen(false);
+                    }}
+                  >
+                    <Link href="/account/register">SignUp</Link>
+                    <LogIn size={14} />
+                  </li>
                 )}
               </ul>
             </motion.div>
