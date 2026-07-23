@@ -16,7 +16,7 @@ export default function ChatBot() {
     if (!message.trim()) return;
 
     const userMessage = {
-      role: "",
+      role: "user",
       content: message,
     };
 
@@ -26,7 +26,7 @@ export default function ChatBot() {
       const res = await sendMessage(message);
 
       const botMessage = {
-        role: "",
+        role: "assistant",
         content: res.reply,
       };
 
@@ -65,9 +65,12 @@ export default function ChatBot() {
             <div className={styles.title}>Bere-har Assistant </div>
             <div className={styles.message}>
               {messages.map((msg, index) => (
-                <div key={index}>
-                  <strong>{msg.role}</strong>
-
+                <div
+                  key={index}
+                  className={`${styles.chatBubble} ${
+                    msg.role === "user" ? styles.user : styles.assistant
+                  }`}
+                >
                   <p>{msg.content}</p>
                 </div>
               ))}
