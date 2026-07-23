@@ -123,7 +123,8 @@ export default function Highlight() {
             {filteredProducts.map((product) => (
               <div key={product.id} className={styles.collections}>
                 {/* LARGE */}
-                <div className={styles.card} style={{ gridArea: "fir" }}>
+                {/* <div className={styles.card} style={{ gridArea: "fir" }}> */}
+                <div className={`${styles.card} ${styles.large}`}>
                   <div className={styles.overlay} />
                   {!loaded && <div className={styles.skeleton} />}
                   <motion.div
@@ -171,7 +172,8 @@ export default function Highlight() {
                 </div>
 
                 {/* SMALL 1 */}
-                <div className={styles.card} style={{ gridArea: "sec" }}>
+                {/* <div className={styles.card} style={{ gridArea: "sec" }}> */}
+                <div className={`${styles.card} ${styles.smallOne}`}>
                   <div className={styles.overlay} />
                   <motion.div
                     className={styles.imageWrapper}
@@ -214,7 +216,8 @@ export default function Highlight() {
                 </div>
 
                 {/* SMALL 2 */}
-                <div className={styles.card} style={{ gridArea: "thir" }}>
+                {/* <div className={styles.card} style={{ gridArea: "thir" }}> */}
+                <div className={`${styles.card} ${styles.smallTwo}`}>
                   <div className={styles.overlay} />
                   <motion.div
                     className={styles.imageWrapper}

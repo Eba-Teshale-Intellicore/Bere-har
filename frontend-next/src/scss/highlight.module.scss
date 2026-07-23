@@ -92,6 +92,17 @@
       "thir";
   }
 }
+.large {
+  grid-area: fir;
+}
+
+.smallOne {
+  grid-area: sec;
+}
+
+.smallTwo {
+  grid-area: thir;
+}
 .card {
   display: flex;
   flex-direction: column;
