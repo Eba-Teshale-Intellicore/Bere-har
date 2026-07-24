@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { getProduct } from "@/src/api/product";
+import styles from "@/src/scss/contactus.module.scss";
 
 interface DetailProductProps {
   slug: string;
@@ -35,9 +36,22 @@ export default function DetailProduct({ slug }: DetailProductProps) {
   }
 
   return (
-    <div>
-      <h1>{product.p_title}</h1>
-      <p>{product.p_description}</p>
-    </div>
+    <>
+      <div className={styles.sticky}>
+        <div className={styles.container}>
+          <div className={styles.herofea2}>
+            <div className={styles.storelocations}>
+              <div className={styles.contact}>
+                <h1>{product.p_title}</h1>
+                <p>{product.p_description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div>
+        
+      </div> */}
+    </>
   );
 }
