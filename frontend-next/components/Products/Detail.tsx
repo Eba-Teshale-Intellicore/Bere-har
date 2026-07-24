@@ -48,9 +48,9 @@ export default function DetailProduct({ slug }: DetailProductProps) {
                     <Image
                       src={product.main_thumbnail || "/placeholder.jpg"}
                       alt={product.p_title}
-                      fill
+                      width={800}
+                      height={1000}
                       className={styles.mainImage}
-                      style={{ objectFit: "cover" }}
                     />
                   </div>
                 </div>
