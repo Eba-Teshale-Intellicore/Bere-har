@@ -63,7 +63,12 @@ export default function ChatBot() {
       {active && (
         <>
           <motion.div className={styles.content}>
-            <div className={styles.title}>Bere-har Assistant </div>
+            <div className={styles.title}>
+              Bere-har Assistant
+              <div className={styles.center}>
+                <X onClick={() => setActive(false)} />
+              </div>
+            </div>
             <div className={styles.message}>
               {messages.map((msg, index) => (
                 <div
@@ -88,9 +93,6 @@ export default function ChatBot() {
               </button>
             </form>
           </motion.div>
-          <div className={styles.center}>
-            <X onClick={() => setActive(false)} />
-          </div>
         </>
       )}
     </div>
