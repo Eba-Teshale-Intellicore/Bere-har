@@ -76,36 +76,44 @@ export default function DetailProduct({ slug }: DetailProductProps) {
 
       <div className={styles.info}>
         <div className={styles.stickyContent}>
-          <h1>{product.p_title}</h1>
+          <h1 className={styles.productTitle}>{product.p_title}</h1>
           <div>
             <h3>Description</h3>
 
-            <p>{product.p_description}</p>
+            <p className={styles.description}>{product.p_description}</p>
           </div>
           <div>
-            <h3>Price</h3>
+            <h3 className={styles.sectionTitle}>Price</h3>
 
             <p>${selectedVariant?.price}</p>
           </div>
-          <div className={styles.sizes}>
-            <h3>Size</h3>
+          <div>
+            <h3 className={styles.sectionTitle}>Size</h3>
 
-            {product.variants.map((variant: any) => (
-              <button
-                key={variant.id}
-                className={
-                  selectedVariant?.id === variant.id ? styles.activeSize : ""
-                }
-                onClick={() => setSelectedVariant(variant)}
-              >
-                {variant.size.name}
-              </button>
-            ))}
+            <div className={styles.sizes}>
+              {product.variants.map((variant: any) => (
+                <button
+                  key={variant.id}
+                  className={
+                    selectedVariant?.id === variant.id ? styles.activeSize : ""
+                  }
+                  onClick={() => setSelectedVariant(variant)}
+                >
+                  {variant.size.name}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <p>Color: {selectedVariant?.color}</p>
+          <p>
+            <small className={styles.sectionTitle}>Color:</small>{" "}
+            {selectedVariant?.color}
+          </p>
 
-          <p>Stock: {selectedVariant?.quantity}</p>
+          <p>
+            <small className={styles.sectionTitle}>Stock:</small>{" "}
+            {selectedVariant?.quantity}
+          </p>
           <div className={styles.quantity}>
             <button onClick={() => setQuantity((q) => Math.max(1, q - 1))}>
               <Minus size={18} />
