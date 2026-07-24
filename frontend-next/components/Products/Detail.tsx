@@ -84,49 +84,52 @@ export default function DetailProduct({ slug }: DetailProductProps) {
           </div>
           <div className={styles.section2}>
             <div>
-              <h3 className={styles.sectionTitle}>Price</h3>
+              <div>
+                <h3 className={styles.sectionTitle}>Price</h3>
 
-              <p className={styles.price}>${selectedVariant?.price}</p>
-            </div>
-            <div>
-              <h3 className={styles.sectionTitle}>Size</h3>
+                <p className={styles.price}>${selectedVariant?.price}</p>
+              </div>
+              <div>
+                <h3 className={styles.sectionTitle}>Size</h3>
 
-              <div className={styles.sizes}>
-                {product.variants.map((variant: any) => (
-                  <button
-                    key={variant.id}
-                    className={
-                      selectedVariant?.id === variant.id
-                        ? styles.activeSize
-                        : ""
-                    }
-                    onClick={() => setSelectedVariant(variant)}
-                  >
-                    {variant.size.name}
-                  </button>
-                ))}
+                <div className={styles.sizes}>
+                  {product.variants.map((variant: any) => (
+                    <button
+                      key={variant.id}
+                      className={
+                        selectedVariant?.id === variant.id
+                          ? styles.activeSize
+                          : ""
+                      }
+                      onClick={() => setSelectedVariant(variant)}
+                    >
+                      {variant.size.name}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
+            <div>
+              <p>
+                <span className={styles.sectionTitle}>Color:</span>{" "}
+                {selectedVariant?.color}
+              </p>
 
-            <p>
-              <span className={styles.sectionTitle}>Color:</span>{" "}
-              {selectedVariant?.color}
-            </p>
+              <p>
+                <span className={styles.sectionTitle}>Stock:</span>{" "}
+                {selectedVariant?.quantity}
+              </p>
+              <div className={styles.quantity}>
+                <button onClick={() => setQuantity((q) => Math.max(1, q - 1))}>
+                  <Minus size={18} />
+                </button>
 
-            <p>
-              <span className={styles.sectionTitle}>Stock:</span>{" "}
-              {selectedVariant?.quantity}
-            </p>
-            <div className={styles.quantity}>
-              <button onClick={() => setQuantity((q) => Math.max(1, q - 1))}>
-                <Minus size={18} />
-              </button>
+                <span>{quantity}</span>
 
-              <span>{quantity}</span>
-
-              <button onClick={() => setQuantity((q) => q + 1)}>
-                <Plus size={18} />
-              </button>
+                <button onClick={() => setQuantity((q) => q + 1)}>
+                  <Plus size={18} />
+                </button>
+              </div>
             </div>
           </div>
           <Button text="Add To Cart" />
