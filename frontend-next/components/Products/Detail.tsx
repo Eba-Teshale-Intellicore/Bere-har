@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { getProduct } from "@/src/api/product";
-import styles from "@/src/scss/contactus.module.scss";
+import styles from "@/src/scss/productDetail.module.scss";
 import Image from "next/image";
 
 interface DetailProductProps {
