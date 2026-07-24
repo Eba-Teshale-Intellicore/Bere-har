@@ -42,7 +42,7 @@ export default function DetailProduct({ slug }: DetailProductProps) {
         <div className={styles.container}>
           <div className={styles.herofea2}>
             <div className={styles.storelocations}>
-              <div className={styles.contact}>
+              <div className={styles.contact2}>
                 <div className={styles.map}>
                   <div className={styles.img}>
                     <Image
