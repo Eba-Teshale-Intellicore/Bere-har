@@ -132,7 +132,9 @@ export default function DetailProduct({ slug }: DetailProductProps) {
               </div>
             </div>
           </div>
-          <Button text="Add To Cart" />
+          <div className={styles.cartbtn}>
+            <Button text="Add To Cart" />
+          </div>
         </div>
       </div>
     </div>
