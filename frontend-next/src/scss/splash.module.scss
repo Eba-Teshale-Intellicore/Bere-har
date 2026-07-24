@@ -123,16 +123,15 @@
 .title {
   height: 60px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   padding: 0 16px;
   background: rgb(29, 171, 0);
   color: white;
   font-weight: 600;
+
+  gap: 10px;
 }
-// .message {
-//   height: 80%;
-//   width: 100%;
-// }
 .message {
   flex: 1;
   overflow-y: auto;
