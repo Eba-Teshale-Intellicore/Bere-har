@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { getProduct } from "@/src/api/product";
 import styles from "@/src/scss/productDetail.module.scss";
+import { Minus, Plus } from "lucide-react";
 
 interface DetailProductProps {
   slug: string;
@@ -14,7 +15,7 @@ export default function DetailProduct({ slug }: DetailProductProps) {
   const [product, setProduct] = useState<any | null>(null);
 
   const [selectedVariant, setSelectedVariant] = useState<any | null>(null);
-
+  const [quantity, setQuantity] = useState(1);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -74,30 +75,47 @@ export default function DetailProduct({ slug }: DetailProductProps) {
       <div className={styles.info}>
         <div className={styles.stickyContent}>
           <h1>{product.p_title}</h1>
+          <div>
+            <h3>Description</h3>
 
-          <p>{product.p_description}</p>
+            <p>{product.p_description}</p>
+          </div>
+          <div>
+            <h3>Price</h3>
 
-          <h3>Price</h3>
-
-          <p>${selectedVariant?.price}</p>
-
+            <p>${selectedVariant?.price}</p>
+          </div>
           <h3>Size</h3>
-
-          <div className={styles.sizes}>
-            {product.variants.map((variant: any) => (
-              <button
-                key={variant.id}
-                onClick={() => setSelectedVariant(variant)}
-              >
-                {variant.size.name}
-              </button>
-            ))}
+          <div>
+            <div className={styles.sizes}>
+              {product.variants.map((variant: any) => (
+                <button
+                  key={variant.id}
+                  className={
+                    selectedVariant?.id === variant.id ? styles.activeSize : ""
+                  }
+                  onClick={() => setSelectedVariant(variant)}
+                >
+                  {variant.size.name}
+                </button>
+              ))}
+            </div>
           </div>
 
           <p>Color: {selectedVariant?.color}</p>
 
           <p>Stock: {selectedVariant?.quantity}</p>
+          <div className={styles.quantity}>
+            <button onClick={() => setQuantity((q) => Math.max(1, q - 1))}>
+              <Minus size={18} />
+            </button>
 
+            <span>{quantity}</span>
+
+            <button onClick={() => setQuantity((q) => q + 1)}>
+              <Plus size={18} />
+            </button>
+          </div>
           <button>Add To Cart</button>
         </div>
       </div>
