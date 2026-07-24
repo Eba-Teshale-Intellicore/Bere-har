@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.generics import RetrieveAPIView
 from .models import Collection, GenderCollection, Product, Category
 from .serializer import CollectionSerializer, GenderCollectionSerializer, ProductSerializer, CategorySerializer
 from rest_framework.permissions import AllowAny
@@ -38,3 +39,9 @@ class ProductView(ModelViewSet):
 )
   serializer_class = ProductSerializer
   permission_classes = [AllowAny]
+
+
+class ProductDetailView(ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    lookup_field = "p_slug"
