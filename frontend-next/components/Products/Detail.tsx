@@ -63,7 +63,7 @@ export default function DetailProduct({ slug }: DetailProductProps) {
               src={item.image}
               alt={product.p_title}
               width={800}
-              height={1000}
+              height={600}
             />
           </div>
         ))}

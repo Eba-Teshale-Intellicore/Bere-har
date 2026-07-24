@@ -1,9 +1,9 @@
 .detail {
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 40% 60%;
   gap: 3rem;
 
-  padding: 8rem 2rem;
+  padding: 8rem 0;
 }
 
 .gallery {
