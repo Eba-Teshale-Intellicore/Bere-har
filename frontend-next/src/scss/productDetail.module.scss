@@ -71,7 +71,30 @@
     color: white;
   }
 }
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 
+  button {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #333;
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+  }
+
+  span {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
 @media (max-width: 768px) {
   .detail {
     grid-template-columns: 1fr;
