@@ -58,7 +58,9 @@
 .section2 {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  .pricesec {
+    flex: 1;
+  }
 }
 
 .sizes {
