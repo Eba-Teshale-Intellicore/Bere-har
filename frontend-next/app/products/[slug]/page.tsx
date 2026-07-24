@@ -1,10 +1,15 @@
 import React from "react";
 import DetailProduct from "@/components/Products/Detail";
-
-export default function Product() {
+interface Props {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+export default async function Product({ params }: Props) {
+  const { slug } = await params;
   return (
     <div>
-      <DetailProduct />
+      <DetailProduct slug={slug} />
     </div>
   );
 }

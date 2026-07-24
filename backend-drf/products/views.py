@@ -39,9 +39,6 @@ class ProductView(ModelViewSet):
 )
   serializer_class = ProductSerializer
   permission_classes = [AllowAny]
+  lookup_field = "p_slug"
 
 
-class ProductDetailView(ModelViewSet):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-    lookup_field = "p_slug"

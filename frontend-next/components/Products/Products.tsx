@@ -12,6 +12,7 @@ import { Heart } from "lucide-react";
 import { useAuth } from "@/app/AuthProvider";
 import { useRouter } from "next/navigation";
 import ProductSkeleton from "@/components/ProductSkeleton";
+import Link from "next/link";
 
 export default function Products() {
   const router = useRouter();
@@ -102,61 +103,71 @@ export default function Products() {
                   : filteredProducts.slice(0, visibleCount).map((product) => {
                       const liked = isWishlisted(product.id);
                       return (
-                        <div key={product.id} className={styles.card}>
-                          <div className={styles.overlay} />
+                        <Link
+                          key={product.id}
+                          href={`/products/${product.p_slug}`}
+                          className={styles.cardLink}
+                        >
+                          <div className={styles.card}>
+                            <div className={styles.overlay} />
 
-                          <motion.div
-                            className={styles.imageWrapper}
-                            whileHover={{ scale: 1.04 }}
-                          >
-                            <motion.button
-                              type="button"
-                              aria-label="Add to wishlist"
-                              onClick={() => handleWishlist(product.id)}
+                            <motion.div
+                              className={styles.imageWrapper}
+                              whileHover={{ scale: 1.04 }}
                             >
-                              <Heart
-                                fill={liked ? "red" : "none"}
-                                color={liked ? "red" : "currentColor"}
-                                className={styles.favorites}
-                                size={24}
-                              />
-                            </motion.button>
-                            <div>
-                              <Image
-                                src={
-                                  product.variants?.[0]?.image ||
-                                  "/placeholder.jpg"
-                                }
-                                alt={
-                                  product.variants?.[0]?.alt_text ||
-                                  product.p_title
-                                }
-                                fill
-                                className={styles.mainImage}
-                                style={{ objectFit: "cover" }}
-                              />
-                            </div>
-                          </motion.div>
+                              <motion.button
+                                type="button"
+                                aria-label="Add to wishlist"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  handleWishlist(product.id);
+                                }}
+                              >
+                                <Heart
+                                  fill={liked ? "red" : "none"}
+                                  color={liked ? "red" : "currentColor"}
+                                  className={styles.favorites}
+                                  size={24}
+                                />
+                              </motion.button>
+                              <div>
+                                <Image
+                                  src={
+                                    product.variants?.[0]?.image ||
+                                    "/placeholder.jpg"
+                                  }
+                                  alt={
+                                    product.variants?.[0]?.alt_text ||
+                                    product.p_title
+                                  }
+                                  fill
+                                  className={styles.mainImage}
+                                  style={{ objectFit: "cover" }}
+                                />
+                              </div>
+                            </motion.div>
 
-                          <div className={styles.cardContent}>
-                            {product.variants?.length > 0 ? (
-                              <>
-                                <div className={styles.info}>
-                                  <p className={styles.price}>
-                                    ${product.variants[0].price} USD
-                                  </p>
-                                  <p>{product.variants[0].size.name}</p>
-                                </div>
-                                <div className={styles.info2}>
-                                  <h4>{product.p_title}</h4>
-                                </div>
-                              </>
-                            ) : (
-                              // <p>No variants available</p>
-                              <p></p>
-                            )}
+                            <div className={styles.cardContent}>
+                              {product.variants?.length > 0 ? (
+                                <>
+                                  <div className={styles.info}>
+                                    <p className={styles.price}>
+                                      ${product.variants[0].price} USD
+                                    </p>
+                                    <p>{product.variants[0].size.name}</p>
+                                  </div>
+                                  <div className={styles.info2}>
+                                    <h4>{product.p_title}</h4>
+                                  </div>
+                                </>
+                              ) : (
+                                // <p>No variants available</p>
+                                <p></p>
+                              )}
+                            </div>
                           </div>
-                        </div>
+                        </Link>
                       );
                     })}
               </div>
