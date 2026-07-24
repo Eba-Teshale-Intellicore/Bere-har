@@ -7,9 +7,9 @@ import hero1 from "@/public/flow5.jpeg";
 import hero2 from "@/public/flow4.jpeg";
 import hero3 from "@/public/flow6.jpeg";
 import hero4 from "@/public/flow3.jpeg";
-import men1 from "@/public/bere-har-2.png";
-import men2 from "@/public/bere-har.png";
-import men3 from "@/public/file2.jpg";
+import men1 from "@/public/feamh2 (1).webp";
+import men2 from "@/public/fkdjr.webp";
+import men3 from "@/public/hero1.webp";
 import { AnimatePresence, motion } from "framer-motion";
 
 import Link from "next/link";
