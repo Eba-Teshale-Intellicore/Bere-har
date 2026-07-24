@@ -44,7 +44,6 @@ export default function Highlight() {
   const [products, setProducts] = useState<any[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [open, setOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {

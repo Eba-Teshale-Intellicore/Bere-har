@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getProduct } from "@/src/api/product";
 import styles from "@/src/scss/contactus.module.scss";
+import Image from "next/image";
 
 interface DetailProductProps {
   slug: string;
@@ -43,9 +44,22 @@ export default function DetailProduct({ slug }: DetailProductProps) {
             <div className={styles.storelocations}>
               <div className={styles.contact}>
                 <div className={styles.map}>
-                  <h1>{product.p_title}</h1>
+                  <div className={styles.img}>
+                    <Image
+                      src={product.main_thumbnail || "/placeholder.jpg"}
+                      alt={product.p_title}
+                      fill
+                      className={styles.mainImage}
+                      style={{
+                        objectFit: "cover",
+                        // objectPosition: "top center",
+                      }}
+                      placeholder="blur"
+                    />
+                  </div>
                 </div>
                 <div className={styles.storeList}>
+                  <h1 className={styles.storeTitle}>{product.p_title}</h1>
                   <p>{product.p_description}</p>
                 </div>
               </div>
