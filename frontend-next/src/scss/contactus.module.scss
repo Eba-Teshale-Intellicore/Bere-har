@@ -60,18 +60,6 @@
       flex-direction: column;
       gap: 1.5rem;
     }
-    .contact2 {
-      display: grid;
-      grid-template-columns: 55% 45%;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    @media (max-width: 768px) {
-      .contact2 {
-        grid-template-columns: 1fr;
-      }
-    }
     .map {
       flex: 2;
       min-width: 0;
@@ -80,26 +68,6 @@
       overflow: hidden;
       @media (max-width: 768px) {
         width: 100%;
-      }
-      .img {
-        // position: relative;
-        width: 100%;
-        margin: 0 auto;
-      }
-
-      // .mainImage {
-      //   object-fit: cover;
-      //   transition: transform 0.4s ease;
-      // }
-      .mainImage {
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-      }
-
-      &:hover .mainImage {
-        transform: scale(1.05);
       }
     }
     .storeList {
