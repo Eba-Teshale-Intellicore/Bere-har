@@ -5,6 +5,7 @@ import Image from "next/image";
 import { getProduct } from "@/src/api/product";
 import styles from "@/src/scss/productDetail.module.scss";
 import { Minus, Plus } from "lucide-react";
+import Button from "@/components/Button";
 
 interface DetailProductProps {
   slug: string;
@@ -64,7 +65,8 @@ export default function DetailProduct({ slug }: DetailProductProps) {
               src={item.image}
               alt={product.p_title}
               width={800}
-              height={600}
+              height={1000}
+              className={styles.image}
             />
           </div>
         ))}
@@ -85,21 +87,20 @@ export default function DetailProduct({ slug }: DetailProductProps) {
 
             <p>${selectedVariant?.price}</p>
           </div>
-          <h3>Size</h3>
-          <div>
-            <div className={styles.sizes}>
-              {product.variants.map((variant: any) => (
-                <button
-                  key={variant.id}
-                  className={
-                    selectedVariant?.id === variant.id ? styles.activeSize : ""
-                  }
-                  onClick={() => setSelectedVariant(variant)}
-                >
-                  {variant.size.name}
-                </button>
-              ))}
-            </div>
+          <div className={styles.sizes}>
+            <h3>Size</h3>
+
+            {product.variants.map((variant: any) => (
+              <button
+                key={variant.id}
+                className={
+                  selectedVariant?.id === variant.id ? styles.activeSize : ""
+                }
+                onClick={() => setSelectedVariant(variant)}
+              >
+                {variant.size.name}
+              </button>
+            ))}
           </div>
 
           <p>Color: {selectedVariant?.color}</p>
@@ -116,7 +117,7 @@ export default function DetailProduct({ slug }: DetailProductProps) {
               <Plus size={18} />
             </button>
           </div>
-          <button>Add To Cart</button>
+          <Button text="Add To Cart" />
         </div>
       </div>
     </div>
