@@ -109,7 +109,7 @@ export default function DetailProduct({ slug }: DetailProductProps) {
                 </div>
               </div>
             </div>
-            <div className={styles.pricesec}>
+            <div className={styles.colorsec}>
               <p>
                 <span className={styles.sectionTitle}>Color:</span>{" "}
                 {selectedVariant?.color}
