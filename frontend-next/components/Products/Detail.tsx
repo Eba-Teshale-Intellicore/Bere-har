@@ -42,16 +42,17 @@ export default function DetailProduct({ slug }: DetailProductProps) {
           <div className={styles.herofea2}>
             <div className={styles.storelocations}>
               <div className={styles.contact}>
-                <h1>{product.p_title}</h1>
-                <p>{product.p_description}</p>
+                <div className={styles.map}>
+                  <h1>{product.p_title}</h1>
+                </div>
+                <div className={styles.storeList}>
+                  <p>{product.p_description}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {/* <div>
-        
-      </div> */}
     </>
   );
 }
