@@ -50,11 +50,7 @@ export default function DetailProduct({ slug }: DetailProductProps) {
                       alt={product.p_title}
                       fill
                       className={styles.mainImage}
-                      style={{
-                        objectFit: "cover",
-                        // objectPosition: "top center",
-                      }}
-                      placeholder="blur"
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
                 </div>

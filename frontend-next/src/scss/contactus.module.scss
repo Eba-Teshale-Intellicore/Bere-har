@@ -70,16 +70,20 @@
         width: 100%;
       }
       .img {
-        width: 600px;
-        height: 600px;
-      }
-      .mainImage,
-      .hoverImage {
-        transition:
-          opacity 0.4s ease,
-          transform 0.6s ease;
+        position: relative;
         width: 100%;
-        height: 100%;
+        max-width: 600px;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto;
+      }
+
+      .mainImage {
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      &:hover .mainImage {
+        transform: scale(1.05);
       }
     }
     .storeList {
